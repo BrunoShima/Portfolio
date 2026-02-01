@@ -73,7 +73,7 @@ export default function HomeScreen() {
                         max-sm:[row-gap:2rem]
                     "
                 >
-                    <span>Designer!</span>
+                    <span>Designer</span>
 
                     <span>Developer</span>
 
