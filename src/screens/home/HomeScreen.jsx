@@ -1,60 +1,81 @@
+import { useState } from "react";
+
+import Logo from "../../assets/illustrations/Logo.svg"
+
 import { SiLinkedin, SiInstagram } from "react-icons/si";
 import { FiMessageCircle } from "react-icons/fi";
+import { motion } from "motion/react";
+
+import HoverLink from "./HoverLink";
 
 export default function HomeScreen() {
+
+    const [hoverTarget, setHoverTarget] = useState(null);
 
     return (
 
         <main
             className="
+            relative
             min-h-screen
             w-full
-            grid 
-            place-items-center
+            flex
+            items-center
+            justify-center
             overflow-x-hidden
         "
         >
 
+            {/* Hover Overlay */}
+            {hoverTarget !== null && (
+
+                <div
+                    className="
+                        absolute
+                        inset-0
+                        z-0
+                        bg-[var(--color-yellow)]
+                        opacity-80
+                        pointer-events-none
+                    "
+                />
+
+            )}
+
             <div
                 className="
                     relative
+                    z-10
+                    items-center
                     text-center
                 "
             >
 
-                {/* Flushed Logo */}
-                <h1
+                {/* Logo */}
+                <HoverLink
+                    id="logo"
+                    to="/about"
+                    hoverTarget={hoverTarget}
+                    setHoverTarget={setHoverTarget}
                     className="
                         relative
                         z-10
-                        text-[var(--color-blackish)]
-                        [font-family:var(--font-main)]
-                        [font-size:var(--text-logo)]
-                        font-extrabold
-                        tracking-[-0.1em]
-                        "
+                        flex
+                        justify-center
+                    "
                 >
 
-                    BRU.
-
-                </h1>
-
-                <h1
-                    aria-hidden="true"
-                    className="
-                        absolute inset-0
-                        text-[var(--color-yellow)]
-                        [font-family:var(--font-main)]
-                        [font-size:var(--text-logo)]
-                        font-extrabold
-                        tracking-[-0.1em]
-                        -translate-x-3
+                    <img
+                        src={Logo}
+                        alt="Bru"
+                        className="
+                            block
+                            h-[var(--text-logo)]
+                            w-auto
                         "
-                >
+                    />
 
-                    BRU.
-
-                </h1>
+                </HoverLink>
 
                 {/* Categories/Links */}
                 <div
@@ -71,46 +92,79 @@ export default function HomeScreen() {
                         font-extrabold
                         [column-gap:clamp(1.5rem,5vw,10rem)]
                         max-sm:[row-gap:2rem]
+                        translate-y-10
                     "
                 >
-                    <span>Designer</span>
 
-                    <span>Developer</span>
+                    <HoverLink
+                        id="designer"
+                        to="/projects"
+                        hoverTarget={hoverTarget}
+                        setHoverTarget={setHoverTarget}
+                    >
 
-                    <span>Creative</span>
+                        Designer
+
+                    </HoverLink>
+
+                    <HoverLink
+                        id="developer"
+                        to="/projects"
+                        hoverTarget={hoverTarget}
+                        setHoverTarget={setHoverTarget}
+                    >
+
+                        Developer
+
+                    </HoverLink>
+
+                    <HoverLink
+                        id="creative"
+                        to="/projects"
+                        hoverTarget={hoverTarget}
+                        setHoverTarget={setHoverTarget}
+                    >
+
+                        Creative
+
+                    </HoverLink>
 
                 </div>
 
-                {/* Button Icons */}
-                <div 
-                    className="
-                        absolute 
-                        mt-30 
-                        left-0 
-                        right-0 
-                        flex 
-                        justify-center 
-                        [gap:clamp(1.5rem,5vw,10rem)]
-                    "
-                >
+            </div>
+
+            {/* Button Icons */}
+            <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: hoverTarget !== null ? 0 : 1 }}
+                transition={{ duration: 0.18 }}
+                className="
+        absolute 
+        left-0 
+        right-0 
+        bottom-10 sm:bottom-20
+        z-10
+        flex 
+        justify-center 
+        [gap:clamp(1.5rem,5vw,10rem)]
+    "
+            >
 
                 <a
                     href="#"
                     aria-label="LinkedIn"
                     className="
-                        inline-flex 
-                        items-center 
-                        justify-center  
-                        hover:opacity-70
-                        transition
-                    "
+            inline-flex 
+            items-center 
+            justify-center  
+        "
                 >
 
-                    <SiLinkedin 
+                    <SiLinkedin
                         className="
-                            h-7 w-7
-                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-                        "
+                h-7 w-7
+                max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
+            "
                         color="var(--color-blackish)"
                     />
 
@@ -120,19 +174,17 @@ export default function HomeScreen() {
                     href="#"
                     aria-label="Instagram"
                     className="
-                        inline-flex 
-                        items-center 
-                        justify-center 
-                        hover:opacity-70 
-                        transition
-                    "
+            inline-flex 
+            items-center 
+            justify-center 
+        "
                 >
 
-                    <SiInstagram 
+                    <SiInstagram
                         className="
-                            h-7 w-7
-                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-                        "
+                h-7 w-7
+                max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
+            "
                         color="var(--color-blackish)"
                     />
 
@@ -142,27 +194,23 @@ export default function HomeScreen() {
                     href="#"
                     aria-label="Message"
                     className="
-                        inline-flex 
-                        items-center 
-                        justify-center 
-                        hover:opacity-70
-                        transition
-                    "
+            inline-flex 
+            items-center 
+            justify-center 
+        "
                 >
 
-                    <FiMessageCircle 
+                    <FiMessageCircle
                         className="
-                            h-7 w-7
-                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-                        "
+                h-7 w-7
+                max-lg:w-6 max-lg:h-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
+            "
                         color="var(--color-blackish)"
                     />
-                    
+
                 </a>
 
-                </div>
-
-            </div>
+            </motion.div>
 
         </main>
     );

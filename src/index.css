@@ -16,11 +16,10 @@ a { color: inherit; text-decoration: none; }
 
   --font-main: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* Desktop */
-  --text-logo: clamp(120px, 12vw, 200px);
-  --text-heading: clamp(64px, 6vw, 100px);
-  --text-subheading: clamp(24px, 3.2vw, 60px);
-  --text-body: clamp(16px, 1.6vw, 20px);
+  --text-logo: clamp(6rem, 12vw, 11rem);
+  --text-heading: clamp(4rem, 6vw, 6.25rem);
+  --text-subheading: clamp(1.5rem, 3.2vw, 3.75rem);
+  --text-body: clamp(1rem, 1.6vw, 1.25rem); 
 }
 
 body {
