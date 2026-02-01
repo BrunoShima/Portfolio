@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Resets */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+body { margin: 0; line-height: 1.5; text-rendering: optimizeLegibility; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* Tokens */
+:root {
+  --color-whiteish: #fffff9;
+  --color-blackish: #2F2F2F;
+  --color-yellow: #FFB702;
+
+  --font-main: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Desktop */
+  --text-logo: clamp(120px, 12vw, 200px);
+  --text-heading: clamp(64px, 6vw, 100px);
+  --text-subheading: clamp(24px, 3.2vw, 60px);
+  --text-body: clamp(16px, 1.6vw, 20px);
+}
+
+body {
+  background-color: var(--color-whiteish);
+  color: var(--color-blackish);
+  font-family: var(--font-main);
+}
+
+/* 
+
+Responsive:
+
+- 1920 x 1080
+- 1024 x 768
+- 640 x 844
+
+ */
