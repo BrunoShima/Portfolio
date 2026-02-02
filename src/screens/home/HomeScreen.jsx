@@ -7,6 +7,9 @@ import { FiMessageCircle } from "react-icons/fi";
 import { motion } from "motion/react";
 
 import HoverLink from "./HoverLink";
+// import PopcornAnimation from "./PopcornAnimation";
+
+import { TEST_IMAGES } from "../../data/PopcornImages";
 
 export default function HomeScreen() {
 
@@ -26,6 +29,8 @@ export default function HomeScreen() {
         "
         >
 
+            {/* <PopcornAnimation images={TEST_IMAGES} /> */}
+
             {/* Hover Overlay */}
             {hoverTarget !== null && (
 
@@ -35,7 +40,7 @@ export default function HomeScreen() {
                         inset-0
                         z-0
                         bg-[var(--color-yellow)]
-                        opacity-80
+                        opacity-70
                         pointer-events-none
                     "
                 />
@@ -60,8 +65,9 @@ export default function HomeScreen() {
                     className="
                         relative
                         z-10
-                        flex
-                        justify-center
+                        inline-flex
+                        w-fit
+                        justify-self-center
                     "
                 >
 
@@ -137,34 +143,34 @@ export default function HomeScreen() {
             <motion.div
                 initial={{ opacity: 1 }}
                 animate={{ opacity: hoverTarget !== null ? 0 : 1 }}
-                transition={{ duration: 0.18 }}
+                transition={{ duration: 0.4 }}
                 className="
-        absolute 
-        left-0 
-        right-0 
-        bottom-10 sm:bottom-20
-        z-10
-        flex 
-        justify-center 
-        [gap:clamp(1.5rem,5vw,10rem)]
-    "
+                    absolute 
+                    left-0 
+                    right-0 
+                    bottom-10 sm:bottom-20
+                    z-10
+                    flex 
+                    justify-center 
+                    [gap:clamp(1.5rem,5vw,10rem)]
+                "
             >
 
                 <a
                     href="#"
                     aria-label="LinkedIn"
                     className="
-            inline-flex 
-            items-center 
-            justify-center  
-        "
+                        inline-flex 
+                        items-center 
+                        justify-center  
+                    "
                 >
 
                     <SiLinkedin
                         className="
-                h-7 w-7
-                max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-            "
+                            h-7 w-7
+                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
+                        "
                         color="var(--color-blackish)"
                     />
 
@@ -174,17 +180,17 @@ export default function HomeScreen() {
                     href="#"
                     aria-label="Instagram"
                     className="
-            inline-flex 
-            items-center 
-            justify-center 
-        "
+                        inline-flex 
+                        items-center 
+                        justify-center 
+                    "
                 >
 
                     <SiInstagram
                         className="
-                h-7 w-7
-                max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-            "
+                            h-7 w-7
+                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
+                        "
                         color="var(--color-blackish)"
                     />
 
@@ -194,17 +200,17 @@ export default function HomeScreen() {
                     href="#"
                     aria-label="Message"
                     className="
-            inline-flex 
-            items-center 
-            justify-center 
-        "
+                        inline-flex 
+                        items-center 
+                        justify-center 
+                    "
                 >
 
                     <FiMessageCircle
                         className="
-                h-7 w-7
-                max-lg:w-6 max-lg:h-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-            "
+                            h-7 w-7
+                            max-lg:w-6 max-lg:h-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
+                        "
                         color="var(--color-blackish)"
                     />
 
