@@ -1,69 +1,138 @@
-import { useEffect } from "react";
-import { motion, animate, useMotionValue } from "motion/react";
+import { useMemo, useRef } from "react";
 
-export default function PopcornAnimation({ images = []}) {
+function pickUniqueIndices(total, count) {
+  const indices = Array.from({ length: total }, (_, i) => i);
 
-    const x = useMotionValue(0);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
 
-    useEffect(() => {
-        if (!images.length) return;
+  return indices.slice(0, count);
+}
 
-        let controls;
+export default function PopcornAnimation({
+  images = [],
+  active = false,
+  count = 20,         // 🔧 KNOB: number of images visible (try 12–22)
+  driftSeconds = 60,  // 🔧 KNOB: speed (higher = slower, lower = faster)
+}) {
+  const particlesRef = useRef(null);
 
-        const run = () => {
+  const particles = useMemo(() => {
+    if (!images.length) return [];
+    if (particlesRef.current) return particlesRef.current;
 
-            x.set(window.innerWidth + 200);
+    const actualCount = Math.min(count, images.length);
 
-            controls = animate(x, -400, {
+    const uniqueImageIndices = pickUniqueIndices(images.length, actualCount);
 
-                duration: 6,
+    const lanes = actualCount * 4; // 🔧 KNOB: vertical spacing (increase for more separation)
+    const laneIndices = pickUniqueIndices(lanes, actualCount);
 
-                ease: "linear",
+    const topPaddingPct = -5;    // 🔧 KNOB: keep off top edge (increase to push down)
+    const bottomPaddingPct = 6; // 🔧 KNOB: keep off bottom edge (increase to push up)
 
-                onComplete: run,
+    const usablePct = 100 - topPaddingPct - bottomPaddingPct;
+    const laneHeightPct = usablePct / lanes;
 
-            });
+    const segment = driftSeconds / actualCount;
 
-        };
+    const pool = Array.from({ length: actualCount }, (_, i) => {
+      const imgIndex = uniqueImageIndices[i];
 
-        run();
+      const laneTopPct = topPaddingPct + laneIndices[i] * laneHeightPct;
 
-        return () => {
-            controls?.cancel?.();
-        };
+      const jitterY = (Math.random() - 0.5) * laneHeightPct * 0.35; // 🔧 KNOB: vertical randomness
+      const topPct = laneTopPct + jitterY;
 
-    }, [images.length, x]);
+      const scale = 0.9 + Math.random() * 0.35; // 🔧 KNOB: size variation
 
+      const baseDelay = -(i * segment);
+      const jitterDelay = (Math.random() - 0.5) * segment * 0.6; // 🔧 KNOB: horizontal clumping vs evenness
+      const delay = Math.max(-driftSeconds, Math.min(0, baseDelay + jitterDelay));
 
-    if (!images.length) return null;
+      const opacity = 0.7 + Math.random() * 0.3; // 🔧 KNOB: opacity variation
 
-    return (
+      return {
+        id: i,
+        imgIndex,
+        topPct,
+        scale,
+        delay,
+        opacity,
+      };
+    });
 
-        <div
-            className="
-                absolute
-                inset-0
-                z-0
-                pointer-events-none
-                overflow-hidden
-            "
-        >
+    particlesRef.current = pool;
+    return pool;
+  }, [images.length, count, driftSeconds]);
 
-            <motion.img
-                src={images[0]}
+  if (!images.length) return null;
+
+  return (
+    <div
+      className="
+        absolute
+        inset-0
+        z-0
+        pointer-events-none
+        overflow-hidden
+      "
+      style={{
+        opacity: active ? 1 : 0,
+        transition: "opacity 200ms linear", // 🔧 KNOB: fade-in/out speed (ms)
+      }}
+    >
+      <style>
+        {`
+            @keyframes popcorn-drift {
+            from { transform: translate3d(115vw, 0, 0); } /* 🔧 KNOB: start further right */
+            to   { transform: translate3d(-35vw, 0, 0); } /* 🔧 KNOB: exit further left */
+            }
+        `}
+      </style>
+
+      {particles.map((p) => {
+        const safeIndex = Math.min(p.imgIndex, images.length - 1);
+
+        return (
+          <div
+            key={p.id}
+            className="absolute left-0 select-none"
+            style={{
+              top: `${p.topPct}%`,
+              opacity: p.opacity,
+
+              animationName: "popcorn-drift",
+              animationDuration: `${driftSeconds}s`,
+              animationTimingFunction: "linear",
+              animationIterationCount: "infinite",
+              animationDelay: `${p.delay}s`,
+              animationPlayState: active ? "running" : "paused",
+            }}
+          >
+            <div
+              style={{
+                transform: `scale(${p.scale})`,
+                transformOrigin: "center",
+              }}
+            >
+              <img
+                src={images[safeIndex]}
                 alt=""
-                style={{ x }}
-                className="
-                    absolute 
-                    top-20 
-                    left-20 
-                    w-40 
-                    h-auto 
-                "
-            />
-        
-        </div>
-
-    );
-
+                aria-hidden="true"
+                draggable="false"
+                decoding="async"
+                className="block h-auto"
+                style={{
+                  width: "clamp(120px, 16vw, 240px)", // 🔧 KNOB: base size across screen sizes
+                }}
+              />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }

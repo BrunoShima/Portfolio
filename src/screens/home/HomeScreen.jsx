@@ -1,39 +1,51 @@
 import { useState } from "react";
 
-import Logo from "../../assets/illustrations/Logo.svg"
+import Logo from "../../assets/illustrations/Logo.svg";
 
 import { SiLinkedin, SiInstagram } from "react-icons/si";
 import { FiMessageCircle } from "react-icons/fi";
 import { motion } from "motion/react";
 
 import HoverLink from "./HoverLink";
-// import PopcornAnimation from "./PopcornAnimation";
+import PopcornAnimation from "./PopcornAnimation";
 
-import { TEST_IMAGES } from "../../data/PopcornImages";
+import { POPCORN_IMAGES } from "../../data/PopcornImages";
 
 export default function HomeScreen() {
-
     const [hoverTarget, setHoverTarget] = useState(null);
 
     return (
-
         <main
-            className="
-            relative
-            min-h-screen
-            w-full
-            flex
-            items-center
-            justify-center
-            overflow-x-hidden
-        "
+            className={`
+                relative
+                min-h-screen
+                w-full
+                flex
+                items-center
+                justify-center
+                overflow-x-hidden
+                transition-colors
+                duration-200
+                ${hoverTarget !== null ? "bg-[var(--color-yellow)]" : "bg-transparent"}
+            `}
         >
+            <PopcornAnimation
+                images={POPCORN_IMAGES.designer}
+                active={hoverTarget === "designer"}
+            />
 
-            {/* <PopcornAnimation images={TEST_IMAGES} /> */}
+            <PopcornAnimation
+                images={POPCORN_IMAGES.developer}
+                active={hoverTarget === "developer"}
+            />
+
+            <PopcornAnimation
+                images={POPCORN_IMAGES.creative}
+                active={hoverTarget === "creative"}
+            />
 
             {/* Hover Overlay */}
             {hoverTarget !== null && (
-
                 <div
                     className="
                         absolute
@@ -44,7 +56,6 @@ export default function HomeScreen() {
                         pointer-events-none
                     "
                 />
-
             )}
 
             <div
@@ -55,7 +66,6 @@ export default function HomeScreen() {
                     text-center
                 "
             >
-
                 {/* Logo */}
                 <HoverLink
                     id="logo"
@@ -70,17 +80,15 @@ export default function HomeScreen() {
                         justify-self-center
                     "
                 >
-
                     <img
                         src={Logo}
                         alt="Bru"
                         className="
-                            block
-                            h-[var(--text-logo)]
-                            w-auto
+                        block
+                        h-[var(--text-logo)]
+                        w-auto
                         "
                     />
-
                 </HoverLink>
 
                 {/* Categories/Links */}
@@ -101,16 +109,13 @@ export default function HomeScreen() {
                         translate-y-10
                     "
                 >
-
                     <HoverLink
                         id="designer"
                         to="/projects"
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
-
                         Designer
-
                     </HoverLink>
 
                     <HoverLink
@@ -119,9 +124,7 @@ export default function HomeScreen() {
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
-
                         Developer
-
                     </HoverLink>
 
                     <HoverLink
@@ -130,13 +133,9 @@ export default function HomeScreen() {
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
-
                         Creative
-
                     </HoverLink>
-
                 </div>
-
             </div>
 
             {/* Button Icons */}
@@ -156,68 +155,31 @@ export default function HomeScreen() {
                 "
             >
 
-                <a
-                    href="#"
-                    aria-label="LinkedIn"
-                    className="
-                        inline-flex 
-                        items-center 
-                        justify-center  
-                    "
-                >
-
+                <a href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center">
                     <SiLinkedin
-                        className="
-                            h-7 w-7
-                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-                        "
+                        className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
                         color="var(--color-blackish)"
                     />
-
                 </a>
 
-                <a
-                    href="#"
-                    aria-label="Instagram"
-                    className="
-                        inline-flex 
-                        items-center 
-                        justify-center 
-                    "
-                >
-
+                <a href="#" aria-label="Instagram" className="inline-flex items-center justify-center">
                     <SiInstagram
-                        className="
-                            h-7 w-7
-                            max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-                        "
+                        className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
                         color="var(--color-blackish)"
                     />
-
                 </a>
 
-                <a
-                    href="#"
-                    aria-label="Message"
-                    className="
-                        inline-flex 
-                        items-center 
-                        justify-center 
-                    "
-                >
-
+                <a href="#" aria-label="Message" className="inline-flex items-center justify-center">
                     <FiMessageCircle
-                        className="
-                            h-7 w-7
-                            max-lg:w-6 max-lg:h-6 max-lg:h-6 max-sm:w-5 max-sm:h-5
-                        "
+                        className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
                         color="var(--color-blackish)"
                     />
-
                 </a>
 
             </motion.div>
 
         </main>
+
     );
+
 }
