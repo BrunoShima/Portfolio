@@ -14,8 +14,8 @@ function pickUniqueIndices(total, count) {
 export default function PopcornAnimation({
   images = [],
   active = false,
-  count = 20,         // 🔧 KNOB: number of images visible (try 12–22)
-  driftSeconds = 60,  // 🔧 KNOB: speed (higher = slower, lower = faster)
+  count = 20,         // KNOB: number of images visible
+  driftSeconds = 99,  // KNOB: speed (higher = slower / lower = faster)
 }) {
   const particlesRef = useRef(null);
 
@@ -27,11 +27,11 @@ export default function PopcornAnimation({
 
     const uniqueImageIndices = pickUniqueIndices(images.length, actualCount);
 
-    const lanes = actualCount * 4; // 🔧 KNOB: vertical spacing (increase for more separation)
+    const lanes = actualCount * 4; // KNOB: vertical spacing (higher = spread out)
     const laneIndices = pickUniqueIndices(lanes, actualCount);
 
-    const topPaddingPct = -5;    // 🔧 KNOB: keep off top edge (increase to push down)
-    const bottomPaddingPct = 6; // 🔧 KNOB: keep off bottom edge (increase to push up)
+    const topPaddingPct = -5;    // KNOB: top edge (higher =  push down)
+    const bottomPaddingPct = 6; // KNOB: bottom edge (higher = to push up)
 
     const usablePct = 100 - topPaddingPct - bottomPaddingPct;
     const laneHeightPct = usablePct / lanes;
@@ -43,16 +43,16 @@ export default function PopcornAnimation({
 
       const laneTopPct = topPaddingPct + laneIndices[i] * laneHeightPct;
 
-      const jitterY = (Math.random() - 0.5) * laneHeightPct * 0.35; // 🔧 KNOB: vertical randomness
+      const jitterY = (Math.random() - 0.5) * laneHeightPct * 0.9; // KNOB: vertical spacing (higher = more random)
       const topPct = laneTopPct + jitterY;
 
-      const scale = 0.9 + Math.random() * 0.35; // 🔧 KNOB: size variation
+      const scale = 0.9 + Math.random() * 0.35; // KNOB: size variation
 
       const baseDelay = -(i * segment);
-      const jitterDelay = (Math.random() - 0.5) * segment * 0.6; // 🔧 KNOB: horizontal clumping vs evenness
+      const jitterDelay = (Math.random() - 0.5) * segment * 0.2; // KNOB: horizontal spacing (higher = more random)
       const delay = Math.max(-driftSeconds, Math.min(0, baseDelay + jitterDelay));
 
-      const opacity = 0.7 + Math.random() * 0.3; // 🔧 KNOB: opacity variation
+      const opacity = 0.7 + Math.random() * 0.3; // KNOB: opacity variation
 
       return {
         id: i,
@@ -81,14 +81,14 @@ export default function PopcornAnimation({
       "
       style={{
         opacity: active ? 1 : 0,
-        transition: "opacity 200ms linear", // 🔧 KNOB: fade-in/out speed (ms)
+        transition: "opacity 200ms linear", // KNOB: fade-in/out speed 
       }}
     >
       <style>
         {`
             @keyframes popcorn-drift {
-            from { transform: translate3d(115vw, 0, 0); } /* 🔧 KNOB: start further right */
-            to   { transform: translate3d(-35vw, 0, 0); } /* 🔧 KNOB: exit further left */
+            from { transform: translate3d(115vw, 0, 0); }
+            to   { transform: translate3d(-35vw, 0, 0); }
             }
         `}
       </style>
@@ -126,7 +126,7 @@ export default function PopcornAnimation({
                 decoding="async"
                 className="block h-auto"
                 style={{
-                  width: "clamp(120px, 16vw, 240px)", // 🔧 KNOB: base size across screen sizes
+                  width: "clamp(200px, 16vw, 1000px)", // KNOB: base size across screen sizes
                 }}
               />
             </div>

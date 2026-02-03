@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 
 import HoverLink from "./HoverLink";
 import PopcornAnimation from "./PopcornAnimation";
+import HoverVideo from "./HoverVideo";
 
 import { POPCORN_IMAGES } from "../../data/PopcornImages";
 
@@ -24,11 +25,11 @@ export default function HomeScreen() {
                 items-center
                 justify-center
                 overflow-x-hidden
-                transition-colors
-                duration-200
-                ${hoverTarget !== null ? "bg-[var(--color-yellow)]" : "bg-transparent"}
             `}
         >
+
+            <HoverVideo active={hoverTarget === "logo"} />
+
             <PopcornAnimation
                 images={POPCORN_IMAGES.designer}
                 active={hoverTarget === "designer"}
