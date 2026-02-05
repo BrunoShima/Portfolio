@@ -14,8 +14,11 @@ function pickUniqueIndices(total, count) {
 export default function PopcornAnimation({
   images = [],
   active = false,
-  count = 20,         // KNOB: number of images visible
-  driftSeconds = 99,  // KNOB: speed (higher = slower / lower = faster)
+  count = 25,          // KNOB: number of images visible
+  driftSeconds = 99,   // KNOB: popcorn speed (higher = slower / lower = faster)
+
+  bgSrc = "",          // ADDED: your stitched, pre-blurred strip image
+  bgDriftSeconds = 180 // ADDED KNOB: background drift speed (higher = slower)
 }) {
   const particlesRef = useRef(null);
 
@@ -30,8 +33,8 @@ export default function PopcornAnimation({
     const lanes = actualCount * 4; // KNOB: vertical spacing (higher = spread out)
     const laneIndices = pickUniqueIndices(lanes, actualCount);
 
-    const topPaddingPct = -5;    // KNOB: top edge (higher =  push down)
-    const bottomPaddingPct = 6; // KNOB: bottom edge (higher = to push up)
+    const topPaddingPct = -5;    // KNOB: top edge (higher = push down)
+    const bottomPaddingPct = 6;  // KNOB: bottom edge (higher = push up)
 
     const usablePct = 100 - topPaddingPct - bottomPaddingPct;
     const laneHeightPct = usablePct / lanes;
@@ -43,16 +46,16 @@ export default function PopcornAnimation({
 
       const laneTopPct = topPaddingPct + laneIndices[i] * laneHeightPct;
 
-      const jitterY = (Math.random() - 0.5) * laneHeightPct * 0.9; // KNOB: vertical spacing (higher = more random)
+      const jitterY = (Math.random() - 0.5) * laneHeightPct * 0.9; // KNOB
       const topPct = laneTopPct + jitterY;
 
-      const scale = 0.9 + Math.random() * 0.35; // KNOB: size variation
+      const scale = 0.9 + Math.random() * 0.35; // KNOB
 
       const baseDelay = -(i * segment);
-      const jitterDelay = (Math.random() - 0.5) * segment * 0.2; // KNOB: horizontal spacing (higher = more random)
+      const jitterDelay = (Math.random() - 0.5) * segment * 0.2; // KNOB
       const delay = Math.max(-driftSeconds, Math.min(0, baseDelay + jitterDelay));
 
-      const opacity = 0.7 + Math.random() * 0.3; // KNOB: opacity variation
+      const opacity = 0.7 + Math.random() * 0.3; // KNOB
 
       return {
         id: i,
@@ -81,17 +84,47 @@ export default function PopcornAnimation({
       "
       style={{
         opacity: active ? 1 : 0,
-        transition: "opacity 200ms linear", // KNOB: fade-in/out speed 
+        transition: "opacity 200ms linear", // KNOB
       }}
     >
       <style>
         {`
-            @keyframes popcorn-drift {
+          @keyframes popcorn-drift {
             from { transform: translate3d(115vw, 0, 0); }
             to   { transform: translate3d(-35vw, 0, 0); }
-            }
+          }
+
+          /* ADDED: background drift */
+          @keyframes bg-drift {
+            from { transform: translate3d(0, 0, 0); }
+            to   { transform: translate3d(-60vw, 0, 0); }
+          }
         `}
       </style>
+
+      {/* Background Loop */}
+      {bgSrc ? (
+        <img
+          src={bgSrc}
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+          className="absolute top-0 left-0 block"
+          style={{
+            height: "100vh",
+            width: "auto",
+            maxWidth: "none",
+            transform: "scale(1.08)",
+            transformOrigin: "left center",
+
+            animationName: "bg-drift",
+            animationDuration: `${bgDriftSeconds}s`,
+            animationTimingFunction: "linear",
+            animationIterationCount: "infinite",
+            animationPlayState: active ? "running" : "paused",
+          }}
+        />
+      ) : null}
 
       {particles.map((p) => {
         const safeIndex = Math.min(p.imgIndex, images.length - 1);
@@ -126,13 +159,20 @@ export default function PopcornAnimation({
                 decoding="async"
                 className="block h-auto"
                 style={{
-                  width: "clamp(200px, 16vw, 1000px)", // KNOB: base size across screen sizes
+                  width: "clamp(200px, 16vw, 1000px)", // KNOB
                 }}
+
               />
+
             </div>
+
           </div>
+
         );
+
       })}
     </div>
+
   );
+
 }

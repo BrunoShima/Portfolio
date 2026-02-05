@@ -12,6 +12,8 @@ import HoverVideo from "./HoverVideo";
 
 import { POPCORN_IMAGES } from "../../data/PopcornImages";
 
+import DesignerMarquee from "../../assets/images/designer/designermarquee.jpg";
+
 export default function HomeScreen() {
     const [hoverTarget, setHoverTarget] = useState(null);
 
@@ -33,6 +35,7 @@ export default function HomeScreen() {
             <PopcornAnimation
                 images={POPCORN_IMAGES.designer}
                 active={hoverTarget === "designer"}
+                bgSrc={DesignerMarquee}
             />
 
             <PopcornAnimation

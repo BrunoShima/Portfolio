@@ -4,7 +4,7 @@ function globToArray(globResult) {
 
 // DESIGNER
 const designer = globToArray(
-    import.meta.glob("/src/assets/images/houndstooth/*.{jpg,jpeg,png,webp}", {
+    import.meta.glob("/src/assets/images/designer/popcorn/poparray/*.{jpg,jpeg,png,webp}", {
         eager: true,
         as: "url",
     })
@@ -12,7 +12,7 @@ const designer = globToArray(
 
 // DEVELOPER
 const developer = globToArray(
-    import.meta.glob("/src/assets/images/houndstooth/*.{jpg,jpeg,png,webp}", {
+    import.meta.glob("/src/assets/images/designer/popcorn/poparray/*.{jpg,jpeg,png,webp}", {
         eager: true,
         as: "url",
     })
@@ -20,7 +20,7 @@ const developer = globToArray(
 
 // CREATIVE
 const creative = globToArray(
-    import.meta.glob("/src/assets/images/houndstooth/*.{jpg,jpeg,png,webp}", {
+    import.meta.glob("/src/assets/images/designer/popcorn/poparray/*.{jpg,jpeg,png,webp}", {
         eager: true,
         as: "url",
     })
