@@ -1,16 +1,9 @@
+
 export default function AboutScreen() {
 
     return (
 
-        <main
-            className="
-                min-h-screen
-                w-full
-                grid
-                place-items-center
-                overflow-x-hidden
-            "
-        >
+        <section className="min-h-dvh flex flex-col bg-[var(--color-white)] ">
 
             <h1
                 className="
@@ -23,11 +16,12 @@ export default function AboutScreen() {
                 "
             >
 
-                ABOUT
+                CONTACT
 
             </h1>
+            
+        </section>
 
-        </main>
-        
     );
+
 }

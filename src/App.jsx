@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 
 import HomeScreen from "./screens/home/HomeScreen";
 import AboutScreen from "./screens/about/AboutScreen";

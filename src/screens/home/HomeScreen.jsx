@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 import Logo from "../../assets/illustrations/Logo.svg";
 
@@ -84,7 +85,8 @@ export default function HomeScreen() {
                         justify-self-center
                     "
                 >
-                    <img
+                    <motion.img
+                        layoutId="bru-logo"
                         src={Logo}
                         alt="Bru"
                         className="
@@ -159,26 +161,26 @@ export default function HomeScreen() {
                 "
             >
 
-                <a href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center">
+                <Link href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center">
                     <SiLinkedin
                         className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
                         color="var(--color-blackish)"
                     />
-                </a>
+                </Link>
 
-                <a href="#" aria-label="Instagram" className="inline-flex items-center justify-center">
+                <Link href="#" aria-label="Instagram" className="inline-flex items-center justify-center">
                     <SiInstagram
                         className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
                         color="var(--color-blackish)"
                     />
-                </a>
+                </Link>
 
-                <a href="#" aria-label="Message" className="inline-flex items-center justify-center">
+                <Link to="/contact" aria-label="Message" className="inline-flex items-center justify-center">
                     <FiMessageCircle
                         className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
                         color="var(--color-blackish)"
                     />
-                </a>
+                </Link>
 
             </motion.div>
 
