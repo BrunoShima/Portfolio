@@ -25,8 +25,8 @@ export default function HomeScreen() {
                 min-h-screen
                 w-full
                 flex
-                items-center
                 justify-center
+                items-center
                 overflow-x-hidden
             `}
         >
