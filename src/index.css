@@ -1,6 +1,9 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-/* Resets */
+
+@import "./styles/shadcn.css";
+
 *, *::before, *::after { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; padding: 0; }
 body { margin: 0; line-height: 1.5; text-rendering: optimizeLegibility; }
@@ -8,7 +11,7 @@ img, picture, video, canvas, svg { display: block; max-width: 100%; }
 ul { margin: 0; padding: 0; list-style: none; }
 a { color: inherit; text-decoration: none; }
 
-/* Tokens */
+
 :root {
   --color-whiteish: #fffff9;
   --color-blackish: #2F2F2F;
@@ -16,10 +19,10 @@ a { color: inherit; text-decoration: none; }
 
   --font-main: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --text-logo: clamp(6rem, 12vw, 11rem);
+  --text-logo: clamp(4rem, 12vw, 11rem);
   --text-heading: clamp(4rem, 6vw, 6.25rem);
   --text-subheading: clamp(1.5rem, 3.2vw, 3.75rem);
-  --text-body: clamp(1rem, 1vw, 2.5rem); 
+  --text-body: clamp(1rem, 1vw, 2.5rem);
   --text-body2: clamp(0.75rem, 1vw, 2rem);
 }
 
@@ -28,13 +31,3 @@ body {
   color: var(--color-blackish);
   font-family: var(--font-main);
 }
-
-/* 
-
-Responsive:
-
-- 1920 x 1080
-- 1024 x 768
-- 640 x 844
-
- */
