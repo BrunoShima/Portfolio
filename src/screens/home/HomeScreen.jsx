@@ -163,21 +163,21 @@ export default function HomeScreen() {
 
                 <Link href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center">
                     <SiLinkedin
-                        className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
+                        className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"
                     />
                 </Link>
 
                 <Link href="#" aria-label="Instagram" className="inline-flex items-center justify-center">
                     <SiInstagram
-                        className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
+                        className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"
                     />
                 </Link>
 
                 <Link to="/contact" aria-label="Message" className="inline-flex items-center justify-center">
                     <FiMessageCircle
-                        className="h-7 w-7 max-lg:w-6 max-lg:h-6 max-sm:w-5 max-sm:h-5"
+                        className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"
                     />
                 </Link>

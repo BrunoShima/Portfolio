@@ -53,6 +53,7 @@ export default function AboutHero() {
                     px-16 sm:px-22 lg:px-26 max-w-[1600px] mx-auto
                     space-y-10
                     pb-80
+                    tracking-[-0.08em]
                 "
             >
 

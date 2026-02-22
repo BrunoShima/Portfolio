@@ -15,7 +15,13 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
-    <div className={cn("grid w-full grid-cols-3 gap-4", className)} {...props}>
+    <div
+      className={cn(
+        "grid w-full gap-4",
+        className
+      )}
+      {...props}
+    >
       {children}
     </div>
   )
@@ -30,9 +36,11 @@ const BentoCard = ({
 }: BentoCardProps) => (
   <div
     className={cn(
-      "relative col-span-3 overflow-hidden rounded-xl min-h-[22rem]",
-      "group cursor-pointer bg-[var(--color-whiteish)] transform-gpu transition-all duration-200 ease-out",
+      "relative overflow-hidden rounded-md border-2 border-[var(--color-blackish)] bg-[var(--color-whiteish)]",
+      "min-h-[14rem] sm:min-h-[16rem] lg:min-h-[20rem] xl:min-h-[22rem]",
+      "group cursor-pointer transform-gpu transition-transform transition-colors duration-200 ease-out",
       "hover:-translate-y-2 hover:scale-[1.02] hover:bg-[var(--color-yellow)]",
+
       className
     )}
     {...props}
@@ -47,7 +55,6 @@ const BentoCard = ({
           tracking-[-0.06em]
           text-[length:var(--text-subheading)]
           leading-[0.95]
-
           text-[var(--color-blackish)]
           transition-colors
           duration-200
@@ -66,7 +73,6 @@ const BentoCard = ({
             text-[length:var(--text-body)]
             leading-[1.35]
             max-w-[55ch]
-
             text-[var(--color-blackish)]
             transition-colors
             duration-200

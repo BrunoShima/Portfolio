@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 export default function ContactScreen() {
     
     return (
@@ -226,28 +228,13 @@ export default function ContactScreen() {
                     </div>
 
                     {/* Submit */}
-                    <button
+                    <Button
                         type="submit"
-                        className="
-                            mt-4
-                            mx-auto
-                            block
-                            w-[140px]
-                            rounded-sm
-                            border-2
-                            border-[var(--color-yellow)]
-                            bg-transparent
-                            py-2
-                            text-xs
-                            font-bold
-                            tracking-widest
-                            text-[var(--color-yellow)]
-                            "
-                        >
+                    >
 
-                            SUBMIT
+                        SUBMIT
 
-                    </button>
+                    </Button>
 
             </form>
 
