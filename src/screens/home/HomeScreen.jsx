@@ -110,6 +110,7 @@ export default function HomeScreen() {
                         [font-family:var(--font-main)]
                         text-[length:var(--text-subheading)]
                         font-extrabold
+                        tracking-[-0.08em]
                         [column-gap:clamp(1.5rem,5vw,10rem)]
                         max-sm:[row-gap:2rem]
                         translate-y-10
