@@ -25,6 +25,8 @@ import STYLEIMG6 from "../assets/projects/stylemag/style6.jpg";
 export const PROJECTS = [
     {
         id: "houndstooth",
+        
+        label: "design",
 
         title: "Houndstooth",
 
@@ -87,14 +89,128 @@ export const PROJECTS = [
 
     },
 
-        {
+    {
         id: "style",
+
+        label: "design",
 
         title: "Style",
 
         subtitle: "Magazine Concept",
 
         type: "Brand Exploration",
+
+        chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
+
+        date: "Summer 2025",
+
+        overview: 
+            `Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system. The project focuses on layout design, typography, visual hierarchy, and the expressive qualities of contemporary magazine design.
+
+            Rather than producing journalistic content, this exploration centers on visual storytelling—how bold minimalism, elevated typography, and clean editorial structure can frame the richness of hip hop fashion. Through a combination of cover design, feature spreads, image integration, and story-driven layouts, this project demonstrates my ability to craft a refined editorial experience for a culturally focused publication. Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system. The project focuses on layout design, typography, visual hierarchy, and the expressive qualities of contemporary magazine design.
+
+            Rather than producing journalistic content, this exploration centers on visual storytelling—how bold minimalism, elevated typography, and clean editorial structure can frame the richness of hip hop fashion. Through a combination of cover design, feature spreads, image integration, and story-driven layouts, this project demonstrates my ability to craft a refined editorial experience for a culturally focused publication.
+            `,
+
+        strategy: 
+            `The strategy for Style Magazine began with defining the publication's visual voice: modern, elevated, and culturally grounded. Hip hop fashion is bold, dynamic, and expressive, yet this project aimed to interpret that energy through a more minimalist, design-forward lens. The strategy was to pair the vibrancy of the culture with structured, contemporary typography and restrained layouts, creating a premium editorial identity.
+
+            A modular grid system was developed to support flexibility across different article types—features, interviews, style pages, and full-bleed imagery. Establishing this framework early ensured visual consistency while still allowing room for expressive moments where type and imagery could break convention. The emphasis remained on clarity, rhythm, and contrast, guiding how each spread communicated hierarchy and tone.
+            `,
+
+        direction: 
+            `The creative direction blended bold cultural influence with a minimalist design sensibility. The target audience—fashion enthusiasts, design-driven readers, and fans of hip hop culture—gravitates toward publications that feel both stylish and editorially polished. To capture this, the direction focused on clean grids, strong typographic contrast, generous whitespace, and deliberate pacing across spreads.
+
+            Typography served as the core expressive tool, balancing oversized headlines with crisp, contemporary body type. Imagery was integrated to create visual rhythm—sometimes full-bleed and immersive, other times framed with intentional negative space to heighten impact. The design choices emphasized a premium, gallery-like feel, positioning Style Magazine as a modern cultural publication rather than a conventional streetwear zine.
+
+            A print-ready workflow was central to this project, requiring careful setup of margins, bleeds, master pages, paragraph styles, and consistent typographic systems. This ensured that the magazine was not only visually cohesive but also technically prepared for real-world production.
+            `,
+        
+        results: 
+            `The final concept resulted in a cohesive editorial identity that showcases both cultural vibrancy and refined design craftsmanship. The completed spreads demonstrate strong control over layout, hierarchy, and typographic voice, while the broader system reflects a scalable framework for a full publication.
+
+            This project highlights my ability to design structured print experiences, develop conceptual editorial brands, and translate cultural themes into modern design language. The result is a premium magazine concept that feels contemporary, intentional, and visually sophisticated—an exploration that strengthens my portfolio's range in layout design and creative direction.
+            `,
+
+        images: 
+        [
+            STYLEIMG1,
+            STYLEIMG2,
+            STYLEIMG3,
+            STYLEIMG4,
+            STYLEIMG5,
+            STYLEIMG6,
+            
+        ],
+
+    },
+
+    {
+        id: "borealis",
+
+        label: "development",
+
+        title: "Borealis Loungeroom",
+
+        subtitle: "Speakeasy Bar",
+
+        type: "Brand Exploration",
+
+        chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
+
+        date: "Summer 2025",
+
+        overview: 
+            `Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system. The project focuses on layout design, typography, visual hierarchy, and the expressive qualities of contemporary magazine design.
+
+            Rather than producing journalistic content, this exploration centers on visual storytelling—how bold minimalism, elevated typography, and clean editorial structure can frame the richness of hip hop fashion. Through a combination of cover design, feature spreads, image integration, and story-driven layouts, this project demonstrates my ability to craft a refined editorial experience for a culturally focused publication. Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system. The project focuses on layout design, typography, visual hierarchy, and the expressive qualities of contemporary magazine design.
+
+            Rather than producing journalistic content, this exploration centers on visual storytelling—how bold minimalism, elevated typography, and clean editorial structure can frame the richness of hip hop fashion. Through a combination of cover design, feature spreads, image integration, and story-driven layouts, this project demonstrates my ability to craft a refined editorial experience for a culturally focused publication.
+            `,
+
+        strategy: 
+            `The strategy for Style Magazine began with defining the publication's visual voice: modern, elevated, and culturally grounded. Hip hop fashion is bold, dynamic, and expressive, yet this project aimed to interpret that energy through a more minimalist, design-forward lens. The strategy was to pair the vibrancy of the culture with structured, contemporary typography and restrained layouts, creating a premium editorial identity.
+
+            A modular grid system was developed to support flexibility across different article types—features, interviews, style pages, and full-bleed imagery. Establishing this framework early ensured visual consistency while still allowing room for expressive moments where type and imagery could break convention. The emphasis remained on clarity, rhythm, and contrast, guiding how each spread communicated hierarchy and tone.
+            `,
+
+        direction: 
+            `The creative direction blended bold cultural influence with a minimalist design sensibility. The target audience—fashion enthusiasts, design-driven readers, and fans of hip hop culture—gravitates toward publications that feel both stylish and editorially polished. To capture this, the direction focused on clean grids, strong typographic contrast, generous whitespace, and deliberate pacing across spreads.
+
+            Typography served as the core expressive tool, balancing oversized headlines with crisp, contemporary body type. Imagery was integrated to create visual rhythm—sometimes full-bleed and immersive, other times framed with intentional negative space to heighten impact. The design choices emphasized a premium, gallery-like feel, positioning Style Magazine as a modern cultural publication rather than a conventional streetwear zine.
+
+            A print-ready workflow was central to this project, requiring careful setup of margins, bleeds, master pages, paragraph styles, and consistent typographic systems. This ensured that the magazine was not only visually cohesive but also technically prepared for real-world production.
+            `,
+        
+        results: 
+            `The final concept resulted in a cohesive editorial identity that showcases both cultural vibrancy and refined design craftsmanship. The completed spreads demonstrate strong control over layout, hierarchy, and typographic voice, while the broader system reflects a scalable framework for a full publication.
+
+            This project highlights my ability to design structured print experiences, develop conceptual editorial brands, and translate cultural themes into modern design language. The result is a premium magazine concept that feels contemporary, intentional, and visually sophisticated—an exploration that strengthens my portfolio's range in layout design and creative direction.
+            `,
+
+        images: 
+        [
+            STYLEIMG1,
+            STYLEIMG2,
+            STYLEIMG3,
+            STYLEIMG4,
+            STYLEIMG5,
+            STYLEIMG6,
+            
+        ],
+
+    },
+
+    {
+        id: "logos",
+
+        label: "creative",
+
+        title: "Logo Board",
+
+        subtitle: "Graphic Exercise",
+
+        type: "Creative Exercise",
 
         chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
 

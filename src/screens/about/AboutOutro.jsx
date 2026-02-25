@@ -1,7 +1,7 @@
-import { Link } from "react-router"
+import { Link } from "react-router";
 
-import { SiLinkedin, SiInstagram } from "react-icons/si"
-import { FiMessageCircle } from "react-icons/fi"
+import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { FiMessageCircle } from "react-icons/fi";
 
 const ICON_SIZE =
     "h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"

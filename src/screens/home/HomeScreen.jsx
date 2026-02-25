@@ -118,7 +118,7 @@ export default function HomeScreen() {
                 >
                     <HoverLink
                         id="designer"
-                        to="/projects"
+                        to="/projects/design"
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
@@ -127,7 +127,7 @@ export default function HomeScreen() {
 
                     <HoverLink
                         id="developer"
-                        to="/projects"
+                        to="/projects/development"
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
@@ -136,7 +136,7 @@ export default function HomeScreen() {
 
                     <HoverLink
                         id="creative"
-                        to="/projects"
+                        to="/projects/creative"
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
