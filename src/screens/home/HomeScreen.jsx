@@ -122,7 +122,7 @@ export default function HomeScreen() {
                         hoverTarget={hoverTarget}
                         setHoverTarget={setHoverTarget}
                     >
-                        Design
+                        Designer
                     </HoverLink>
 
                     <HoverLink
