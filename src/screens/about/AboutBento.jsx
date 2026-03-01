@@ -56,25 +56,6 @@ export default function AboutBento() {
           </div>
         ) : null}
 
-        {/* Bullets */}
-        {activeItem?.bullets?.length ? (
-          <ul
-            className="
-              mt-6
-              list-disc
-              pl-6
-              grid
-              gap-2
-              [font-family:var(--font-main)]
-              text-[length:var(--text-body)]
-              leading-[1.5]
-            "
-          >
-            {activeItem.bullets.map((b, idx) => (
-              <li key={idx}>{b}</li>
-            ))}
-          </ul>
-        ) : null}
       </BentoModal>
     </section>
   )

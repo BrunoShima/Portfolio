@@ -5,7 +5,7 @@ export default function ProjectListScreen() {
 
     const { label } = useParams();
 
-    const filtered = PROJECTS.filter((p) => p.label === label);
+    const filtered = label ? PROJECTS.filter((p) => p.label === label) : PROJECTS;
 
     return (
 
@@ -31,7 +31,7 @@ export default function ProjectListScreen() {
                 "
             >
                 
-                {label?.toUpperCase() || "PROJECTS "}
+                {label?.toUpperCase() || "All Projects "}
 
             </h1>
 

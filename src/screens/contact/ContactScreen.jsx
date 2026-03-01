@@ -54,7 +54,7 @@ export default function ContactScreen() {
                 "
             >
 
-                If you need a seady design hand, a front-end build, or a teammate who cares about the details, send a note and I'll get back to you.
+                If you need a steady design hand, a front-end build, or a teammate who cares about the details, send a note and I'll get back to you.
 
             </p>
 

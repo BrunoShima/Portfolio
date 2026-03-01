@@ -33,7 +33,7 @@ export default function Header(){
                     "
                 >
 
-                    <span className="text-[length:var(--text-subheading)] font-bold">
+                    <span className="text-[length:var(--text-subheading)] font-bold pointer-events-none">
                         
                         {open ? "x" : "≡"}
 
