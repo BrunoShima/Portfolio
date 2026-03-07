@@ -52,9 +52,7 @@ export default function ProjectDetailScreen() {
               font-medium
             "
           >
-
             {project.type}
-
           </p>
 
           <h1
@@ -67,9 +65,7 @@ export default function ProjectDetailScreen() {
               -translate-x-4
             "
           >
-
             {project.title}
-
           </h1>
 
           <p
@@ -82,110 +78,232 @@ export default function ProjectDetailScreen() {
               -translate-x-2
             "
           >
-
             {project.subtitle}
-
           </p>
 
-          <h2
-            className="
-              text-[length:var(--text-heading)]
-              font-extrabold
-              tracking-[-0.08em]
-              -translate-x-2
-              pt-55
+          {project.chips?.length > 0 && (
+
+            <div className="flex flex-wrap gap-2 mt-6">
+
+              {project.chips.map((chip) => (
+
+                <span
+                  key={chip}
+                  className="
+                    border-2
+                    border-[var(--color-blackish)]
+                    rounded-full
+                    px-4 py-1
+                    [font-family:var(--font-main)]
+                    text-[length:var(--text-body2)]
+                    font-medium
+                  "
+                >
+
+                  {chip}
+
+                </span>
+
+              ))}
+
+            </div>
+
+          )}
+
+
+          <div className="
+              flex flex-col
+              lg:flex-row 
+              gap-10 
+              pt-45 
+              items-start
             "
           >
 
-            Project Overview
+            <div className="flex-1">
 
-          </h2>
+              <h2 className="
+                  text-[length:var(--text-heading)]
+                  font-extrabold
+                  tracking-[-0.08em]
+                  -translate-x-2
+                  pb-6
+                "
+              >
 
-          <p  
-            className="
-              text-[length:var(--text-body)]
+                Project Overview
+
+              </h2>
+
+              <p className="
+                  text-[length:var(--text-body)]
+                  text-justify [text-align-last:start]
+                "
+              >
+                
+                {project.overview}
+              
+              </p>
+
+            </div>
+
+            <div className="
+                w-full 
+                lg:w-[38%] 
+                shrink-0
+              "
+            >
+
+              <img
+                src={project.images?.[0]}
+                alt={`${project.title} overview`}
+                className="w-full object-cover pt-10"
+              />
+
+            </div>
+
+          </div>
+
+
+          <div className="
+              flex flex-col lg:flex-row-reverse 
+              gap-10 
+              pt-45 
+              items-start
             "
           >
 
-            {project.overview}
+            <div className="flex-1">
 
-          </p>
+              <h2 className="
+                  text-[length:var(--text-heading)]
+                  font-extrabold
+                  tracking-[-0.08em]
+                  -translate-x-2
+                  pb-6
+                "
+              >
+                
+                Strategy
+                
+              </h2>
 
-          <h2
-            className="
-              text-[length:var(--text-heading)]
-              font-extrabold
-              tracking-[-0.08em]
-              -translate-x-2
-              pt-55
-            "
-          >
+              <p className="
+                  text-[length:var(--text-body)] 
+                  text-justify [text-align-last:start]
+                "
+              >
+                
+                {project.strategy}
+                
+              </p>
 
-            Strategy
+            </div>
 
-          </h2>
+            <div className="
+                w-full 
+                lg:w-[38%] 
+                shrink-0
+              "
+            >
 
-          <p  
-            className="
-              text-[length:var(--text-body)]
-            "
-          >
+              <img
+                src={project.images?.[1]}
+                alt={`${project.title} strategy`}
+                className="w-full object-cover pt-10"
+              />
 
-            {project.strategy}
+            </div>
 
-          </p>
+          </div>
 
-          <h2
-            className="
-              text-[length:var(--text-heading)]
-              font-extrabold
-              tracking-[-0.08em]
-              -translate-x-2
-              pt-55
-            "
-          >
 
-            Direction
+          <div className="
+                flex 
+                flex-col lg:flex-row 
+                gap-10 
+                pt-45 
+                items-start
+              "
+            >
 
-          </h2>
+            <div className="flex-1">
 
-          <p  
-            className="
-              text-[length:var(--text-body)]
-            "
-          >
+              <h2 className="
+                  text-[length:var(--text-heading)]
+                  font-extrabold
+                  tracking-[-0.08em]
+                  -translate-x-2
+                  pb-6
+                "
+              >
+                
+                Direction
+              
+              </h2>
 
-            {project.direction}
+              <p className="
+                  text-[length:var(--text-body)] 
+                  text-justify [text-align-last:start]
+                "
+              >
+                
+                {project.direction}
+                
+              </p>
 
-          </p>
+            </div>
 
-          <h2
-            className="
-              text-[length:var(--text-heading)]
-              font-extrabold
-              tracking-[-0.08em]
-              -translate-x-2
-              pt-55
-            "
-          >
+            <div className="
+                w-full 
+                lg:w-[38%] 
+                shrink-0
+              "
+            >
 
-            Results
+              <img
+                src={project.images?.[2]}
+                alt={`${project.title} direction`}
+                className="w-full object-cover pt-10"
+              />
 
-          </h2>
+            </div>
 
-          <p  
-            className="
-              text-[length:var(--text-body)]
-            "
-          >
+          </div>
 
-            {project.results}
 
-          </p>
+          <div className="pt-45">
 
-          {/* Gallery */}
+            <h2 className="
+                text-[length:var(--text-heading)]
+                font-extrabold
+                tracking-[-0.08em]
+                -translate-x-2
+                pb-6
+              "
+            >
+              
+              Results
+              
+            </h2>
+
+            <p className="
+                text-[length:var(--text-body)] 
+                text-justify 
+                [text-align-last:start]
+              "
+            >
+              
+              {project.results}
+              
+            </p>
+          </div>
+
+
           {shuffledImages.length > 0 && (
+
             <section
+            
               className="
                 bg-[var(--color-whiteish)]
                 text-[var(--color-blackish)]
@@ -194,28 +312,25 @@ export default function ProjectDetailScreen() {
                 pb-30
               "
             >
-              <div className="max-w-[1600px] mx-auto px-16 sm:px-22 lg:px-26">
-
-                <div
-                  className="
-                    grid
-                    grid-cols-1
-                    sm:grid-cols-2
-                    lg:grid-cols-3
-                    gap-3
-                  "
-                >
-                  {shuffledImages.map((src, index) => (
-                    <figure key={index} className="overflow-hidden">
-                      <img
-                        src={src}
-                        alt={`${project.title} image ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </figure>
-                  ))}
-                </div>
+              <div
+                className="
+                  grid
+                  grid-cols-1
+                  sm:grid-cols-2
+                  lg:grid-cols-3
+                  gap-3
+                "
+              >
+                {shuffledImages.map((src, index) => (
+                  <figure key={index} className="overflow-hidden">
+                    <img
+                      src={src}
+                      alt={`${project.title} image ${index + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </figure>
+                ))}
               </div>
             </section>
           )}

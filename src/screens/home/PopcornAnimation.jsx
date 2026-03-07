@@ -16,9 +16,8 @@ export default function PopcornAnimation({
   active = false,
   count = 25,          // KNOB: number of images visible
   driftSeconds = 99,   // KNOB: popcorn speed (higher = slower / lower = faster)
-
-  bgSrc = "",          // ADDED: your stitched, pre-blurred strip image
-  bgDriftSeconds = 180 // ADDED KNOB: background drift speed (higher = slower)
+  bgSrc = "",
+  bgDriftSeconds = 180
 }) {
   const particlesRef = useRef(null);
 
@@ -30,29 +29,31 @@ export default function PopcornAnimation({
 
     const uniqueImageIndices = pickUniqueIndices(images.length, actualCount);
 
-    const lanes = actualCount * 4; // KNOB: vertical spacing (higher = spread out)
+    // Vertical lanes
+    const lanes = actualCount * 4;          // KNOB: vertical spacing
     const laneIndices = pickUniqueIndices(lanes, actualCount);
 
-    const topPaddingPct = -5;    // KNOB: top edge (higher = push down)
-    const bottomPaddingPct = 6;  // KNOB: bottom edge (higher = push up)
-
+    const topPaddingPct = -5;               // KNOB: top edge
+    const bottomPaddingPct = 6;             // KNOB: bottom edge
     const usablePct = 100 - topPaddingPct - bottomPaddingPct;
     const laneHeightPct = usablePct / lanes;
 
-    const segment = driftSeconds / actualCount;
+    // Horizontal lanes
+    const timeSlots = actualCount * 4;      // KNOB: horizontal breathing room
+    const timeSlotIndices = pickUniqueIndices(timeSlots, actualCount);
+    const slotDuration = driftSeconds / timeSlots;
 
     const pool = Array.from({ length: actualCount }, (_, i) => {
       const imgIndex = uniqueImageIndices[i];
 
       const laneTopPct = topPaddingPct + laneIndices[i] * laneHeightPct;
-
       const jitterY = (Math.random() - 0.5) * laneHeightPct * 0.9; // KNOB
       const topPct = laneTopPct + jitterY;
 
       const scale = 0.9 + Math.random() * 0.35; // KNOB
 
-      const baseDelay = -(i * segment);
-      const jitterDelay = (Math.random() - 0.5) * segment * 0.2; // KNOB
+      const baseDelay = -(timeSlotIndices[i] * slotDuration);
+      const jitterDelay = (Math.random() - 0.5) * slotDuration * 0.5; // KNOB
       const delay = Math.max(-driftSeconds, Math.min(0, baseDelay + jitterDelay));
 
       const opacity = 0.7 + Math.random() * 0.3; // KNOB
@@ -93,8 +94,6 @@ export default function PopcornAnimation({
             from { transform: translate3d(115vw, 0, 0); }
             to   { transform: translate3d(-35vw, 0, 0); }
           }
-
-          /* ADDED: background drift */
           @keyframes bg-drift {
             from { transform: translate3d(0, 0, 0); }
             to   { transform: translate3d(-60vw, 0, 0); }
@@ -102,7 +101,6 @@ export default function PopcornAnimation({
         `}
       </style>
 
-      {/* Background Loop */}
       {bgSrc ? (
         <img
           src={bgSrc}
@@ -116,7 +114,6 @@ export default function PopcornAnimation({
             maxWidth: "none",
             transform: "scale(1.08)",
             transformOrigin: "left center",
-
             animationName: "bg-drift",
             animationDuration: `${bgDriftSeconds}s`,
             animationTimingFunction: "linear",
@@ -136,7 +133,6 @@ export default function PopcornAnimation({
             style={{
               top: `${p.topPct}%`,
               opacity: p.opacity,
-
               animationName: "popcorn-drift",
               animationDuration: `${driftSeconds}s`,
               animationTimingFunction: "linear",
@@ -161,18 +157,11 @@ export default function PopcornAnimation({
                 style={{
                   width: "clamp(200px, 16vw, 1000px)", // KNOB
                 }}
-
               />
-
             </div>
-
           </div>
-
         );
-
       })}
     </div>
-
   );
-
 }

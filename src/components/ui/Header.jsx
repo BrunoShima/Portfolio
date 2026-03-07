@@ -18,6 +18,7 @@ export default function Header(){
                     bg-transparent
                     text-[var(--color-blackish)]
                     [font-family:var(--font-main)]
+                    justify-end
                 "
             >
 
