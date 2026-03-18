@@ -18,10 +18,9 @@ const NAV_LINKS = [
 ];
 
 export default function MenuOverlay({ open, onOpenChange }) {
-
     const [hoveredItem, setHoveredItem] = useState(null);
+    const location = useLocation();
 
-    // ESC Close
     useEffect(() => {
         if (!open) return;
         const onKeyDown = (e) => {
@@ -31,7 +30,6 @@ export default function MenuOverlay({ open, onOpenChange }) {
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [open, onOpenChange]);
 
-    // Scroll lock
     useEffect(() => {
         if (!open) return;
         const prev = document.body.style.overflow;
@@ -41,7 +39,6 @@ export default function MenuOverlay({ open, onOpenChange }) {
         };
     }, [open]);
 
-    // Close on Route Change
     useEffect(() => {
         if (open) onOpenChange(false);
     }, [location.pathname]);
@@ -58,25 +55,29 @@ export default function MenuOverlay({ open, onOpenChange }) {
             "
             onClick={() => setHoveredItem(null)}
         >
-            <nav className="h-full w-full grid place-items-center px-10 sm:px-16">
-
-                <ul className="flex flex-col gap-1 text-center">
-
+            <nav className="
+                h-full w-full
+                flex flex-col items-center
+                justify-start
+                pt-15
+            ">
+                <ul className="flex flex-col gap-0 text-center">
                     {NAV_LINKS.map((item) => (
                         <li
                             key={item.to}
-                            onMouseEnter={() => item.children ? setHoveredItem(item.to) : null}
+                            onMouseEnter={() => setHoveredItem(item.to)}
                             onMouseLeave={() => setHoveredItem(null)}
-
                         >
                             <Link
                                 to={item.to}
                                 onClick={() => onOpenChange(false)}
+                                style={{ color: hoveredItem === item.to ? "var(--color-yellow)" : "var(--color-blackish)" }}
                                 className="
                                     relative
                                     inline-flex items-center justify-center
                                     text-[length:var(--text-heading)]
                                     font-bold tracking-[-0.06em]
+                                    transition-colors duration-200
                                 "
                             >
                                 {item.label}
@@ -109,6 +110,9 @@ export default function MenuOverlay({ open, onOpenChange }) {
                                                     font-bold
                                                     tracking-[-0.06em]
                                                     opacity-50
+                                                    transition-colors duration-200
+                                                    hover:text-[var(--color-yellow)]
+                                                    hover:opacity-100
                                                 "
                                             >
                                                 {child.label}
@@ -119,14 +123,12 @@ export default function MenuOverlay({ open, onOpenChange }) {
                             )}
                         </li>
                     ))}
-
                 </ul>
-
             </nav>
 
             {/* Bottom right — social icons */}
             <div className="absolute bottom-10 right-10 flex items-center gap-6">
-
+                
                 <a
                     href="https://www.linkedin.com/in/bruno-shimabukuro"
                     target="_blank"
@@ -136,7 +138,6 @@ export default function MenuOverlay({ open, onOpenChange }) {
                 >
                     <SiLinkedin className="h-10 w-10" color="var(--color-blackish)" />
                 </a>
-
                 <a
                     href="https://instagram.com"
                     target="_blank"
@@ -146,9 +147,7 @@ export default function MenuOverlay({ open, onOpenChange }) {
                 >
                     <SiInstagram className="h-10 w-10" color="var(--color-blackish)" />
                 </a>
-
             </div>
-
         </div>
     );
 }

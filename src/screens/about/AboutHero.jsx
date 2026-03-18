@@ -1,4 +1,34 @@
+import { useEffect, useRef } from "react";
+import { motion } from "motion/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+
+gsap.registerPlugin(SplitText);
+
 export default function AboutHero() {
+    const p1Ref = useRef(null);
+    const p2Ref = useRef(null);
+
+    useEffect(() => {
+        const split1 = new SplitText(p1Ref.current, { type: "lines", linesClass: "line-wrapper" });
+        const split2 = new SplitText(p2Ref.current, { type: "lines", linesClass: "line-wrapper" });
+
+        const allLines = [...split1.lines, ...split2.lines];
+
+
+        gsap.set([p1Ref.current, p2Ref.current], {opacity: 1});
+        gsap.set(allLines, {y: "100%", opacity: 0});
+
+        gsap.to(allLines, {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: 0.1,
+            delay: 0.8,
+        });
+    }, []);
+
     return (
         <section
             className="
@@ -9,9 +39,7 @@ export default function AboutHero() {
                 relative
             "
         >
-
             <div className="sticky top-0 z-20 relative overflow-hidden">
-
                 <div
                     className="
                         pointer-events-none
@@ -23,8 +51,11 @@ export default function AboutHero() {
                         to-transparent
                     "
                 />
-
-                <h1
+                <motion.h1
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" }}}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     className="
                         relative
                         z-10
@@ -38,17 +69,13 @@ export default function AboutHero() {
                         pb-10
                     "
                 >
-                    
                     Hi, I'm <span className="text-[var(--color-blackish)]">Bruno.</span>
-
-                </h1>
-
+                </motion.h1>
             </div>
 
-            {/* Scrolling text (will pass behind the sticky layer) */}
             <div
                 className="
-                    text-justify [text-align-last:start]
+                    text-center
                     text-[length:var(--text-subheading)]
                     px-16 sm:px-22 lg:px-26 max-w-[1600px] mx-auto
                     space-y-10
@@ -56,19 +83,18 @@ export default function AboutHero() {
                     tracking-[-0.08em]
                 "
             >
+                <div style={{ overflow: "hidden" }}>
+                    <p ref={p1Ref} style={{ opacity: 0 }}>
+                        I'm a <span className="text-[var(--color-yellow)] font-semibold">multidisciplinary creative</span> with a background in <span className="text-[var(--color-yellow)] font-semibold">psychology</span> and <span className="text-[var(--color-yellow)] font-semibold">political science,</span> now focused on graphic/digital <span className="text-[var(--color-yellow)] font-semibold">design</span> and front-end <span className="text-[var(--color-yellow)] font-semibold">development.</span>
+                    </p>
+                </div>
 
-                <p>
-                    I'm a <span className="text-[var(--color-yellow)] font-semibold">multidisciplinary creative</span> with a background in <span className="text-[var(--color-yellow)] font-semibold">psychology</span> and <span className="text-[var(--color-yellow)] font-semibold">political science,</span> now focused on graphic/digital <span className="text-[var(--color-yellow)] font-semibold">design</span> and front-end <span className="text-[var(--color-yellow)] font-semibold">development.</span>
-                    
-                </p>
-
-                <p>
-                    I'm here for design that has <span className="text-[var(--color-yellow)] font-semibold">presence,</span> but still respects the user. Clear structure, strong choices, and a little <span className="text-[var(--color-yellow)] font-semibold">personality.</span> I like moving from idea to execution and polishing until it feels finished, not just “good enough.” I build visual and digital experiences that feel <span className="text-[var(--color-yellow)] font-semibold">bold, contemporary, and human.</span> 
-                    
-                </p>
-
+                <div style={{ overflow: "hidden" }}>
+                    <p ref={p2Ref} style={{ opacity: 0 }}>
+                        I'm here for design that has <span className="text-[var(--color-yellow)] font-semibold">presence,</span> but still respects the user. Clear structure, strong choices, and a little <span className="text-[var(--color-yellow)] font-semibold">personality.</span> I like moving from idea to execution and polishing until it feels finished, not just "good enough." I build visual and digital experiences that feel <span className="text-[var(--color-yellow)] font-semibold">bold, contemporary, and human.</span>
+                    </p>
+                </div>
             </div>
-
         </section>
     );
 }

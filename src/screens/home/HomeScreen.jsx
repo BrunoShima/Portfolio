@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router";
 
 import Logo from "../../assets/illustrations/Logo.svg";
@@ -10,6 +10,7 @@ import { motion } from "motion/react";
 import HoverLink from "./HoverLink";
 import PopcornAnimation from "./PopcornAnimation";
 import HoverVideo from "./HoverVideo";
+import ZoomLink from './ZoomLink';
 
 import { POPCORN_IMAGES } from "../../data/PopcornImages";
 
@@ -17,6 +18,7 @@ import DesignerMarquee from "../../assets/images/designer/designermarquee.jpg";
 
 export default function HomeScreen() {
     const [hoverTarget, setHoverTarget] = useState(null);
+    const iconsEnteredRef = useRef(false);
 
     return (
         <main
@@ -74,7 +76,7 @@ export default function HomeScreen() {
                 {/* Logo */}
                 <HoverLink
                     id="logo"
-                    to="/about"
+                    to={null}
                     hoverTarget={hoverTarget}
                     setHoverTarget={setHoverTarget}
                     className="
@@ -85,16 +87,17 @@ export default function HomeScreen() {
                         justify-self-center
                     "
                 >
-                    <motion.img
-                        layoutId="bru-logo"
-                        src={Logo}
-                        alt="Bru"
-                        className="
-                        block
-                        h-[var(--text-logo)]
-                        w-auto
-                        "
-                    />
+                    <ZoomLink to="/about" onZoom={() => setIsZooming(true)}>
+                        <motion.img
+                            src={Logo}
+                            alt="Bru"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                            className="block h-[var(--text-logo)] w-auto"
+                        />
+                    </ZoomLink>
                 </HoverLink>
 
                 {/* Categories/Links */}
@@ -116,40 +119,52 @@ export default function HomeScreen() {
                         translate-y-10
                     "
                 >
-                    <HoverLink
-                        id="designer"
-                        to="/projects/design"
-                        hoverTarget={hoverTarget}
-                        setHoverTarget={setHoverTarget}
-                    >
-                        Designer
-                    </HoverLink>
+                    {[
+                        { id: "designer", to: "/projects/design", label: "Designer" },
+                        { id: "developer", to: "/projects/development", label: "Developer" },
+                        { id: "creative", to: "/projects/creative", label: "Creative" },
+                    ].map((item, index) => (
 
-                    <HoverLink
-                        id="developer"
-                        to="/projects/development"
-                        hoverTarget={hoverTarget}
-                        setHoverTarget={setHoverTarget}
-                    >
-                        Developer
-                    </HoverLink>
+                        <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 20, transition: {duration: 0.4, ease: "easeOut"} }}
+                            transition={{ duration: 0.4, ease: "easeOut", delay: 0.7 + index * 0.40 }}
+                        >
 
-                    <HoverLink
-                        id="creative"
-                        to="/projects/creative"
-                        hoverTarget={hoverTarget}
-                        setHoverTarget={setHoverTarget}
-                    >
-                        Creative
-                    </HoverLink>
+                            <HoverLink
+                                id={item.id}
+                                to={item.to}
+                                hoverTarget={hoverTarget}
+                                setHoverTarget={setHoverTarget}
+                            >
+
+                                {item.label}
+
+                            </HoverLink>
+
+                        </motion.div>
+
+                    ))}
+
                 </div>
+
             </div>
 
             {/* Button Icons */}
             <motion.div
-                initial={{ opacity: 1 }}
-                animate={{ opacity: hoverTarget !== null ? 0 : 1 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: hoverTarget !== null ? 0 : 1, y: 0 }}
+                exit={{ opacity: 0, y: 20, transition: { duration: 0.4, ease: "easeOut" } }}
+                transition={{
+                    opacity: { 
+                        duration: 0.4, 
+                        delay: hoverTarget !== null ? 0 : (iconsEnteredRef.current ? 0 : 2.3)
+                    },
+                    y: { duration: 0.4, ease: "easeOut", delay: 2.3 }
+                }}
+                onAnimationComplete={() => {iconsEnteredRef.current = true; }}
                 className="
                     absolute 
                     left-0 

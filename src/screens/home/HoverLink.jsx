@@ -14,7 +14,6 @@ export default function HoverLink({
     const isInactive = hoverTarget !== null && hoverTarget !== id;
 
     return (
-
         <motion.div
             initial={false}
             animate={{ opacity: isInactive ? 0 : 1 }}
@@ -23,21 +22,24 @@ export default function HoverLink({
                 ${isInactive ? "pointer-events-none" : ""}
             `}
         >
-
-            <Link
-                to={to}
-                onMouseEnter={() => setHoverTarget(id)}
-                onMouseLeave={() => setHoverTarget(null)}
-                className={`
-                    ${className || ""}
-                `}
-            >
-
-                {children}
-
-            </Link>
-
+            {to ? (
+                <Link
+                    to={to}
+                    onMouseEnter={() => setHoverTarget(id)}
+                    onMouseLeave={() => setHoverTarget(null)}
+                    className={className || ""}
+                >
+                    {children}
+                </Link>
+            ) : (
+                <div
+                    onMouseEnter={() => setHoverTarget(id)}
+                    onMouseLeave={() => setHoverTarget(null)}
+                    className={className || ""}
+                >
+                    {children}
+                </div>
+            )}
         </motion.div>
-
     );
 }

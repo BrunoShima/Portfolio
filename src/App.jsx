@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router";
+import { AnimatePresence } from "motion/react";
 
 import Header from "./components/ui/Header";
 
@@ -10,18 +11,23 @@ import ProjectListScreen from "./screens/projects/ProjectListScreen";
 
 
 export default function App() {
+
+  const location = useLocation();
+
   return (
     <>
       <Header/>
-      <Routes>
-        <Route path="/" element={<HomeScreen />} />
-        <Route path="/about" element={<AboutScreen />} />
-        <Route path="/contact" element={<ContactScreen />} />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/about" element={<AboutScreen />} />
+          <Route path="/contact" element={<ContactScreen />} />
 
-        <Route path="/projects/" element={<ProjectListScreen />} />
-        <Route path="/projects/:label" element={<ProjectListScreen />} />
-        <Route path="/projects/:label/:projectId" element={<ProjectDetailScreen />} />
-      </Routes>
+          <Route path="/projects/" element={<ProjectListScreen />} />
+          <Route path="/projects/:label" element={<ProjectListScreen />} />
+          <Route path="/projects/:label/:projectId" element={<ProjectDetailScreen />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }
