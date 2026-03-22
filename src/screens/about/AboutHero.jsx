@@ -44,10 +44,11 @@ export default function AboutHero() {
                     className="
                         pointer-events-none
                         absolute top-0 left-0 right-0
-                        h-180
+                        h-[32rem]
                         z-0
                         bg-gradient-to-b
                         from-[var(--color-whiteish)]
+                        via-[var(--color-whiteish)]
                         to-transparent
                     "
                 />

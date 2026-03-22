@@ -31,7 +31,7 @@ export default function ProjectListScreen() {
                     pb-10
                 "
             >
-                {label?.toUpperCase() || "All Projects"}
+                {label ? label.charAt(0).toUpperCase() + label.slice(1) : "All Projects"}
             </motion.h1>
 
             <ul className="grid mt-6">
