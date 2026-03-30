@@ -12,6 +12,8 @@ export default function HoverLink({
 
     const isActive = hoverTarget === id;
     const isInactive = hoverTarget !== null && hoverTarget !== id;
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    
 
     return (
         <motion.div
@@ -25,16 +27,16 @@ export default function HoverLink({
             {to ? (
                 <Link
                     to={to}
-                    onMouseEnter={() => setHoverTarget(id)}
-                    onMouseLeave={() => setHoverTarget(null)}
+                    onMouseEnter={() => canHover && setHoverTarget(id)}
+                    onMouseLeave={() => canHover && setHoverTarget(null)}
                     className={className || ""}
                 >
                     {children}
                 </Link>
             ) : (
                 <div
-                    onMouseEnter={() => setHoverTarget(id)}
-                    onMouseLeave={() => setHoverTarget(null)}
+                    onMouseEnter={() => canHover && setHoverTarget(id)}
+                    onMouseLeave={() => canHover && setHoverTarget(null)}
                     className={className || ""}
                 >
                     {children}
