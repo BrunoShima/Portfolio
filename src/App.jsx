@@ -9,6 +9,9 @@ import ContactScreen from "./screens/contact/ContactScreen";
 import ProjectDetailScreen from "./screens/projects/ProjectDetailScreen";
 import ProjectListScreen from "./screens/projects/ProjectListScreen";
 
+import NotFoundScreen from "./screens/extra/NotFoundScreen";
+
+
 
 export default function App() {
 
@@ -26,6 +29,7 @@ export default function App() {
           <Route path="/projects/" element={<ProjectListScreen />} />
           <Route path="/projects/:label" element={<ProjectListScreen />} />
           <Route path="/projects/:label/:projectId" element={<ProjectDetailScreen />} />
+          <Route path="*" element={<NotFoundScreen />} />
         </Routes>
       </AnimatePresence>
     </>

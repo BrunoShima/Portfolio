@@ -103,6 +103,8 @@ export default function BentoModal({ open, title, children, onClose }) {
                     className="
                         mt-6
                         text-[var(--color-blackish)]
+                        overflow-y-auto
+                        h-[calc(100%-6rem)]
                     "                
                 >
 
