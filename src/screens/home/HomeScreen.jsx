@@ -89,7 +89,7 @@ export default function HomeScreen() {
                         justify-self-center
                     "
                 >
-                    <ZoomLink to="/about" onZoom={() => setIsZooming(true)}>
+                    <ZoomLink to="/about">
                         <motion.img
                             src={Logo}
                             alt="Bru"
@@ -179,14 +179,14 @@ export default function HomeScreen() {
                 "
             >
 
-                <Link href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center">
+                <Link to="https://www.linkedin.com/in/bruno-shimabukuro" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex items-center justify-center">
                     <SiLinkedin
                         className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"
                     />
                 </Link>
 
-                <Link href="#" aria-label="Instagram" className="inline-flex items-center justify-center">
+                <Link to="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex items-center justify-center">
                     <SiInstagram
                         className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"
