@@ -5,11 +5,15 @@ export default function ContactScreen() {
     return (
         <main
             className="
-                grid
+                flex
+                flex-col
+                justify-center
+                items-center
                 min-h-dvh
                 w-full
-                place-items-center
                 bg-[var(--color-whiteish)]
+                pt-24 sm:pt-0
+                pb-10 sm:pb-0
             "
         >
             <div
@@ -19,7 +23,6 @@ export default function ContactScreen() {
                     px-6 sm:px-10
                     grid
                     gap-5 sm:gap-6
-                    pt-24 sm:pt-0
                 "
             >
                 <motion.h1
