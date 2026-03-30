@@ -19,6 +19,7 @@ export default function ContactScreen() {
                     px-6 sm:px-10
                     grid
                     gap-5 sm:gap-6
+                    pt-24 sm:pt-0
                 "
             >
                 <motion.h1
