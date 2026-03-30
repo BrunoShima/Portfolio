@@ -12,7 +12,7 @@ import PopcornAnimation from "./PopcornAnimation";
 import HoverVideo from "./HoverVideo";
 import ZoomLink from './ZoomLink';
 
-import { POPCORN_IMAGES } from "../../data/PopcornImages";
+import { PROJECT_IMAGES } from "../../data/ProjectImages";
 
 import DesignerMarquee from "../../assets/images/designer/designermarquee.jpg";
 
@@ -36,19 +36,21 @@ export default function HomeScreen() {
             <HoverVideo active={hoverTarget === "logo"} />
 
             <PopcornAnimation
-                images={POPCORN_IMAGES.designer}
+                images={PROJECT_IMAGES.designer}
                 active={hoverTarget === "designer"}
                 bgSrc={DesignerMarquee}
             />
 
             <PopcornAnimation
-                images={POPCORN_IMAGES.developer}
+                images={PROJECT_IMAGES.developer}
                 active={hoverTarget === "developer"}
+                bgSrc={DesignerMarquee}
             />
 
             <PopcornAnimation
-                images={POPCORN_IMAGES.creative}
+                images={PROJECT_IMAGES.creative}
                 active={hoverTarget === "creative"}
+                bgSrc={DesignerMarquee}
             />
 
             {/* Hover Overlay */}
