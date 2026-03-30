@@ -6,9 +6,7 @@ export default function Header(){
     const [open, setOpen] = useState(false);
     
     return(
-
         <>
-
             <header
                 className="
                     fixed top-0 left-0 right-0 z-[99999]
@@ -21,7 +19,6 @@ export default function Header(){
                     justify-end
                 "
             >
-
                 <button
                     type="button"
                     aria-label={open ? "Close Menu" : "Open Menu"}
@@ -29,25 +26,27 @@ export default function Header(){
                     onClick={() => setOpen((prev) => !prev)}
                     className="
                         inline-flex items-center justify-center
-                        h-10 w-10
+                        h-12 w-12
                         bg-transparent
+                        cursor-pointer
                     "
                 >
-
-                    <span className="text-[length:var(--text-subheading)] font-bold pointer-events-none">
-                        
-                        {open ? "x" : "≡"}
-
-                    </span>
-
+                    {open ? (
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--color-blackish)" strokeWidth="3.5" strokeLinecap="square">
+                            <line x1="4" y1="4" x2="24" y2="24" />
+                            <line x1="24" y1="4" x2="4" y2="24" />
+                        </svg>
+                                            ) : (
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--color-blackish)" strokeWidth="3.5" strokeLinecap="square">
+                            <line x1="3" y1="7" x2="25" y2="7" />
+                            <line x1="3" y1="14" x2="25" y2="14" />
+                            <line x1="3" y1="21" x2="25" y2="21" />
+                        </svg>
+                    )}
                 </button>
-
             </header>
 
             <MenuOverlay open={open} onOpenChange={setOpen} />
-
         </>
-
     );
-
 }
