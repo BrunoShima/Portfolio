@@ -6,10 +6,9 @@ export default function ContactScreen() {
         <main
             className="
                 grid
-                h-dvh
+                min-h-dvh
                 w-full
                 place-items-center
-                overflow-hidden
                 bg-[var(--color-whiteish)]
             "
         >
@@ -31,7 +30,7 @@ export default function ContactScreen() {
                         text-center
                         text-[var(--color-yellow)]
                         [font-family:var(--font-main)]
-                        text-[length:var(--text-subheading)]
+                        text-[length:var(--text-heading)]
                         tracking-tight
                         font-bold
                     "
