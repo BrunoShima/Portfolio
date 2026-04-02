@@ -1,13 +1,13 @@
 import AboutHero from "./AboutHero";
-import AboutBento from "./AboutBento";
 import AboutOutro from "./AboutOutro";
+import AboutBody from "./AboutBody";
 
 export default function AboutScreen() {
 
     return (
         <main>
             <AboutHero/>
-            <AboutBento/>
+            <AboutBody/>
             <AboutOutro/>
 
         </main>
