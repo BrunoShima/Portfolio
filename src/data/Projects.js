@@ -29,6 +29,10 @@ import STYLEIMG3 from "../assets/projects/stylemag/style3.jpg";
 import STYLEIMG4 from "../assets/projects/stylemag/style4.jpg";
 import STYLEIMG5 from "../assets/projects/stylemag/style5.jpg";
 import STYLEIMG6 from "../assets/projects/stylemag/style6.jpg";
+import STYLESLIDE1 from "../assets/projects/stylemag/styleslide1.jpg";
+import STYLESLIDE2 from "../assets/projects/stylemag/styleslide2.jpg";
+import STYLESLIDE3 from "../assets/projects/stylemag/styleslide3.jpg";
+import STYLESLIDE4 from "../assets/projects/stylemag/styleslide4.jpg";
 
 
 export const PROJECTS = [
@@ -150,9 +154,9 @@ export const PROJECTS = [
             `,
 
         slides: [
-            [STYLEIMG1],  
-            [STYLEIMG2], 
-            [],           
+            [STYLESLIDE1, STYLESLIDE2],  
+            [STYLESLIDE3], 
+            [STYLESLIDE4],           
             [],           
         ],
 
