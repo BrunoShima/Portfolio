@@ -45,6 +45,14 @@ export default function MenuOverlay({ open, onOpenChange }) {
         if (open) onOpenChange(false);
     }, [location.pathname]);
 
+    // Reset submenu and hover whenever menu closes
+    useEffect(() => {
+        if (!open) {
+            setHoveredItem(null);
+            setOpenSubmenu(null);
+        }
+    }, [open]);
+
     return (
         <AnimatePresence>
             {open && (
