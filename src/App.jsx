@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from "react-router";
 import { AnimatePresence } from "motion/react";
 
 import Header from "./components/ui/Header";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 import HomeScreen from "./screens/home/HomeScreen";
 import AboutScreen from "./screens/about/AboutScreen";
@@ -19,6 +20,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTop/>
       <Header/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

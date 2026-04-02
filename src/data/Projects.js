@@ -240,7 +240,7 @@ export const PROJECTS = [
     },
 
     {
-        id: "Posters",
+        id: "posters",
 
         label: "creative",
 
