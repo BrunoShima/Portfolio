@@ -3,6 +3,23 @@ import { useParams } from "react-router";
 import { motion, useScroll, useTransform } from "motion/react";
 import { PROJECTS } from "../../data/Projects";
 
+// Shared number watermark style
+const numStyle = (accent, mobile = false) => ({
+  position: "absolute",
+  left: mobile ? "-0.25em" : "-0.15em",
+  top: "50%",
+  transform: "translateY(-50%) scaleX(0.65)",
+  transformOrigin: "left center",
+  fontSize: "150vh",
+  fontWeight: 800,
+  letterSpacing: "-0.1em",
+  lineHeight: 1,
+  opacity: 0.06,
+  color: accent ? "var(--color-yellow)" : "var(--color-blackish)",
+  userSelect: "none",
+  pointerEvents: "none",
+});
+
 const TEXT_SECTIONS = [
   { num: "01", label: "Overview",  key: "overview",  accent: false },
   { num: "02", label: "Strategy",  key: "strategy",  accent: false },
@@ -10,144 +27,11 @@ const TEXT_SECTIONS = [
   { num: "04", label: "Results",   key: "results",   accent: true  },
 ];
 
-
-// ── TEXT PANEL ────────────────────────────────────────────────────────────────
-// Stationary panel. Number exits fast (image speed). Body exits delayed.
-// For text→text transitions, whole panel slides left normally.
-// Opacity snaps to 0 when image fully covers it.
-
-function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelType }) {
-  const seg = panelCount > 1 ? 1 / (panelCount - 1) : 1;
-  const isLast       = panelIndex === panelCount - 1;
-  const hasImageNext = nextPanelType === "image";
-
-  const exitStart = panelIndex * seg;
-  const exitEnd   = Math.min((panelIndex + 1) * seg, 1);
-
-  // For text→text transitions, slide the whole panel left so next one is revealed
-  const panelX = useTransform(
-    scrollYProgress,
-    isLast ? [0, 1] : [exitStart, exitEnd],
-    isLast || hasImageNext ? ["0vw", "0vw"] : ["0vw", "-100vw"]
-  );
-
-  // Snap opacity to 0 the instant the image fully covers the panel
-  const opacity = useTransform(
-    scrollYProgress,
-    hasImageNext ? [exitEnd - 0.001, exitEnd] : [0, 1],
-    hasImageNext ? [1, 0] : [1, 1]
-  );
-
-  return (
-    <motion.div
-      className="
-        absolute inset-0
-        flex items-center overflow-hidden
-        bg-[var(--color-whiteish)]
-      "
-      style={{
-        x: panelX,
-        opacity,
-        zIndex: panelCount - panelIndex,
-      }}
-    >
-      {/* Huge background number — completely static */}
-      <span
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "-0.15em",
-          transform: "translateY(-50%) scaleX(0.65)",
-          transformOrigin: "left center",
-          fontSize: "150vh",
-          fontWeight: 800,
-          letterSpacing: "-0.1em",
-          lineHeight: 1,
-          opacity: 0.06,
-          color: panel.accent ? "var(--color-yellow)" : "var(--color-blackish)",
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        {panel.num}
-      </span>
-
-      {/* Content — completely static */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-16 lg:px-26 w-full">
-        <h2
-          className="
-            text-[length:var(--text-heading)]
-            font-extrabold tracking-[-0.08em] leading-none
-            mb-10
-          "
-          style={{ color: panel.accent ? "var(--color-yellow)" : "var(--color-blackish)" }}
-        >
-          {panel.label}
-        </h2>
-        <p className="text-[length:var(--text-body)] max-w-[60ch] text-justify [text-align-last:start]">
-          {panel.body}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
-
-
-// ── IMAGE PANEL ───────────────────────────────────────────────────────────────
-// Enters from right, stays, then exits left for the next transition.
-// Sits above all text panels in z-index.
-
-function ImagePanel({ panel, scrollYProgress, panelIndex, panelCount, projectTitle }) {
-  const seg    = panelCount > 1 ? 1 / (panelCount - 1) : 1;
-  const isLast = panelIndex === panelCount - 1;
-
-  const enterStart = (panelIndex - 1) * seg;
-  const enterEnd   = panelIndex * seg;
-  const exitEnd    = Math.min((panelIndex + 1) * seg, 1);
-
-  // 100vw → 0vw (entering) → -100vw (exiting)
-  const x = useTransform(
-    scrollYProgress,
-    isLast ? [enterStart, enterEnd] : [enterStart, enterEnd, exitEnd],
-    isLast ? ["100vw", "0vw"]       : ["100vw", "0vw", "-100vw"]
-  );
-
-  return (
-    <motion.div
-      className="absolute inset-0"
-      style={{ x, zIndex: panelCount + 10, backgroundColor: "var(--color-yellow)" }}
-    >
-      <div
-        className="flex items-stretch h-full w-full px-16 lg:px-26"
-        style={{ gap: 0 }}
-      >
-        {panel.images.map((src, imgIndex) => (
-          <div
-            key={imgIndex}
-            className="flex-1 flex items-center justify-center p-8"
-            style={{
-              backgroundColor: "var(--color-yellow)",
-            }}
-          >
-            <img
-              src={src}
-              alt={`${projectTitle} slide ${imgIndex + 1}`}
-              className="max-h-full w-auto max-w-full object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
-
-// ── MAIN COMPONENT ────────────────────────────────────────────────────────────
-
 export default function ProjectDetailScreen() {
   const { projectId } = useParams();
   const project = PROJECTS.find((item) => item.id === projectId);
 
+  // Build panels dynamically — must happen before hooks
   const allPanels = project
     ? TEXT_SECTIONS.flatMap((section, i) => {
         const slideImages = project.slides?.[i] ?? [];
@@ -162,6 +46,7 @@ export default function ProjectDetailScreen() {
 
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
+  const x = useTransform(scrollYProgress, [0, 1], ["0vw", `-${(panelCount - 1) * 100}vw`]);
 
   if (!project) {
     return (
@@ -262,7 +147,7 @@ export default function ProjectDetailScreen() {
       </section>
 
 
-      {/* ── DESKTOP — PARALLAX LAYERED SCROLL ───────────────────────────── */}
+      {/* ── DESKTOP — HORIZONTAL SCROLL ─────────────────────────────────── */}
       <div
         ref={containerRef}
         style={{ height: `${panelCount * 100}vh` }}
@@ -272,32 +157,77 @@ export default function ProjectDetailScreen() {
 
           {/* Progress bar */}
           <motion.div
-            className="absolute top-0 left-0 right-0 h-[4px] bg-[var(--color-yellow)] z-30 origin-left"
+            className="absolute top-0 left-0 right-0 h-[4px] bg-[var(--color-yellow)] z-20 origin-left"
             style={{ scaleX: scrollYProgress }}
           />
 
-          {/* Layered panels — each absolutely positioned */}
-          {allPanels.map((panel, i) =>
-            panel.type === "text" ? (
-              <TextPanel
-                key={i}
-                panel={panel}
-                scrollYProgress={scrollYProgress}
-                panelIndex={i}
-                panelCount={panelCount}
-                nextPanelType={allPanels[i + 1]?.type ?? null}
-              />
-            ) : (
-              <ImagePanel
-                key={i}
-                panel={panel}
-                scrollYProgress={scrollYProgress}
-                panelIndex={i}
-                panelCount={panelCount}
-                projectTitle={project.title}
-              />
-            )
-          )}
+          {/* Horizontal strip */}
+          <motion.div
+            style={{ x, width: `${panelCount * 100}vw` }}
+            className="flex h-full"
+          >
+            {allPanels.map((panel, i) => {
+
+              // ── IMAGE PANEL ──
+              if (panel.type === "image") {
+                return (
+                  <div
+                    key={i}
+                    className="shrink-0 h-full flex items-center justify-center"
+                    style={{ width: "100vw", backgroundColor: "var(--color-yellow)" }}
+                  >
+                  <div
+                    className="flex items-stretch h-full w-full pl-16 lg:pl-26"
+                    style={{ gap: 0 }}
+                  >
+                      {panel.images.map((src, imgIndex) => (
+                        <div
+                          key={imgIndex}
+                          className="flex-1 flex items-center justify-center p-8"
+                          style={{
+                            // ↓ Tweak this to change the white box background color
+                            backgroundColor: "color-mix(in srgb, var(--color-yellow) 30%, transparent)",
+                          }}
+                        >
+                          <img
+                            src={src}
+                            alt={`${project.title} slide ${imgIndex + 1}`}
+                            className="max-h-full w-auto max-w-full object-contain"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // ── TEXT PANEL ──
+              return (
+                <div
+                  key={i}
+                  className="
+                    shrink-0 h-full relative
+                    bg-[var(--color-whiteish)] flex items-center overflow-hidden
+                  "
+                  style={{ width: "100vw" }}
+                >
+                  <span style={numStyle(panel.accent)}>{panel.num}</span>
+
+                  <div className="relative z-10 max-w-[1600px] mx-auto px-16 lg:px-26 w-full">
+                    <h2
+                      className="text-[length:var(--text-heading)] font-extrabold tracking-[-0.08em] leading-none mb-10"
+                      style={{ color: panel.accent ? "var(--color-yellow)" : "var(--color-blackish)" }}
+                    >
+                      {panel.label}
+                    </h2>
+                    <p className="text-[length:var(--text-body)] max-w-[60ch] text-justify [text-align-last:start]">
+                      {panel.body}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
 
         </div>
       </div>
@@ -307,6 +237,7 @@ export default function ProjectDetailScreen() {
       <div className="block lg:hidden border-t border-[var(--color-blackish)]/20">
         {TEXT_SECTIONS.map((section, i) => {
           const slideImages = project.slides?.[i] ?? [];
+
           return (
             <section
               key={section.key}
@@ -318,25 +249,7 @@ export default function ProjectDetailScreen() {
                 border-b border-[var(--color-blackish)]/20
               "
             >
-              <span
-                style={{
-                  position: "absolute",
-                  left: "-0.25em",
-                  top: "50%",
-                  transform: "translateY(-50%) scaleX(0.65)",
-                  transformOrigin: "left center",
-                  fontSize: "150vh",
-                  fontWeight: 800,
-                  letterSpacing: "-0.1em",
-                  lineHeight: 1,
-                  opacity: 0.06,
-                  color: section.accent ? "var(--color-yellow)" : "var(--color-blackish)",
-                  userSelect: "none",
-                  pointerEvents: "none",
-                }}
-              >
-                {section.num}
-              </span>
+              <span style={numStyle(section.accent, true)}>{section.num}</span>
 
               <div className="relative z-10">
                 <h2
@@ -345,9 +258,12 @@ export default function ProjectDetailScreen() {
                 >
                   {section.label}
                 </h2>
+
                 <p className="text-[length:var(--text-body)] text-justify [text-align-last:start]">
                   {project[section.key]}
                 </p>
+
+                {/* Slide images for this section */}
                 {slideImages.length > 0 && (
                   <div className="flex flex-col gap-6 mt-10">
                     {slideImages.map((src, imgIndex) => (
@@ -368,31 +284,7 @@ export default function ProjectDetailScreen() {
 
 
       {/* ── GALLERY ─────────────────────────────────────────────────────── */}
-      {galleryImages.length > 0 && (
-        <section className="bg-[var(--color-whiteish)] pt-32 pb-32">
-          <div className="max-w-[1600px] mx-auto px-16 sm:px-22 lg:px-26">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {galleryImages.map((src, index) => (
-                <motion.figure
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.08 }}
-                  className="overflow-hidden"
-                >
-                  <img
-                    src={src}
-                    alt={`${project.title} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.figure>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Coming next */}
 
     </>
   );
