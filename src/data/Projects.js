@@ -19,6 +19,9 @@ import HOUNDIMG18 from "../assets/projects/houndstooth/hound18.jpg";
 import HOUNDIMG19 from "../assets/projects/houndstooth/hound19.jpg";
 import HOUNDIMG20 from "../assets/projects/houndstooth/hound20.jpg";
 import HOUNDIMG21 from "../assets/projects/houndstooth/hound21.jpg";
+import HOUNDSLIDE1 from "../assets/projects/houndstooth/houndslide1.jpg";
+import HOUNDSLIDE2 from "../assets/projects/houndstooth/houndslide2.jpg";
+import HOUNDSLIDE3 from "../assets/projects/houndstooth/houndslide3.jpg";
 
 import STYLEIMG1 from "../assets/projects/stylemag/style1.jpg";
 import STYLEIMG2 from "../assets/projects/stylemag/style2.jpg";
@@ -76,9 +79,9 @@ export const PROJECTS = [
 
        
         slides: [
-            [HOUNDIMG1, HOUNDIMG2],
-            [HOUNDIMG3, HOUNDIMG4],
-            [HOUNDIMG5],
+            [HOUNDSLIDE1, HOUNDSLIDE2],
+            [HOUNDSLIDE3, HOUNDIMG9],
+            [HOUNDIMG3, HOUNDIMG10, ],
             [],
         ],
 
@@ -154,6 +157,8 @@ export const PROJECTS = [
         ],
 
         images: [
+            STYLEIMG1,
+            STYLEIMG2,
             STYLEIMG3,
             STYLEIMG4,
             STYLEIMG5,
