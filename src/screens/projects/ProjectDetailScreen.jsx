@@ -42,7 +42,7 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
     <motion.div
       className="
         absolute inset-0
-        flex items-center overflow-hidden
+        flex items-start overflow-hidden
         bg-[var(--color-whiteish)]
       "
       style={{
@@ -73,7 +73,7 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
       </span>
 
       {/* Content — completely static */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-16 lg:px-26 w-full">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-16 lg:px-26 w-full pt-[15vh]">
         <h2
           className="
             text-[length:var(--text-heading)]
@@ -413,7 +413,7 @@ export default function ProjectDetailScreen() {
           text-[var(--color-blackish)]
         "
       >
-        <Link to="/projects">← Projects</Link>
+        <Link to="/projects">← All Projects</Link>
         <Link to={`/projects/${nextProject.label}/${nextProject.id}`} className="text-right">
           Next Project →
         </Link>
