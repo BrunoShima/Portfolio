@@ -13,6 +13,12 @@ import HOUNDIMG12 from "../assets/projects/houndstooth/hound12.jpg";
 import HOUNDIMG13 from "../assets/projects/houndstooth/hound13.jpg";
 import HOUNDIMG14 from "../assets/projects/houndstooth/hound14.jpg";
 import HOUNDIMG15 from "../assets/projects/houndstooth/hound15.jpg";
+import HOUNDIMG16 from "../assets/projects/houndstooth/hound16.jpg";
+import HOUNDIMG17 from "../assets/projects/houndstooth/hound17.jpg";
+import HOUNDIMG18 from "../assets/projects/houndstooth/hound18.jpg";
+import HOUNDIMG19 from "../assets/projects/houndstooth/hound19.jpg";
+import HOUNDIMG20 from "../assets/projects/houndstooth/hound20.jpg";
+import HOUNDIMG21 from "../assets/projects/houndstooth/hound21.jpg";
 
 import STYLEIMG1 from "../assets/projects/stylemag/style1.jpg";
 import STYLEIMG2 from "../assets/projects/stylemag/style2.jpg";
@@ -77,6 +83,11 @@ export const PROJECTS = [
         ],
 
         images: [
+            HOUNDIMG1,
+            HOUNDIMG2,
+            HOUNDIMG3,
+            HOUNDIMG4,
+            HOUNDIMG5,
             HOUNDIMG6,
             HOUNDIMG7,
             HOUNDIMG8,
@@ -87,6 +98,12 @@ export const PROJECTS = [
             HOUNDIMG13,
             HOUNDIMG14,
             HOUNDIMG15,
+            HOUNDIMG16,
+            HOUNDIMG17,
+            HOUNDIMG18,
+            HOUNDIMG19,
+            HOUNDIMG20,
+            HOUNDIMG21,
         ],
     },
 
