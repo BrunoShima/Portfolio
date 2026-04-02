@@ -9,15 +9,33 @@ export default function AboutHero() {
     const p1Ref = useRef(null);
     const p2Ref = useRef(null);
 
+    // Block scroll events for 800ms — no overflow change, no layout shift
+    useEffect(() => {
+        const preventDefault = (e) => e.preventDefault();
+
+        document.addEventListener("wheel", preventDefault, { passive: false });
+        document.addEventListener("touchmove", preventDefault, { passive: false });
+
+        const timer = setTimeout(() => {
+            document.removeEventListener("wheel", preventDefault);
+            document.removeEventListener("touchmove", preventDefault);
+        }, 800);
+
+        return () => {
+            clearTimeout(timer);
+            document.removeEventListener("wheel", preventDefault);
+            document.removeEventListener("touchmove", preventDefault);
+        };
+    }, []);
+
     useEffect(() => {
         const split1 = new SplitText(p1Ref.current, { type: "lines", linesClass: "line-wrapper" });
         const split2 = new SplitText(p2Ref.current, { type: "lines", linesClass: "line-wrapper" });
 
         const allLines = [...split1.lines, ...split2.lines];
 
-
-        gsap.set([p1Ref.current, p2Ref.current], {opacity: 1});
-        gsap.set(allLines, {y: "100%", opacity: 0});
+        gsap.set([p1Ref.current, p2Ref.current], { opacity: 1 });
+        gsap.set(allLines, { y: "100%", opacity: 0 });
 
         gsap.to(allLines, {
             y: 0,
