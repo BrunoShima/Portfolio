@@ -112,7 +112,7 @@ export default function AboutOutro() {
                         font-medium
                     "
                 >
-                    Back Home
+                    ← Back Home
                 </Link>
 
                 <Link
@@ -124,7 +124,7 @@ export default function AboutOutro() {
                         font-medium
                     "
                 >
-                    My Work
+                    My Work →
                 </Link>
             </motion.div>
         </section>

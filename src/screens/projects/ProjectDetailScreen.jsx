@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router";
 import { motion, useScroll, useTransform } from "motion/react";
 import { PROJECTS } from "../../data/Projects";
 
@@ -176,6 +176,8 @@ export default function ProjectDetailScreen() {
     );
   }
 
+  const currentIndex = PROJECTS.findIndex((p) => p.id === projectId);
+  const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
   const galleryImages = project.images ?? [];
 
   return (
@@ -393,6 +395,29 @@ export default function ProjectDetailScreen() {
           </div>
         </section>
       )}
+
+      {/* ── BOTTOM NAV ──────────────────────────────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="
+          flex items-center justify-between
+          max-w-[1600px] mx-auto
+          px-8 sm:px-16 lg:px-26
+          py-10 sm:py-20
+          [font-family:var(--font-main)]
+          text-[length:var(--text-body2)]
+          font-medium
+          text-[var(--color-blackish)]
+        "
+      >
+        <Link to="/projects">← Projects</Link>
+        <Link to={`/projects/${nextProject.label}/${nextProject.id}`} className="text-right">
+          Next Project →
+        </Link>
+      </motion.div>
 
     </>
   );
