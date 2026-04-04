@@ -84,7 +84,7 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
         >
           {panel.label}
         </h2>
-        <p className="text-[length:var(--text-body)] max-w-[60ch] text-justify [text-align-last:start]">
+        <p className="text-[length:var(--text-body)] max-w-[60ch] text-justify [text-align-last:start] whitespace-pre-line">
           {panel.body}
         </p>
       </div>
@@ -347,7 +347,7 @@ export default function ProjectDetailScreen() {
                 >
                   {section.label}
                 </h2>
-                <p className="text-[length:var(--text-body)] text-justify [text-align-last:start]">
+                <p className="text-[length:var(--text-body)] text-justify [text-align-last:start] whitespace-pre-line">
                   {project[section.key]}
                 </p>
                 {slideImages.length > 0 && (

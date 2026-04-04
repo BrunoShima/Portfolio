@@ -8,6 +8,7 @@ const styleImages = import.meta.glob(
   { eager: true }
 );
 
+
 function toArray(globResult) {
   return Object.values(globResult).map((m) => m.default);
 }
