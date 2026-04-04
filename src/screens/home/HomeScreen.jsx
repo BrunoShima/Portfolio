@@ -89,7 +89,7 @@ export default function HomeScreen() {
                         justify-self-center
                     "
                 >
-                    <ZoomLink to="/about">
+                    <ZoomLink to="/about" onBeforeNavigate={() => setHoverTarget(null)}>
                         <motion.img
                             src={Logo}
                             alt="Bru"

@@ -15,6 +15,7 @@ export default function ProjectListScreen() {
                 [font-family:var(--font-main)]
                 pt-70
                 max-w-[1600px] mx-auto px-16 sm:px-22 lg:px-26
+                pb-20
             "
         >
             <motion.h1

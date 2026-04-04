@@ -7,9 +7,8 @@ export default function AboutScreen() {
     return (
         <main>
             <AboutHero/>
-            <AboutBody/>
+            <AboutBody/>          
             <AboutOutro/>
-
         </main>
 
     );
