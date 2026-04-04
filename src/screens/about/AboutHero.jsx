@@ -104,13 +104,13 @@ export default function AboutHero() {
             >
                 <div style={{ overflow: "hidden" }}>
                     <p ref={p1Ref} style={{ opacity: 0 }}>
-                        I'm a <span className="text-[var(--color-yellow)] font-semibold">multidisciplinary creative</span> with a background in <span className="text-[var(--color-yellow)] font-semibold">psychology</span> and <span className="text-[var(--color-yellow)] font-semibold">political science,</span> now focused on graphic/digital <span className="text-[var(--color-yellow)] font-semibold">design</span> and front-end <span className="text-[var(--color-yellow)] font-semibold">development.</span>
+                        I'm a multidisciplinary creative with a background in <span className="text-[var(--color-yellow)] font-semibold">psychology</span> and <span className="text-[var(--color-yellow)] font-semibold">political science,</span> now focused on graphic/digital <span className="text-[var(--color-yellow)] font-semibold">design</span> and front-end <span className="text-[var(--color-yellow)] font-semibold">development.</span>
                     </p>
                 </div>
 
                 <div style={{ overflow: "hidden" }}>
                     <p ref={p2Ref} style={{ opacity: 0 }}>
-                        I'm here for design that has <span className="text-[var(--color-yellow)] font-semibold">presence,</span> but still respects the user. Clear structure, strong choices, and a little <span className="text-[var(--color-yellow)] font-semibold">personality.</span> I like moving from idea to execution and polishing until it feels finished, not just "good enough." I build visual and digital experiences that feel <span className="text-[var(--color-yellow)] font-semibold">bold, contemporary, and human.</span>
+                       A template won't know you want to change the world, and AI doesn't <span className="text-[var(--color-yellow)] font-semibold">care.</span> I build visual and digital experiences that feel bold, contemporary, and human. Your vision deserves a <span className="text-[var(--color-yellow)] font-semibold">human touch.</span>
                     </p>
                 </div>
             </div>

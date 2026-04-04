@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const SECTIONS = [
   {
     label: "Who I Am",
-    body: "Brazil gave me confidence, energy, and warmth. Japan gave me precision, restraint, and an obsession with getting things just right. Growing up at the intersection of both — as part of Brazil's deep-rooted Japanese community — means I've never seen boldness and restraint as opposites. I see them as the same impulse, expressed differently. That duality lives in everything I make.",
+    body: "Brazil gave me confidence, energy, and warmth. Japan gave me precision, restraint, and an obsession with getting things just right. Growing up as part of Brazil's deep-rooted Japanese community means I've never seen boldness and restraint as opposites. I see them as the same impulse, expressed differently. That duality lives in everything I make.",
   },
   {
     label: "How I Work",
@@ -11,7 +11,7 @@ const SECTIONS = [
   },
   {
     label: "What I'm After",
-    body: "The beauty I consume informs the beauty I create. The throughline in everything I love — films, music, games, books — is intentionality. Nothing accidental, nothing wasted. That's the standard I hold my own work to. What I'm good at is making sure everything looks just right — designing not just to impress, but to connect. The details others gloss over are where I live.",
+    body: "The beauty I consume informs the beauty I create. The throughline in everything I love — films, music, games, books — is intentionality. Nothing accidental, nothing wasted. That's the standard I hold my own work to. What I'm good at is making sure everything looks just right. Designing not just to impress, but to connect. The details others gloss over are where I live.",
   },
 ];
 
