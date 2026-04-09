@@ -60,6 +60,14 @@ import JEWELRY23 from "../assets/projects/jewelry/jewelry23.jpg";
 import JEWELRY24 from "../assets/projects/jewelry/jewelry24.jpg";
 import JEWELRYSLIDE2 from "../assets/projects/jewelry/jewelryslide2.jpg";
 
+import MIDNIGHT1 from "../assets/projects/midnight/midnight1.jpg";
+import MIDNIGHT2 from "../assets/projects/midnight/midnight2.jpg";
+import MIDNIGHT3 from "../assets/projects/midnight/midnight3.jpg";
+import MIDNIGHT4 from "../assets/projects/midnight/midnight4.jpg";
+import MIDNIGHTSLIDE1 from "../assets/projects/midnight/midnightslide1.jpg";
+import MIDNIGHTSLIDE3 from "../assets/projects/midnight/midnightslide3.jpg";
+
+
 
 
 export const PROJECTS = [
@@ -268,50 +276,56 @@ export const PROJECTS = [
     },
 
     {
-        id: "logos",
+        id: "aftermidnight",
 
         label: "creative",
 
-        title: "Logo Board",
+        title: "After Midnight",
 
-        subtitle: "Graphic Exercise",
+        subtitle: "Fashion Event Pop-Up",
 
-        type: "Creative Exercise",
+        type: "Editorial Photography",
 
-        chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
+        chips: ["Photography", "Photoshop", "Compositing", "Post-Production"],
 
-        date: "Summer 2025",
+        date: "Spring 2026",
 
         overview:
-            `Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system.
+            `After Midnight is a collaborative editorial project exploring the emotional weight of mental health struggles — the cycles of hardship, breaking down, and the uncertain process of moving forward. Conceived by a local fashion designer for a final showcase at the Wilson School of Design, the project required a photographer and post-production lead who could translate a precise creative vision into something that felt cinematic, surreal, and emotionally coherent.
+
+            The final work is a set of four photographs, each featuring a distinct look, printed and exhibited at the pop-up showcase. Photography was only half of it. The images required extensive compositing, retouching, and surrealist manipulation in Photoshop to achieve the emotional register the concept demanded.
             `,
 
         strategy:
-            `The strategy for Style Magazine began with defining the publication's visual voice: modern, elevated, and culturally grounded. Hip hop fashion is bold, dynamic, and expressive, yet this project aimed to interpret that energy through a more minimalist, design-forward lens.
+            `The creative direction came with a clear emotional intent and a specific visual language to match it. The challenge wasn't interpreting an open brief, it was executing someone else's precise vision at a high enough level that the technical execution didn't undermine the concept. That's a different kind of pressure.
+
+            Surrealism in photography is easy to do poorly. The line between intentional and sloppy is thin, and the editing had to feel deliberate at every step. The approach was to treat photography and post-production as a single pipeline: lighting decisions were made with the composite in mind, so that the editing phase had strong material to build from rather than problems to fix.
             `,
 
         direction:
-            `The creative direction blended bold cultural influence with a minimalist design sensibility. The target audience gravitates toward publications that feel both stylish and editorially polished.
+            `Shot on location at the Wilson School of Design with a professional model and makeup artist, the session involved full lighting setup, on-set staging direction, and photography across four distinct looks. Each setup was considered in terms of how it would carry into post, background detail, shadow direction, and subject positioning all informed the editing work that followed.
+            
+            Post-production was where the project came together. Each image went through heavy Photoshop work: compositing, detailed retouching, and surrealist manipulation that pushed the visuals beyond documentary into something expressive and constructed. The darkness of the concept required edits that felt purposeful rather than decorative, with each image functioning as a distinct emotional moment within a cohesive four-part narrative.
             `,
 
         results:
-            `The final concept resulted in a cohesive editorial identity that showcases both cultural vibrancy and refined design craftsmanship.
+            `The four-image set reads as a complete body of work. The combination of controlled lighting and deliberate post-production gives the images a cinematic quality that holds up in print, which is where they were ultimately exhibited. Each photograph carries its own emotional weight while contributing to the larger arc of the series.
+
+            The surrealist editing achieved what it needed to: images that feel constructed without feeling accidental, and dark without feeling undefined. The final set is as much a piece of visual storytelling as it is fashion editorial.
             `,
 
         slides: [
-            [],
-            [],
-            [],
+            [MIDNIGHTSLIDE1],
+            [MIDNIGHT1],
+            [MIDNIGHTSLIDE3],
             [],
         ],
 
         images: [
-            STYLEIMG1,
-            STYLEIMG2,
-            STYLEIMG3,
-            STYLEIMG4,
-            STYLEIMG5,
-            STYLEIMG6,
+            MIDNIGHT1,
+            MIDNIGHT2,
+            MIDNIGHT3,
+            MIDNIGHT4,
         ],
     },
 
