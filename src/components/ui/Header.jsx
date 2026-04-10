@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useLocation, Link } from "react-router";
 import MenuOverlay from "./MenuOverlay";
 
 export default function Header(){
 
     const [open, setOpen] = useState(false);
+    const { pathname } = useLocation();
+    const isHome = pathname === "/";
     
     return(
         <>
@@ -19,6 +22,16 @@ export default function Header(){
                     justify-end
                 "
             >
+                {!isHome && !open && (
+                    <Link to="/" className="mr-auto">
+                        <img
+                            src="/favicon.svg"
+                            alt="BRU logo"
+                            style={{ height: "32px", width: "32px" }}
+                        />
+                    </Link>
+                )}
+
                 <button
                     type="button"
                     aria-label={open ? "Close Menu" : "Open Menu"}
@@ -36,7 +49,7 @@ export default function Header(){
                             <line x1="4" y1="4" x2="24" y2="24" />
                             <line x1="24" y1="4" x2="4" y2="24" />
                         </svg>
-                                            ) : (
+                    ) : (
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--color-blackish)" strokeWidth="3.5" strokeLinecap="square">
                             <line x1="3" y1="7" x2="25" y2="7" />
                             <line x1="3" y1="14" x2="25" y2="14" />

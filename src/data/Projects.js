@@ -59,6 +59,7 @@ import JEWELRY22 from "../assets/projects/jewelry/jewelry22.jpg";
 import JEWELRY23 from "../assets/projects/jewelry/jewelry23.jpg";
 import JEWELRY24 from "../assets/projects/jewelry/jewelry24.jpg";
 import JEWELRYSLIDE2 from "../assets/projects/jewelry/jewelryslide2.jpg";
+import JEWELRYSLIDE3 from "../assets/projects/jewelry/jewelryslide3.jpg";
 
 import MIDNIGHT1 from "../assets/projects/midnight/midnight1.jpg";
 import MIDNIGHT2 from "../assets/projects/midnight/midnight2.jpg";
@@ -242,7 +243,7 @@ export const PROJECTS = [
         slides: [
             [JEWELRY1, JEWELRY24,],
             [JEWELRYSLIDE2],
-            [],
+            [JEWELRYSLIDE3],
             [],
         ],
 
@@ -329,51 +330,4 @@ export const PROJECTS = [
         ],
     },
 
-    {
-        id: "posters",
-
-        label: "creative",
-
-        title: "Poster Board",
-
-        subtitle: "Graphic Exercise",
-
-        type: "Creative Exercise",
-
-        chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
-
-        date: "Summer 2025",
-
-        overview:
-            `Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system.
-            `,
-
-        strategy:
-            `The strategy for Style Magazine began with defining the publication's visual voice: modern, elevated, and culturally grounded. Hip hop fashion is bold, dynamic, and expressive, yet this project aimed to interpret that energy through a more minimalist, design-forward lens.
-            `,
-
-        direction:
-            `The creative direction blended bold cultural influence with a minimalist design sensibility. The target audience gravitates toward publications that feel both stylish and editorially polished.
-            `,
-
-        results:
-            `The final concept resulted in a cohesive editorial identity that showcases both cultural vibrancy and refined design craftsmanship.
-            `,
-
-        slides: [
-            [],
-            [],
-            [],
-            [],
-        ],
-
-        images: [
-            STYLEIMG1,
-            STYLEIMG2,
-            STYLEIMG3,
-            STYLEIMG4,
-            STYLEIMG5,
-            STYLEIMG6,
-        ],
-    },
 ];

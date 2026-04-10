@@ -14,7 +14,8 @@ import ZoomLink from './ZoomLink';
 
 import { PROJECT_IMAGES } from "../../data/ProjectImages";
 
-import DesignerMarquee from "../../assets/images/designer/designermarquee.jpg";
+import DesignerMarquee from "../../assets/images/designermarquee.jpg";
+import CreativeMarquee from "../../assets/images/creativemarquee.jpg";
 
 export default function HomeScreen() {
     const [hoverTarget, setHoverTarget] = useState(null);
@@ -50,7 +51,7 @@ export default function HomeScreen() {
             <PopcornAnimation
                 images={PROJECT_IMAGES.creative}
                 active={hoverTarget === "creative"}
-                bgSrc={DesignerMarquee}
+                bgSrc={CreativeMarquee}
             />
 
             {/* Hover Overlay */}
