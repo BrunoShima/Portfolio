@@ -189,7 +189,7 @@ export default function HomeScreen() {
                     />
                 </Link>
 
-                <Link to="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex items-center justify-center">
+                <Link to="https://www.instagram.com/designedbybru/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex items-center justify-center">
                     <SiInstagram
                         className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"

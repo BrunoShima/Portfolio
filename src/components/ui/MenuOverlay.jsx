@@ -164,7 +164,7 @@ export default function MenuOverlay({ open, onOpenChange }) {
                             <SiLinkedin className="h-10 w-10" color="var(--color-blackish)" />
                         </a>
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/designedbybru/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
