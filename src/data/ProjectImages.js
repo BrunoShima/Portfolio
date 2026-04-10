@@ -25,6 +25,6 @@ function toArray(globResult) {
 
 export const PROJECT_IMAGES = {
   designer: [...toArray(houndstoothImages), ...toArray(styleImages), ...toArray(jewelryImages)],
-  developer: [],
+  developer: [...toArray(houndstoothImages),],
   creative: [...toArray(midnightImages),],
 };
