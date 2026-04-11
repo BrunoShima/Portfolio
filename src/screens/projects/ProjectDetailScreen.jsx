@@ -12,9 +12,6 @@ const TEXT_SECTIONS = [
 
 
 // ── TEXT PANEL ────────────────────────────────────────────────────────────────
-// Stationary panel. Number exits fast (image speed). Body exits delayed.
-// For text→text transitions, whole panel slides left normally.
-// Opacity snaps to 0 when image fully covers it.
 
 function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelType }) {
   const seg = panelCount > 1 ? 1 / (panelCount - 1) : 1;
@@ -24,14 +21,12 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
   const exitStart = panelIndex * seg;
   const exitEnd   = Math.min((panelIndex + 1) * seg, 1);
 
-  // For text→text transitions, slide the whole panel left so next one is revealed
   const panelX = useTransform(
     scrollYProgress,
     isLast ? [0, 1] : [exitStart, exitEnd],
     isLast || hasImageNext ? ["0vw", "0vw"] : ["0vw", "-100vw"]
   );
 
-  // Snap opacity to 0 the instant the image fully covers the panel
   const opacity = useTransform(
     scrollYProgress,
     hasImageNext ? [exitEnd - 0.001, exitEnd] : [0, 1],
@@ -51,7 +46,6 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
         zIndex: panelCount - panelIndex,
       }}
     >
-      {/* Huge background number — completely static */}
       <span
         style={{
           position: "absolute",
@@ -72,7 +66,6 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
         {panel.num}
       </span>
 
-      {/* Content — completely static */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-16 lg:px-26 w-full pt-[15vh]">
         <h2
           className="
@@ -94,8 +87,6 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
 
 
 // ── IMAGE PANEL ───────────────────────────────────────────────────────────────
-// Enters from right, stays, then exits left for the next transition.
-// Sits above all text panels in z-index.
 
 function ImagePanel({ panel, scrollYProgress, panelIndex, panelCount, projectTitle }) {
   const seg    = panelCount > 1 ? 1 / (panelCount - 1) : 1;
@@ -105,7 +96,6 @@ function ImagePanel({ panel, scrollYProgress, panelIndex, panelCount, projectTit
   const enterEnd   = panelIndex * seg;
   const exitEnd    = Math.min((panelIndex + 1) * seg, 1);
 
-  // 100vw → 0vw (entering) → -100vw (exiting)
   const x = useTransform(
     scrollYProgress,
     isLast ? [enterStart, enterEnd] : [enterStart, enterEnd, exitEnd],
@@ -121,21 +111,37 @@ function ImagePanel({ panel, scrollYProgress, panelIndex, panelCount, projectTit
         className="flex items-stretch h-full w-full px-16 lg:px-26"
         style={{ gap: 0 }}
       >
-        {panel.images.map((src, imgIndex) => (
-          <div
-            key={imgIndex}
-            className="flex-1 flex items-center justify-center p-8"
-            style={{
-              backgroundColor: "var(--color-yellow)",
-            }}
-          >
-            <img
-              src={src}
-              alt={`${projectTitle} slide ${imgIndex + 1}`}
-              className="max-h-full w-auto max-w-full object-contain"
-            />
-          </div>
-        ))}
+        {panel.images.map((item, imgIndex) => {
+          const isVideo = typeof item === "object" && item.type === "video";
+          return (
+            <div
+              key={imgIndex}
+              className="flex-1 flex items-center justify-center p-8"
+              style={{ backgroundColor: "var(--color-yellow)" }}
+            >
+              {isVideo ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster={item.poster}
+                  className="max-h-full w-auto max-w-full object-contain"
+                >
+                  <source src={item.src.replace(".mp4", ".webm")} type="video/webm" />
+                  <source src={item.src} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src={item}
+                  alt={`${projectTitle} slide ${imgIndex + 1}`}
+                  className="max-h-full w-auto max-w-full object-contain"
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
     </motion.div>
   );
@@ -278,7 +284,7 @@ export default function ProjectDetailScreen() {
             style={{ scaleX: scrollYProgress }}
           />
 
-          {/* Layered panels — each absolutely positioned */}
+          {/* Layered panels */}
           {allPanels.map((panel, i) =>
             panel.type === "text" ? (
               <TextPanel
@@ -352,14 +358,31 @@ export default function ProjectDetailScreen() {
                 </p>
                 {slideImages.length > 0 && (
                   <div className="flex flex-col gap-6 mt-10">
-                    {slideImages.map((src, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        src={src}
-                        alt={`${project.title} ${imgIndex + 1}`}
-                        className="w-full object-contain"
-                      />
-                    ))}
+                    {slideImages.map((item, imgIndex) => {
+                      const isVideo = typeof item === "object" && item.type === "video";
+                      return isVideo ? (
+                        <video
+                          key={imgIndex}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          poster={item.poster}
+                          className="w-full object-contain"
+                        >
+                          <source src={item.src.replace(".mp4", ".webm")} type="video/webm" />
+                          <source src={item.src} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <img
+                          key={imgIndex}
+                          src={item}
+                          alt={`${project.title} ${imgIndex + 1}`}
+                          className="w-full object-contain"
+                        />
+                      );
+                    })}
                   </div>
                 )}
               </div>

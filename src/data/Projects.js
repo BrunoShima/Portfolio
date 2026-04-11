@@ -66,7 +66,9 @@ import MIDNIGHT2 from "../assets/projects/midnight/midnight2.jpg";
 import MIDNIGHT3 from "../assets/projects/midnight/midnight3.jpg";
 import MIDNIGHT4 from "../assets/projects/midnight/midnight4.jpg";
 import MIDNIGHTSLIDE1 from "../assets/projects/midnight/midnightslide1.jpg";
-import MIDNIGHTSLIDE3 from "../assets/projects/midnight/midnightslide3.jpg";
+import MIDNIGHTSLIDE2 from "../assets/projects/midnight/midnightvideo.mp4";
+import MIDNIGHTSLIDE3 from "../assets/projects/midnight/midnightslide3.jpeg";
+
 
 
 
@@ -317,7 +319,7 @@ export const PROJECTS = [
 
         slides: [
             [MIDNIGHTSLIDE1],
-            [MIDNIGHT1],
+             [{ type: "video", src: MIDNIGHTSLIDE2 }],
             [MIDNIGHTSLIDE3],
             [],
         ],
