@@ -319,7 +319,69 @@ export const PROJECTS = [
 
         slides: [
             [MIDNIGHTSLIDE1],
-             [{ type: "video", src: MIDNIGHTSLIDE2 }],
+            [{ type: "video", src: MIDNIGHTSLIDE2 }],
+            [MIDNIGHTSLIDE3],
+            [],
+        ],
+
+        images: [
+            MIDNIGHT1,
+            MIDNIGHT2,
+            MIDNIGHT3,
+            MIDNIGHT4,
+        ],
+    },
+
+        {
+        id: "som",
+
+        label: "development",
+
+        title: "SOM",
+
+        subtitle: "Digital Vinyl Library",
+
+        type: "Full-Stack Web App",
+
+        chips: ["React", "Node.js", "MySQL", "API"],
+
+        date: "Spring 2026",
+
+        overview:
+            `SOM is a full-stack web application built around a simple but deliberate idea: what if streaming felt more like vinyl?
+
+            Most music platforms are built around playlists, queues, and algorithms. SOM strips all of that away. You build a collection of albums, you pick one, and you listen to it front to back. No shuffle. No recommendations taking over. Just the album, the way it was meant to be heard.
+
+            Built with React, Node.js, MySQL, and the Spotify Web API, SOM is a personal digital vinyl library with a custom 3D carousel, a fullscreen listening mode, and a design system built to match the weight of the music inside it.
+            `,
+
+        strategy:
+            `The strategic challenge was not technical, it was philosophical. Spotify's API is built for engagement. It wants to keep you listening, surfacing recommendations the moment an album ends and filling silence before you can choose what comes next. Building against that required deliberate decisions at every layer.
+
+            The goal was to respect the album as a complete work. This meant scoping features tightly and cutting anything that could not be implemented cleanly within those constraints. Disabling Spotify's autoplay recommendations remains an open limitation of the API, and is a known next step for the project.
+            `,
+
+        direction:
+            `The visual direction was built to feel like a record store at night. A near-black background, sharp typography using Space Grotesk and Oswald, and a single high-contrast accent color. Album artwork does most of the heavy lifting against the dark environment.
+
+            The centerpiece of the UI is a 3D vertical carousel built with pure CSS transforms and perspective, no libraries. Albums sit in a cylinder that rotates on the X axis, with scroll, keyboard, swipe, and arrow navigation. Clicking through to an album opens a full tracklist alongside a blurred, color-extracted backdrop that shifts with the artwork.
+
+            The fullscreen listening mode was the most considered feature. When activated, the UI fades on idle, leaving only the album art centered on screen, a slow-drifting blurred backdrop, and floating color orbs extracted from the album art using canvas sampling. The experience is closer to staring at an album cover than browsing a library.
+
+            The development process was supported in part by AI assistance, which helped accelerate problem-solving across both the frontend and backend.
+            `,
+
+        results:
+            `SOM is live at som.brunoshima.com. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+
+            The finished product is a cohesive listening experience that holds up as both a technical and design artifact. The 3D carousel, fullscreen mode, dynamic color extraction, and Spotify integration all work in concert to create something that feels intentional rather than assembled. It is the kind of project that is easy to explain in a sentence and takes a moment to actually understand when you use it.
+
+            SOM continues to be developed as a personal tool, with hosting, Spotify quota expansion, and performance improvements already underway.
+            `,
+
+        slides: [
+            [MIDNIGHTSLIDE1],
+            [],
             [MIDNIGHTSLIDE3],
             [],
         ],
