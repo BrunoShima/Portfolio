@@ -362,17 +362,13 @@ export const PROJECTS = [
             `,
 
         direction:
-            `The visual direction was built to feel like a record store at night. A near-black background, sharp typography using Space Grotesk and Oswald, and a single high-contrast accent color. Album artwork does most of the heavy lifting against the dark environment.
+            `The visual direction was built to feel like a record store at night. A near-black background, sharp typography, and a single high-contrast accent color. Album artwork does most of the heavy lifting.
 
-            The centerpiece of the UI is a 3D vertical carousel built with pure CSS transforms and perspective, no libraries. Albums sit in a cylinder that rotates on the X axis, with scroll, keyboard, swipe, and arrow navigation. Clicking through to an album opens a full tracklist alongside a blurred, color-extracted backdrop that shifts with the artwork.
-
-            The fullscreen listening mode was the most considered feature. When activated, the UI fades on idle, leaving only the album art centered on screen, a slow-drifting blurred backdrop, and floating color orbs extracted from the album art using canvas sampling. The experience is closer to staring at an album cover than browsing a library.
-
-            The development process was supported in part by AI assistance, which helped accelerate problem-solving across both the frontend and backend.
+            The centerpiece is a 3D vertical carousel built with pure CSS transforms, no libraries. The fullscreen listening mode was the most considered feature: the UI fades on idle, leaving only the album art, a slow-drifting blurred backdrop, and floating color orbs extracted from the artwork using canvas sampling. The development process was supported in part by AI assistance.
             `,
 
         results:
-            `SOM is live at som.brunoshima.com. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+            `SOM is live at <a href="https://som.brunoshima.com" target="_blank">som.brunoshima.com</a>. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
 
             The finished product is a cohesive listening experience that holds up as both a technical and design artifact. The 3D carousel, fullscreen mode, dynamic color extraction, and Spotify integration all work in concert to create something that feels intentional rather than assembled. It is the kind of project that is easy to explain in a sentence and takes a moment to actually understand when you use it.
 
