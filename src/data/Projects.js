@@ -69,6 +69,11 @@ import MIDNIGHTSLIDE1 from "../assets/projects/midnight/midnightslide1.jpg";
 import MIDNIGHTSLIDE2 from "../assets/projects/midnight/midnightvideo.mp4";
 import MIDNIGHTSLIDE3 from "../assets/projects/midnight/midnightslide3.jpeg";
 
+import SOM1 from "../assets/projects/som/som1.png";
+import SOM2 from "../assets/projects/som/som2.png";
+import SOM3 from "../assets/projects/som/som3.png";
+import SOM4 from "../assets/projects/som/som4.png";
+
 
 
 
@@ -368,7 +373,7 @@ export const PROJECTS = [
             `,
 
         results:
-            `SOM is live at <a href="https://som.brunoshima.com" target="_blank">som.brunoshima.com</a>. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+            `SOM is live at https://som.brunoshima.com. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
 
             The finished product is a cohesive listening experience that holds up as both a technical and design artifact. The 3D carousel, fullscreen mode, dynamic color extraction, and Spotify integration all work in concert to create something that feels intentional rather than assembled. It is the kind of project that is easy to explain in a sentence and takes a moment to actually understand when you use it.
 
@@ -376,17 +381,17 @@ export const PROJECTS = [
             `,
 
         slides: [
-            [MIDNIGHTSLIDE1],
-            [],
-            [MIDNIGHTSLIDE3],
+            [SOM4],
+            [SOM1, SOM2],
+            [SOM3],
             [],
         ],
 
         images: [
-            MIDNIGHT1,
-            MIDNIGHT2,
-            MIDNIGHT3,
-            MIDNIGHT4,
+            SOM1,
+            SOM2,
+            SOM3,
+            SOM4,
         ],
     },
 
