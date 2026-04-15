@@ -18,6 +18,11 @@ const midnightImages = import.meta.glob(
   { eager: true }
 );
 
+const somImages = import.meta.glob(
+  "../assets/projects/som/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
 
 function toArray(globResult) {
   return Object.values(globResult).map((m) => m.default);
@@ -25,6 +30,6 @@ function toArray(globResult) {
 
 export const PROJECT_IMAGES = {
   designer: [...toArray(houndstoothImages), ...toArray(styleImages), ...toArray(jewelryImages)],
-  developer: [...toArray(houndstoothImages),],
+  developer: [...toArray(somImages),],
   creative: [...toArray(midnightImages),],
 };
