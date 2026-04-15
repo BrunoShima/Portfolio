@@ -77,9 +77,10 @@ function TextPanel({ panel, scrollYProgress, panelIndex, panelCount, nextPanelTy
         >
           {panel.label}
         </h2>
-        <p className="text-[length:var(--text-body)] max-w-[60ch] text-justify [text-align-last:start] whitespace-pre-line">
-          {panel.body}
-        </p>
+        <p
+          className="text-[length:var(--text-body)] max-w-[60ch] text-justify [text-align-last:start] whitespace-pre-line"
+          dangerouslySetInnerHTML={{ __html: panel.body }}
+        />
       </div>
     </motion.div>
   );
@@ -353,9 +354,10 @@ export default function ProjectDetailScreen() {
                 >
                   {section.label}
                 </h2>
-                <p className="text-[length:var(--text-body)] text-justify [text-align-last:start] whitespace-pre-line">
-                  {project[section.key]}
-                </p>
+                  <p
+                    className="text-[length:var(--text-body)] text-justify [text-align-last:start] whitespace-pre-line"
+                    dangerouslySetInnerHTML={{ __html: project[section.key] }}
+                  />
                 {slideImages.length > 0 && (
                   <div className="flex flex-col gap-6 mt-10">
                     {slideImages.map((item, imgIndex) => {
