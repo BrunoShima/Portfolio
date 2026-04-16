@@ -457,7 +457,7 @@ export default function ProjectDetailScreen() {
         viewport={{ once: true }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="
-          flex items-center justify-between
+          flex items-start justify-between
           max-w-[1600px] mx-auto
           px-8 sm:px-16 lg:px-26
           py-10 sm:py-20
@@ -468,8 +468,14 @@ export default function ProjectDetailScreen() {
         "
       >
         <Link to="/projects">← All Projects</Link>
-        <Link to={`/projects/${nextProject.label}/${nextProject.slug}`} className="text-right">
-          Next Project →
+        <Link to={`/projects/${nextProject.label}/${nextProject.slug}`} className="text-right inline-flex items-baseline gap-2">
+          <span className="flex flex-col gap-1 items-end">
+            <span>Next Project</span>
+            <span className="text-[length:var(--text-body2)] font-normal tracking-normal text-[var(--color-blackish)]/40">
+              {nextProject.title}
+            </span>
+          </span>
+          <span>→</span>
         </Link>
       </motion.div>
 
