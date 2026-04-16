@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiGithub } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
 
 const NAV_LINKS = [
@@ -171,6 +171,15 @@ export default function MenuOverlay({ open, onOpenChange }) {
                             className="inline-flex items-center justify-center"
                         >
                             <SiInstagram className="h-10 w-10" color="var(--color-blackish)" />
+                        </a>
+                        <a
+                            href="https://github.com/BrunoShima"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            className="inline-flex items-center justify-center"
+                        >
+                            <SiGithub className="h-10 w-10" color="var(--color-blackish)" />
                         </a>
                     </div>
                 </motion.div>

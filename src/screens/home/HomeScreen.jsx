@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 import Logo from "../../assets/illustrations/Logo.svg";
 
-import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiGithub } from "react-icons/si";
 import { FiMessageCircle } from "react-icons/fi";
 import { motion } from "motion/react";
 
@@ -191,6 +191,13 @@ export default function HomeScreen() {
 
                 <Link to="https://www.instagram.com/designedbybru/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex items-center justify-center">
                     <SiInstagram
+                        className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
+                        color="var(--color-blackish)"
+                    />
+                </Link>
+
+                <Link to="https://github.com/BrunoShima" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="inline-flex items-center justify-center">
+                    <SiGithub
                         className="h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6"
                         color="var(--color-blackish)"
                     />

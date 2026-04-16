@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { motion } from "motion/react";
 
-import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiGithub } from "react-icons/si";
 import { FiMessageCircle } from "react-icons/fi";
 
 const ICON_SIZE = "h-12 w-12 lg:h-10 lg:w-10 max-lg:h-8 max-lg:w-8 max-sm:h-6 max-sm:w-6";
@@ -59,7 +59,8 @@ export default function AboutOutro() {
                 >
                     {[
                         { href: "https://www.linkedin.com/in/bruno-shimabukuro", icon: <SiLinkedin className={ICON_SIZE} color="var(--color-blackish)" />, label: "LinkedIn", external: true },
-                        { href: "https://instagram.com", icon: <SiInstagram className={ICON_SIZE} color="var(--color-blackish)" />, label: "Instagram", external: true },
+                        { href: "https://www.instagram.com/designedbybru/", icon: <SiInstagram className={ICON_SIZE} color="var(--color-blackish)" />, label: "Instagram", external: true },
+                        { href: "https://github.com/BrunoShima", icon: <SiGithub className={ICON_SIZE} color="var(--color-blackish)" />, label: "GitHub", external: true },
                         { to: "/contact", icon: <FiMessageCircle className={ICON_SIZE} color="var(--color-blackish)" />, label: "Message", external: false },
                     ].map((item, index) => (
                         <motion.div
