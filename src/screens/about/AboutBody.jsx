@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const SECTIONS = [
   {
     label: "Who I Am",
-    body: "Brazil gave me confidence, energy, and warmth. Japan gave me precision, restraint, and an obsession with getting things just right. Growing up as part of Brazil's deep-rooted Japanese community means I've never seen boldness and restraint as opposites. I see them as the same impulse, expressed differently. That duality lives in everything I make.",
+    body: "Raised at the intersection of Brazilian and Japanese culture, I imbue my work with a unique blend of confidence and restraint. Energy and precision. Warmth and obsession. I live for the moments where moderation can not only coexist with boldness, but where they can harmonize. That duality runs through both my DNA and my work. ",
   },
   {
     label: "How I Work",
