@@ -119,7 +119,7 @@ export default function MenuOverlay({ open, onOpenChange }) {
                                                         transform: openSubmenu === item.to ? "rotate(90deg)" : "rotate(0deg)"
                                                     }}
                                                 >
-                                                    ▶
+                                                    
                                                 </span>
                                             )}
                                         </Link>
