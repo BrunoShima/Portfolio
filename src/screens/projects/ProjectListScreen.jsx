@@ -55,7 +55,7 @@ export default function ProjectListScreen() {
                             className="w-full"
                         >
                             <Link
-                                to={`/projects/${p.label}/${p.id}`}
+                                to={`/projects/${p.label}/${p.slug}`}
                                 className="
                                     relative z-10
                                     w-full

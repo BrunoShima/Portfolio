@@ -83,6 +83,8 @@ export const PROJECTS = [
     {
         id: "houndstooth",
 
+        slug: "social-media-campaign",
+
         label: "design",
 
         title: "Houndstooth",
@@ -156,6 +158,8 @@ export const PROJECTS = [
     {
         id: "style",
 
+        slug: "concept-magazine",
+
         label: "design",
 
         title: "Style",
@@ -211,6 +215,8 @@ export const PROJECTS = [
 
     {
         id: "jewelry",
+
+        slug: "jewelry-catalogue",
 
         label: "design",
 
@@ -287,6 +293,8 @@ export const PROJECTS = [
     {
         id: "aftermidnight",
 
+        slug: "editorial-photoshoot",
+
         label: "creative",
 
         title: "After Midnight",
@@ -340,6 +348,8 @@ export const PROJECTS = [
 
         {
         id: "som",
+
+        slug: "music-app",
 
         label: "development",
 

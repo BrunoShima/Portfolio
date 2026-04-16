@@ -30,7 +30,7 @@ export default function App() {
 
           <Route path="/projects/" element={<ProjectListScreen />} />
           <Route path="/projects/:label" element={<ProjectListScreen />} />
-          <Route path="/projects/:label/:projectId" element={<ProjectDetailScreen />} />
+          <Route path="/projects/:label/:slug" element={<ProjectDetailScreen />} />
           <Route path="*" element={<NotFoundScreen />} />
         </Routes>
       </AnimatePresence>

@@ -152,8 +152,8 @@ function ImagePanel({ panel, scrollYProgress, panelIndex, panelCount, projectTit
 // ── MAIN COMPONENT ────────────────────────────────────────────────────────────
 
 export default function ProjectDetailScreen() {
-  const { projectId } = useParams();
-  const project = PROJECTS.find((item) => item.id === projectId);
+  const { slug } = useParams();
+  const project = PROJECTS.find((item) => item.slug === slug);
 
   const allPanels = project
     ? TEXT_SECTIONS.flatMap((section, i) => {
@@ -176,14 +176,14 @@ export default function ProjectDetailScreen() {
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight">Project Not Found</h1>
           <p className="text-sm opacity-70">
-            The project <span className="font-mono">{projectId}</span> does not exist.
+            The project <span className="font-mono">{slug}</span> does not exist.
           </p>
         </div>
       </section>
     );
   }
 
-  const currentIndex = PROJECTS.findIndex((p) => p.id === projectId);
+  const currentIndex = PROJECTS.findIndex((p) => p.slug === slug);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
   const galleryImages = project.images ?? [];
 
@@ -455,7 +455,7 @@ export default function ProjectDetailScreen() {
         "
       >
         <Link to="/projects">← All Projects</Link>
-        <Link to={`/projects/${nextProject.label}/${nextProject.id}`} className="text-right">
+        <Link to={`/projects/${nextProject.label}/${nextProject.slug}`} className="text-right">
           Next Project →
         </Link>
       </motion.div>
