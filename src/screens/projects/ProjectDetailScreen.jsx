@@ -398,24 +398,40 @@ export default function ProjectDetailScreen() {
       {galleryImages.length > 0 && (
         <section className="bg-[var(--color-whiteish)] pt-32 pb-32">
           <div className="max-w-[1600px] mx-auto px-16 sm:px-22 lg:px-26">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {galleryImages.map((src, index) => (
-                <motion.figure
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.08 }}
-                  className="overflow-hidden"
-                >
-                  <img
-                    src={src}
-                    alt={`${project.title} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.figure>
-              ))}
+            <div className={`grid gap-3 ${galleryImages.length < 9 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
+              {galleryImages.map((item, index) => {
+                const isVideo = typeof item === "object" && item.type === "video";
+                return (
+                  <motion.figure
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.08 }}
+                    className="overflow-hidden"
+                  >
+                    {isVideo ? (
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover"
+                      >
+                        <source src={item.src} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img
+                        src={item}
+                        alt={`${project.title} ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    )}
+                  </motion.figure>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -353,29 +353,31 @@ export const PROJECTS = [
         date: "Spring 2026",
 
         overview:
-            `SOM is a full-stack web application built around a simple but deliberate idea: what if streaming felt more like vinyl?
+            `SOM, which simply translates to "sound" in portuguese, is a full-stack web application with a concept as simple as its name. A way to stream the music that you want to listen to, free of any other distractions.
 
-            Most music platforms are built around playlists, queues, and algorithms. SOM strips all of that away. You build a collection of albums, you pick one, and you listen to it front to back. No shuffle. No recommendations taking over. Just the album, the way it was meant to be heard.
+            Most streaming platforms are built around playlists, music recommendations, and algorithms. SOM is meant to deliver a different way to experience the music that you want to listen to. Stripping all functionality down to the bare essentials, much like you would experience through physical media. No queueing, no algorithms, no playlists. 
 
-            Built with React, Node.js, MySQL, and the Spotify Web API, SOM is a personal digital vinyl library with a custom 3D carousel, a fullscreen listening mode, and a design system built to match the weight of the music inside it.
+            A music platform that is about the music. 
             `,
 
         strategy:
-            `The strategic challenge was not technical, it was philosophical. Spotify's API is built for engagement. It wants to keep you listening, surfacing recommendations the moment an album ends and filling silence before you can choose what comes next. Building against that required deliberate decisions at every layer.
+            `The strategy behind SOM is in conflict with traditional streaming platforms, built around engagement, novelty, and clicks. SOM is the antithesis to this philosophy. 
 
-            The goal was to respect the album as a complete work. This meant scoping features tightly and cutting anything that could not be implemented cleanly within those constraints. Disabling Spotify's autoplay recommendations remains an open limitation of the API, and is a known next step for the project.
+            As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, its a ritual. From admiring the cover art, to listening to each track in order, SOM removes the noise from streaming. 
+
+            The goal was to deliver an accessible way to listen to music that respects each album as its own body of work.
             `,
 
         direction:
-            `The visual direction was built to feel like a record store at night. A near-black background, sharp typography, and a single high-contrast accent color. Album artwork does most of the heavy lifting.
+            `The visual direction behind SOM is deliberately simple. Meant to be distractionless, easy to navigate, with the music being front and center. An easy way to browse, collect, and enjoy your favourite music. 
 
-            The centerpiece is a 3D vertical carousel built with pure CSS transforms, no libraries. The fullscreen listening mode was the most considered feature: the UI fades on idle, leaving only the album art, a slow-drifting blurred backdrop, and floating color orbs extracted from the artwork using canvas sampling. The development process was supported in part by AI assistance.
+            Under the hood, this required intentful engineering. Ensuring a seamless experience for the listener meant layered solutions that connected user databases and Spotify's API to a front-end that would highlight the albums which this app is built for. Built with React, Node.js, MySQL, and the Spotify Web API. SOM is your personal digital vinyl library.
             `,
 
         results:
-            `SOM is live at https://som.brunoshima.com. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+            `SOM is now live at som.brunoshima.com. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
 
-            The finished product is a cohesive listening experience that holds up as both a technical and design artifact. The 3D carousel, fullscreen mode, dynamic color extraction, and Spotify integration all work in concert to create something that feels intentional rather than assembled. It is the kind of project that is easy to explain in a sentence and takes a moment to actually understand when you use it.
+            The finished product is a cohesive listening experience that both looks good and works well. Featuring a 3D carousel to display your personal collection, fullscreen mode for immersive listening, and decorated with dynamic color extraction from your personal album collection. A truly addictive way to listen to your own music.
 
             SOM continues to be developed as a personal tool, with hosting, Spotify quota expansion, and performance improvements already underway.
             `,
@@ -388,10 +390,7 @@ export const PROJECTS = [
         ],
 
         images: [
-            SOM1,
-            SOM2,
-            SOM3,
-            SOM4,
+            { type: "video", src: MIDNIGHTSLIDE2 },
         ],
     },
 
