@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import Button from "@/components/ui/Button";
+import { FiCopy, FiCheck } from "react-icons/fi";
+
+const INPUT_CLASS = "w-full h-9 rounded-md border-2 border-[var(--color-blackish)] bg-transparent px-3 [font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70 outline-none";
+const LABEL_CLASS = "[font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] font-medium";
 
 export default function ContactScreen() {
-    const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+    const [status, setStatus] = useState("idle");
+    const [copied, setCopied] = useState(false);
+
+    function copyEmail() {
+        navigator.clipboard.writeText("designedbybru@gmail.com");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -31,126 +42,114 @@ export default function ContactScreen() {
     }
 
     return (
-        <main
-            className="
-                flex
-                flex-col
-                justify-center
-                items-center
-                min-h-dvh
-                w-full
-                bg-[var(--color-whiteish)]
-                pt-24 sm:pt-0
-                pb-10 sm:pb-0
-            "
-        >
-            <div
-                className="
-                    w-full
-                    max-w-[980px]
-                    px-6 sm:px-10
-                    grid
-                    gap-5 sm:gap-6
-                "
-            >
-                <motion.h1
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
-                    className="
-                        text-center
-                        text-[var(--color-yellow)]
-                        [font-family:var(--font-main)]
-                        text-[length:var(--text-heading)]
-                        tracking-tight
-                        font-bold
-                    "
-                >
-                    Let's get in touch.
-                </motion.h1>
+        <main className="
+            min-h-dvh flex items-center
+            bg-[var(--color-whiteish)]
+            text-[var(--color-blackish)]
+            [font-family:var(--font-main)]
+            px-8 sm:px-16 lg:px-26
+            pt-24 pb-12
+        ">
+            <div className="w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-                <motion.p
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.8 }}
-                    className="
-                        mx-auto
-                        w-full
-                        max-w-[70ch]
-                        text-center
-                        text-[var(--color-blackish)]
-                        [font-family:var(--font-main)]
-                        text-[length:var(--text-body)]
-                        font-medium
-                    "
-                >
-                    If you need a steady design hand, a front-end build, or a teammate who cares about the details, send a note and I'll get back to you.
-                </motion.p>
-
-                {status === "success" ? (
-                    <motion.p
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="
-                            mx-auto
-                            text-center
-                            [font-family:var(--font-main)]
-                            text-[length:var(--text-body)]
-                            text-[var(--color-blackish)]
-                            font-medium
-                        "
-                    >
-                        Message sent! I'll get back to you soon.
-                    </motion.p>
-                ) : (
-                    <motion.form
+                {/* ── Left: heading + body + info blocks ───────────────────── */}
+                <div className="flex flex-col gap-6">
+                    <motion.h1
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
-                        transition={{ duration: 0.4, ease: "easeOut", delay: 1.3 }}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
                         className="
-                            mx-auto
-                            w-full
-                            max-w-[720px]
-                            grid
-                            gap-3
+                            text-[length:var(--text-heading)]
+                            font-bold tracking-[-0.08em] leading-none
                         "
-                        onSubmit={handleSubmit}
                     >
-                        <div className="grid grid-cols-2 gap-3">
-                            <div className="grid gap-2">
-                                <label htmlFor="firstName" className="[font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] font-medium">First Name</label>
-                                <input required id="firstName" name="firstName" type="text" autoComplete="given-name" className="w-full h-9 rounded-md border-2 border-[var(--color-blackish)] bg-transparent px-3 [font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70 outline-none" />
+                        Let's get <span className="text-[var(--color-yellow)]">in touch.</span>
+                    </motion.h1>
+
+                    <motion.p
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.5 }}
+                        className="text-[length:var(--text-body)] font-medium max-w-[45ch]"
+                    >
+                        If you need a steady design hand, a front-end build, or a teammate who cares about the details, send a note and I'll get back to you.
+                    </motion.p>
+
+                    {/* Info blocks */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.8 }}
+                        className="border-t border-[var(--color-blackish)]/20"
+                    >
+                        {[
+                            { label: "Name",     value: <span>Bruno Shimabukuro</span> },
+                            { label: "Email",    value: <span className="flex items-center gap-2">designedbybru@gmail.com<button onClick={copyEmail} className="opacity-40 hover:opacity-100 transition-opacity duration-200 cursor-pointer">{copied ? <FiCheck className="w-4 h-4 text-[var(--color-yellow)]" /> : <FiCopy className="w-4 h-4" />}</button></span> },
+                            { label: "Location", value: <span>Currently in: <span className="text-[var(--color-yellow)]">Vancouver, BC</span></span> },
+                        ].map((item) => (
+                            <div key={item.label} className="border-b border-[var(--color-blackish)]/20 py-4 flex flex-col gap-1">
+                                <p className="text-[length:var(--text-body2)] font-medium opacity-40">{item.label}</p>
+                                <p className="text-[length:var(--text-body)] font-medium">{item.value}</p>
                             </div>
-                            <div className="grid gap-2">
-                                <label htmlFor="lastName" className="[font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] font-medium">Last Name</label>
-                                <input required id="lastName" name="lastName" type="text" autoComplete="family-name" className="w-full h-9 rounded-md border-2 border-[var(--color-blackish)] bg-transparent px-3 [font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70 outline-none" />
+                        ))}
+                    </motion.div>
+                </div>
+
+                {/* ── Right: form ──────────────────────────────────────────── */}
+                <div className="self-stretch flex flex-col pt-[calc(clamp(4rem,6vw,6.25rem)+1.5rem)] max-w-[480px] mx-auto w-full">
+                    {status === "success" ? (
+                        <motion.p
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="text-[length:var(--text-body)] font-medium"
+                        >
+                            Message sent! I'll get back to you soon.
+                        </motion.p>
+                    ) : (
+                        <motion.form
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
+                            transition={{ duration: 0.4, ease: "easeOut", delay: 1.2 }}
+                            className="flex flex-col gap-3 flex-1"
+                            onSubmit={handleSubmit}
+                        >
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="grid gap-2">
+                                    <label htmlFor="firstName" className={LABEL_CLASS}>First Name</label>
+                                    <input required id="firstName" name="firstName" type="text" autoComplete="given-name" className={INPUT_CLASS} />
+                                </div>
+                                <div className="grid gap-2">
+                                    <label htmlFor="lastName" className={LABEL_CLASS}>Last Name</label>
+                                    <input required id="lastName" name="lastName" type="text" autoComplete="family-name" className={INPUT_CLASS} />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="grid gap-2">
-                            <label htmlFor="email" className="[font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] font-medium">Email</label>
-                            <input required id="email" name="email" type="email" autoComplete="email" className="w-full h-9 rounded-md border-2 border-[var(--color-blackish)] bg-transparent px-3 [font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70 outline-none" />
-                        </div>
+                            <div className="grid gap-2">
+                                <label htmlFor="email" className={LABEL_CLASS}>Email</label>
+                                <input required id="email" name="email" type="email" autoComplete="email" className={INPUT_CLASS} />
+                            </div>
 
-                        <div className="grid gap-2">
-                            <label htmlFor="message" className="[font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] font-medium">Message</label>
-                            <textarea required id="message" name="message" rows={5} className="w-full rounded-md border-2 border-[var(--color-blackish)] bg-transparent px-3 py-2 resize-none [font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70 outline-none" />
-                        </div>
+                            <div className="flex flex-col flex-1 gap-2">
+                                <label htmlFor="message" className={LABEL_CLASS}>Message</label>
+                                <textarea required id="message" name="message" className="flex-1 w-full rounded-md border-2 border-[var(--color-blackish)] bg-transparent px-3 py-2 resize-none [font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70 outline-none" />
+                            </div>
 
-                        {status === "error" && (
-                            <p className="[font-family:var(--font-main)] text-[length:var(--text-body2)] text-[var(--color-blackish)] opacity-70">
-                                Something went wrong. Please try again.
-                            </p>
-                        )}
+                            {status === "error" && (
+                                <p className={`${LABEL_CLASS} opacity-70`}>
+                                    Something went wrong. Please try again.
+                                </p>
+                            )}
 
-                        <Button type="submit" disabled={status === "submitting"}>
-                            {status === "submitting" ? "SENDING..." : "SUBMIT"}
-                        </Button>
-                    </motion.form>
-                )}
+                            <Button type="submit" disabled={status === "submitting"}>
+                                {status === "submitting" ? "SENDING..." : "SUBMIT"}
+                            </Button>
+                        </motion.form>
+                    )}
+                </div>
             </div>
         </main>
     );
