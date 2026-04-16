@@ -73,6 +73,7 @@ import SOM1 from "../assets/projects/som/som1.png";
 import SOM2 from "../assets/projects/som/som2.png";
 import SOM3 from "../assets/projects/som/som3.png";
 import SOM4 from "../assets/projects/som/som4.png";
+import SOMVIDEO from "../assets/projects/som/somvideo.mp4";
 
 
 
@@ -375,7 +376,7 @@ export const PROJECTS = [
             `,
 
         results:
-            `SOM is now live at som.brunoshima.com. It runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+            `SOM is now live web app running on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
 
             The finished product is a cohesive listening experience that both looks good and works well. Featuring a 3D carousel to display your personal collection, fullscreen mode for immersive listening, and decorated with dynamic color extraction from your personal album collection. A truly addictive way to listen to your own music.
 
@@ -390,7 +391,7 @@ export const PROJECTS = [
         ],
 
         images: [
-            { type: "video", src: MIDNIGHTSLIDE2 },
+            { type: "video", src: SOMVIDEO },
         ],
     },
 
