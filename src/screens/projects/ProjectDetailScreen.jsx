@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useParams, Link } from "react-router";
 import { motion, useScroll, useTransform } from "motion/react";
 import { PROJECTS } from "../../data/Projects";
+import ScrollSpy from "../../components/ui/ScrollSpy";
 
 const TEXT_SECTIONS = [
   { num: "01", label: "Overview",  key: "overview",  accent: false },
@@ -166,6 +167,10 @@ export default function ProjectDetailScreen() {
     : [];
 
   const panelCount = Math.max(allPanels.length, 1);
+  const textPanelIndices = allPanels.reduce((acc, panel, i) => {
+    if (panel.type === "text") acc.push(i);
+    return acc;
+  }, []);
 
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
@@ -283,6 +288,14 @@ export default function ProjectDetailScreen() {
           <motion.div
             className="absolute top-0 left-0 right-0 h-[4px] bg-[var(--color-yellow)] z-30 origin-left"
             style={{ scaleX: scrollYProgress }}
+          />
+
+          {/* Scroll spy */}
+          <ScrollSpy
+            textPanelIndices={textPanelIndices}
+            panelCount={panelCount}
+            scrollYProgress={scrollYProgress}
+            containerRef={containerRef}
           />
 
           {/* Layered panels */}
