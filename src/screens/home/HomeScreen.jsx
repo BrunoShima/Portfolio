@@ -64,7 +64,8 @@ export default function HomeScreen() {
                         inset-0
                         z-0
                         bg-[var(--color-yellow)]
-                        opacity-70
+                        mix-blend-multiply
+                        opacity-50
                         pointer-events-none
                     "
                 />

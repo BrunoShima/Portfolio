@@ -30,6 +30,10 @@ export default function HoverLink({
                     onMouseEnter={() => canHover && setHoverTarget(id)}
                     onMouseLeave={() => canHover && setHoverTarget(null)}
                     className={className || ""}
+                    style={{
+                        color: isActive ? "var(--color-yellow)" : "var(--color-blackish)",
+                        transition: "color 200ms",
+                    }}
                 >
                     {children}
                 </Link>

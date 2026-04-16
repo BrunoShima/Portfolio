@@ -49,7 +49,10 @@ export default function HoverVideo({
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(circle at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%)"
+          background: `
+            radial-gradient(ellipse at top left, rgba(255,183,2,0.8) 0%, transparent 60%),
+            radial-gradient(ellipse at bottom right, rgba(255,183,2,0.8) 0%, transparent 60%)
+          `
         }}
       />
     </div>
