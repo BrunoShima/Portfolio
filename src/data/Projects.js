@@ -156,64 +156,6 @@ export const PROJECTS = [
     },
 
     {
-        id: "style",
-
-        slug: "concept-magazine",
-
-        label: "design",
-
-        title: "Style",
-
-        subtitle: "Magazine Concept",
-
-        type: "Brand Exploration",
-
-        chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
-
-        date: "Summer 2025",
-
-        overview:
-            `Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system. The project focuses on layout design, typography, visual hierarchy, and the expressive qualities of contemporary magazine design.
-
-            Rather than producing journalistic content, this exploration centers on visual storytelling—how bold minimalism, elevated typography, and clean editorial structure can frame the richness of hip hop fashion. Through a combination of cover design, feature spreads, image integration, and story-driven layouts, this project demonstrates my ability to craft a refined editorial experience for a culturally focused publication.
-            `,
-
-        strategy:
-            `The strategy for Style Magazine began with defining the publication's visual voice: modern, elevated, and culturally grounded. Hip hop fashion is bold, dynamic, and expressive, yet this project aimed to interpret that energy through a more minimalist, design-forward lens. The strategy was to pair the vibrancy of the culture with structured, contemporary typography and restrained layouts, creating a premium editorial identity.
-
-            A modular grid system was developed to support flexibility across different article types: features, interviews, style pages, and full-bleed imagery. Establishing this framework early ensured visual consistency while still allowing room for expressive moments where type and imagery could break convention.
-            `,
-
-        direction:
-            `The creative direction blended bold cultural influence with a minimalist design sensibility. The target audience, fashion enthusiasts, and fans of hip hop culture, gravitates toward publications that feel both stylish and editorially polished. To capture this, the direction focused on clean grids, strong typographic contrast, generous whitespace, and deliberate pacing across spreads.
-
-            Typography served as the core expressive tool, balancing oversized headlines with crisp, contemporary body type. Imagery was integrated to create visual rhythm, sometimes full-bleed and immersive, other times framed with intentional negative space to heighten impact.
-            `,
-
-        results:
-            `The final concept resulted in a cohesive editorial identity that showcases both cultural vibrancy and refined design craftsmanship. The completed spreads demonstrate strong control over layout, hierarchy, and typographic voice, while the broader system reflects a scalable framework for a full publication.
-
-            This project highlights my ability to design structured print experiences, develop conceptual editorial brands, and translate cultural themes into modern design language.
-            `,
-
-        slides: [
-            [STYLESLIDE1, STYLESLIDE2],  
-            [STYLESLIDE3], 
-            [STYLESLIDE4],           
-            [],           
-        ],
-
-        images: [
-            STYLEIMG1,
-            STYLEIMG2,
-            STYLEIMG3,
-            STYLEIMG4,
-            STYLEIMG5,
-            STYLEIMG6,
-        ],
-    },
-
-    {
         id: "jewelry",
 
         slug: "jewelry-catalogue",
@@ -290,6 +232,125 @@ export const PROJECTS = [
         ],
     },
 
+        {
+        id: "som",
+
+        slug: "music-app",
+
+        label: "development",
+
+        title: "SOM",
+
+        subtitle: "Digital Vinyl Library",
+
+        type: "Full-Stack Web App",
+
+        chips: ["React", "Node.js", "MySQL", "API"],
+
+        date: "Spring 2026",
+
+        overview:
+            `SOM, which simply translates to "sound" in portuguese, is a full-stack web application with a concept as simple as its name. A way to stream the music that you want to listen to, free of any other distractions.
+
+            Most streaming platforms are built around playlists, music recommendations, and algorithms. SOM is meant to deliver a different way to experience the music that you want to listen to. Stripping all functionality down to the bare essentials, much like you would experience through physical media. No queueing, no algorithms, no playlists. 
+
+            A music platform that is about the music. 
+            `,
+
+        strategy:
+            `The strategy behind SOM is in conflict with traditional streaming platforms, built around engagement, novelty, and clicks. SOM is the antithesis to this philosophy. 
+
+            As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, its a ritual. From admiring the cover art, to listening to each track in order, SOM removes the noise from streaming. 
+
+            The goal was to deliver an accessible way to listen to music that respects each album as its own body of work.
+            `,
+
+        direction:
+            `The visual direction behind SOM is deliberately simple. Meant to be distractionless, easy to navigate, with the music being front and center. An easy way to browse, collect, and enjoy your favourite music. 
+
+            Under the hood, this required intentful engineering. Ensuring a seamless experience for the listener meant layered solutions that connected user databases and Spotify's API to a front-end that would highlight the albums which this app is built for. Built with React, Node.js, MySQL, and the Spotify Web API. SOM is your personal digital vinyl library.
+            `,
+
+        results:
+            `SOM is now live web app running on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+
+            The finished product is a cohesive listening experience that both looks good and works well. Featuring a 3D carousel to display your personal collection, fullscreen mode for immersive listening, and decorated with dynamic color extraction from your personal album collection. A truly addictive way to listen to your own music.
+
+            SOM continues to be developed as a personal tool, with hosting, Spotify quota expansion, and performance improvements already underway.
+            `,
+
+        slides: [
+            [SOM4],
+            [SOM1, SOM2],
+            [SOM3],
+            [],
+        ],
+
+        images: [
+            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" },
+        ],
+    },
+
+
+    {
+        id: "style",
+
+        slug: "concept-magazine",
+
+        label: "design",
+
+        title: "Style",
+
+        subtitle: "Magazine Concept",
+
+        type: "Brand Exploration",
+
+        chips: ["Layout Design", "Image Curation", "Photoshop", "InDesign"],
+
+        date: "Summer 2025",
+
+        overview:
+            `Style Magazine is a conceptual editorial project exploring the intersection of fashion and hip hop culture. The goal of this self-initiated piece was to build a premium magazine identity and translate it into a cohesive, print-ready editorial system. The project focuses on layout design, typography, visual hierarchy, and the expressive qualities of contemporary magazine design.
+
+            Rather than producing journalistic content, this exploration centers on visual storytelling—how bold minimalism, elevated typography, and clean editorial structure can frame the richness of hip hop fashion. Through a combination of cover design, feature spreads, image integration, and story-driven layouts, this project demonstrates my ability to craft a refined editorial experience for a culturally focused publication.
+            `,
+
+        strategy:
+            `The strategy for Style Magazine began with defining the publication's visual voice: modern, elevated, and culturally grounded. Hip hop fashion is bold, dynamic, and expressive, yet this project aimed to interpret that energy through a more minimalist, design-forward lens. The strategy was to pair the vibrancy of the culture with structured, contemporary typography and restrained layouts, creating a premium editorial identity.
+
+            A modular grid system was developed to support flexibility across different article types: features, interviews, style pages, and full-bleed imagery. Establishing this framework early ensured visual consistency while still allowing room for expressive moments where type and imagery could break convention.
+            `,
+
+        direction:
+            `The creative direction blended bold cultural influence with a minimalist design sensibility. The target audience, fashion enthusiasts, and fans of hip hop culture, gravitates toward publications that feel both stylish and editorially polished. To capture this, the direction focused on clean grids, strong typographic contrast, generous whitespace, and deliberate pacing across spreads.
+
+            Typography served as the core expressive tool, balancing oversized headlines with crisp, contemporary body type. Imagery was integrated to create visual rhythm, sometimes full-bleed and immersive, other times framed with intentional negative space to heighten impact.
+            `,
+
+        results:
+            `The final concept resulted in a cohesive editorial identity that showcases both cultural vibrancy and refined design craftsmanship. The completed spreads demonstrate strong control over layout, hierarchy, and typographic voice, while the broader system reflects a scalable framework for a full publication.
+
+            This project highlights my ability to design structured print experiences, develop conceptual editorial brands, and translate cultural themes into modern design language.
+            `,
+
+        slides: [
+            [STYLESLIDE1, STYLESLIDE2],  
+            [STYLESLIDE3], 
+            [STYLESLIDE4],           
+            [],           
+        ],
+
+        images: [
+            STYLEIMG1,
+            STYLEIMG2,
+            STYLEIMG3,
+            STYLEIMG4,
+            STYLEIMG5,
+            STYLEIMG6,
+        ],
+    },
+
+
     {
         id: "aftermidnight",
 
@@ -346,63 +407,5 @@ export const PROJECTS = [
         ],
     },
 
-        {
-        id: "som",
-
-        slug: "music-app",
-
-        label: "development",
-
-        title: "SOM",
-
-        subtitle: "Digital Vinyl Library",
-
-        type: "Full-Stack Web App",
-
-        chips: ["React", "Node.js", "MySQL", "API"],
-
-        date: "Spring 2026",
-
-        overview:
-            `SOM, which simply translates to "sound" in portuguese, is a full-stack web application with a concept as simple as its name. A way to stream the music that you want to listen to, free of any other distractions.
-
-            Most streaming platforms are built around playlists, music recommendations, and algorithms. SOM is meant to deliver a different way to experience the music that you want to listen to. Stripping all functionality down to the bare essentials, much like you would experience through physical media. No queueing, no algorithms, no playlists. 
-
-            A music platform that is about the music. 
-            `,
-
-        strategy:
-            `The strategy behind SOM is in conflict with traditional streaming platforms, built around engagement, novelty, and clicks. SOM is the antithesis to this philosophy. 
-
-            As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, its a ritual. From admiring the cover art, to listening to each track in order, SOM removes the noise from streaming. 
-
-            The goal was to deliver an accessible way to listen to music that respects each album as its own body of work.
-            `,
-
-        direction:
-            `The visual direction behind SOM is deliberately simple. Meant to be distractionless, easy to navigate, with the music being front and center. An easy way to browse, collect, and enjoy your favourite music. 
-
-            Under the hood, this required intentful engineering. Ensuring a seamless experience for the listener meant layered solutions that connected user databases and Spotify's API to a front-end that would highlight the albums which this app is built for. Built with React, Node.js, MySQL, and the Spotify Web API. SOM is your personal digital vinyl library.
-            `,
-
-        results:
-            `SOM is now live web app running on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
-
-            The finished product is a cohesive listening experience that both looks good and works well. Featuring a 3D carousel to display your personal collection, fullscreen mode for immersive listening, and decorated with dynamic color extraction from your personal album collection. A truly addictive way to listen to your own music.
-
-            SOM continues to be developed as a personal tool, with hosting, Spotify quota expansion, and performance improvements already underway.
-            `,
-
-        slides: [
-            [SOM4],
-            [SOM1, SOM2],
-            [SOM3],
-            [],
-        ],
-
-        images: [
-            { type: "video", src: SOMVIDEO },
-        ],
-    },
 
 ];

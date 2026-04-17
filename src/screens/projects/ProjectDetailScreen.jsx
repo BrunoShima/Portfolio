@@ -424,16 +424,47 @@ export default function ProjectDetailScreen() {
                     className="overflow-hidden"
                   >
                     {isVideo ? (
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        className="w-full h-full object-cover"
-                      >
-                        <source src={item.src} type="video/mp4" />
-                      </video>
+                      item.link ? (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative block w-full h-full cursor-pointer"
+                        >
+                          <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                            className="w-full h-full object-cover"
+                          >
+                            <source src={item.src} type="video/mp4" />
+                          </video>
+                          <div className="
+                            absolute inset-0 flex items-center justify-center
+                            bg-[var(--color-blackish)]/60
+                            opacity-0 group-hover:opacity-100
+                            transition-opacity duration-300
+                            [font-family:var(--font-main)]
+                          ">
+                            <span className="text-[length:var(--text-body)] text-white/60">
+                              View on GitHub ↗
+                            </span>
+                          </div>
+                        </a>
+                      ) : (
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="w-full h-full object-cover"
+                        >
+                          <source src={item.src} type="video/mp4" />
+                        </video>
+                      )
                     ) : (
                       <img
                         src={item}
