@@ -57,18 +57,10 @@ export default function AboutHero() {
                 relative
             "
         >
-            <div className="sticky top-0 z-20 relative overflow-hidden">
+            <div className="sticky top-0 z-20 relative">
                 <div
-                    className="
-                        pointer-events-none
-                        absolute top-0 left-0 right-0
-                        h-[52rem]
-                        z-0
-                        bg-gradient-to-b
-                        from-[var(--color-whiteish)]
-                        via-[var(--color-whiteish)]
-                        to-transparent
-                    "
+                    className="pointer-events-none absolute top-0 left-0 right-0 bottom-0 z-0"
+                    style={{ background: 'linear-gradient(to bottom, var(--color-whiteish) 0%, var(--color-whiteish) 70%, transparent 100%)' }}
                 />
                 <motion.h1
                     initial={{ opacity: 0, x: -20 }}
