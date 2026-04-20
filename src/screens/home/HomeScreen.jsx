@@ -126,9 +126,9 @@ export default function HomeScreen() {
                     "
                 >
                     {[
-                        { id: "designer", to: "/projects/design", label: "Designer" },
-                        { id: "developer", to: "/projects/development", label: "Developer" },
-                        { id: "creative", to: "/projects/creative", label: "Creative" },
+                        { id: "designer", to: "/projects?filter=design", label: "Designer" },
+                        { id: "developer", to: "/projects?filter=development", label: "Developer" },
+                        { id: "creative", to: "/projects?filter=creative", label: "Creative" },
                     ].map((item, index) => (
 
                         <motion.div

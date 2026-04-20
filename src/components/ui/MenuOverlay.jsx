@@ -10,9 +10,9 @@ const NAV_LINKS = [
         to: "/projects",
         label: "PROJECTS",
         children: [
-            { to: "/projects/design", label: "DESIGN" },
-            { to: "/projects/development", label: "DEVELOPMENT" },
-            { to: "/projects/creative", label: "CREATIVE" },
+            { to: "/projects?filter=design", label: "DESIGN" },
+            { to: "/projects?filter=development", label: "DEVELOPMENT" },
+            { to: "/projects?filter=creative", label: "CREATIVE" },
         ],
     },
     { to: "/contact", label: "CONTACT" },
@@ -43,7 +43,7 @@ export default function MenuOverlay({ open, onOpenChange }) {
 
     useEffect(() => {
         if (open) onOpenChange(false);
-    }, [location.pathname]);
+    }, [location.key]);
 
     // Reset submenu and hover whenever menu closes
     useEffect(() => {

@@ -241,10 +241,15 @@ export default function ProjectDetailScreen() {
               className="flex flex-wrap gap-2 mt-6"
             >
               {project.chips.map((chip) => (
-                <span key={chip} className="
-                  border-2 border-[var(--color-blackish)] rounded-full
-                  px-4 py-1 text-[length:var(--text-body2)] font-medium
-                ">
+                <span
+                  key={chip}
+                  className="text-[length:var(--text-body2)] font-semibold tracking-[-0.04em] px-5 py-2 rounded-full border"
+                  style={{
+                    color: "var(--color-blackish)",
+                    borderColor: "color-mix(in srgb, var(--color-blackish) 20%, transparent)",
+                    opacity: 0.5,
+                  }}
+                >
                   {chip}
                 </span>
               ))}

@@ -28,8 +28,7 @@ export default function App() {
           <Route path="/about" element={<AboutScreen />} />
           <Route path="/contact" element={<ContactScreen />} />
 
-          <Route path="/projects/" element={<ProjectListScreen />} />
-          <Route path="/projects/:label" element={<ProjectListScreen />} />
+          <Route path="/projects" element={<ProjectListScreen />} />
           <Route path="/projects/:label/:slug" element={<ProjectDetailScreen />} />
           <Route path="*" element={<NotFoundScreen />} />
         </Routes>

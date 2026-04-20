@@ -1,10 +1,20 @@
-import { Link, useParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { motion } from "motion/react";
 import { PROJECTS } from "../../data/Projects";
 
+const FILTERS = ["design", "development", "creative"];
+
 export default function ProjectListScreen() {
-    const { label } = useParams();
-    const filtered = label ? PROJECTS.filter((p) => p.label === label) : PROJECTS;
+    const [searchParams, setSearchParams] = useSearchParams();
+    const activeFilter = searchParams.get("filter");
+
+    const filtered = activeFilter
+        ? PROJECTS.filter((p) => p.label === activeFilter)
+        : PROJECTS;
+
+    const toggleFilter = (label) => {
+        setSearchParams(activeFilter === label ? {} : { filter: label });
+    };
 
     return (
         <main
@@ -29,20 +39,56 @@ export default function ProjectListScreen() {
                     tracking-[-0.1em]
                     leading-none
                     -translate-x-4
-                    pb-10
+                    pb-6
                 "
             >
-                {label ? label.charAt(0).toUpperCase() + label.slice(1) : "All Projects"}
+                Projects
             </motion.h1>
 
-            <ul className="grid mt-6">
-                {filtered.map((p) => (
+            {/* Filter toggles */}
+            <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
+                className="flex gap-3 pb-8 flex-wrap pt-10"
+            >
+                {FILTERS.map((f) => {
+                    const active = activeFilter === f;
+                    return (
+                        <button
+                            key={f}
+                            onClick={() => toggleFilter(f)}
+                            className="
+                                text-[length:var(--text-body2)]
+                                font-semibold
+                                tracking-[-0.04em]
+                                px-5 py-2
+                                rounded-full
+                                border
+                                transition-all duration-200
+                                cursor-pointer
+                            "
+                            style={{
+                                color: active ? "var(--color-yellow)" : "var(--color-blackish)",
+                                borderColor: active ? "var(--color-yellow)" : "color-mix(in srgb, var(--color-blackish) 20%, transparent)",
+                                opacity: active ? 1 : 0.5,
+                            }}
+                        >
+                            {f.charAt(0).toUpperCase() + f.slice(1)}
+                        </button>
+                    );
+                })}
+            </motion.div>
+
+            <ul className="grid mt-6" key={activeFilter ?? "all"}>
+                {filtered.map((p, i) => (
                     <motion.li
                         key={p.id}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 20, transition: { duration: 0.4, ease: "easeOut" } }}
-                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 + i * 0.08 }}
                         className="
                             relative flex items-center py-5
                             border-b border-[var(--color-blackish)]/20
@@ -67,7 +113,6 @@ export default function ProjectListScreen() {
                                     tracking-[-0.08em]
                                 "
                             >
-                                {/* Number */}
                                 <span
                                     className="
                                         px-2
@@ -80,10 +125,9 @@ export default function ProjectListScreen() {
                                     "
                                     style={{ transform: "translateY(2px)" }}
                                 >
-                                    {String(filtered.indexOf(p) + 1).padStart(2, "0")}
+                                    {String(i + 1).padStart(2, "0")}
                                 </span>
 
-                                {/* Title */}
                                 <span className="
                                     px-2
                                     text-[length:var(--text-subheading)]
@@ -94,7 +138,6 @@ export default function ProjectListScreen() {
                                     {p.title}
                                 </span>
 
-                                {/* Subtitle desktop */}
                                 <span
                                     className="
                                         hidden sm:block
@@ -111,7 +154,6 @@ export default function ProjectListScreen() {
                                     {p.subtitle}
                                 </span>
 
-                                {/* Subtitle mobile */}
                                 <span className="
                                     block sm:hidden
                                     col-start-2
@@ -130,7 +172,7 @@ export default function ProjectListScreen() {
                 ))}
 
                 {filtered.length === 0 && (
-                    <li className="opacity-70">No projects found for "{label}".</li>
+                    <li className="opacity-70 pt-6">No projects found.</li>
                 )}
             </ul>
         </main>
