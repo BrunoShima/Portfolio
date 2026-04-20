@@ -50,7 +50,7 @@ export default function ContactScreen() {
             px-8 sm:px-16 lg:px-26
             pt-24 pb-12
         ">
-            <div className="w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div className="w-full max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
 
                 {/* ── Left: heading + body + info blocks ───────────────────── */}
                 <div className="flex flex-col gap-6">
@@ -99,7 +99,7 @@ export default function ContactScreen() {
                 </div>
 
                 {/* ── Right: form ──────────────────────────────────────────── */}
-                <div className="self-stretch flex flex-col pt-[calc(clamp(4rem,6vw,6.25rem)+1.5rem)] max-w-[480px] mx-auto w-full">
+                <div className="self-stretch flex flex-col pt-0 lg:pt-[calc(clamp(4rem,6vw,6.25rem)+1.5rem)] max-w-[480px] mx-auto w-full">
                     {status === "success" ? (
                         <motion.p
                             initial={{ opacity: 0, x: -20 }}
