@@ -71,7 +71,7 @@ export default function AboutHero() {
                         relative
                         z-10
                         text-center
-                        text-[var(--color-yellow)]
+                        text-[var(--color-blackish)]
                         [font-family:var(--font-main)]
                         text-[length:var(--text-logo)]
                         font-extrabold
@@ -80,7 +80,7 @@ export default function AboutHero() {
                         pb-10
                     "
                 >
-                    Hi, I'm <span className="text-[var(--color-blackish)]">Bruno.</span>
+                    Hi, I'm <span className="text-[var(--color-yellow)]">Bruno.</span>
                 </motion.h1>
             </div>
 
