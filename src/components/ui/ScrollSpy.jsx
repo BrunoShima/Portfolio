@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { useMotionValueEvent } from "motion/react";
 
-const TEXT_SECTIONS = [
-  { num: "01", label: "Overview",  key: "overview"  },
-  { num: "02", label: "Strategy",  key: "strategy"  },
-  { num: "03", label: "Direction", key: "direction" },
-  { num: "04", label: "Results",   key: "results"   },
-];
-
-export default function ScrollSpy({ textPanelIndices, panelCount, scrollYProgress, containerRef }) {
+export default function ScrollSpy({ sections, textPanelIndices, panelCount, scrollYProgress, containerRef }) {
   const [activeSection, setActiveSection] = useState(0);
   const seg = panelCount > 1 ? 1 / (panelCount - 1) : 1;
 
@@ -34,8 +27,8 @@ export default function ScrollSpy({ textPanelIndices, panelCount, scrollYProgres
       style={{ top: "calc(15vh - 2rem)", zIndex: panelCount + 5 }}
     >
       <div className="max-w-[1600px] mx-auto px-16 lg:px-26 flex items-center gap-2 translate-x-1">
-        {TEXT_SECTIONS.map((section, i) => (
-          <div key={section.key} className="flex items-center gap-2">
+        {sections.map((section, i) => (
+          <div key={section.label} className="flex items-center gap-2">
             <button
               onClick={() => scrollToSection(i)}
               className="text-[length:var(--text-body2)] font-medium tracking-wide transition-all duration-300 cursor-pointer"
@@ -46,7 +39,7 @@ export default function ScrollSpy({ textPanelIndices, panelCount, scrollYProgres
             >
               {section.label}
             </button>
-            {i < TEXT_SECTIONS.length - 1 && (
+            {i < sections.length - 1 && (
               <span
                 className="text-[length:var(--text-body2)] select-none pointer-events-none"
                 style={{ color: "var(--color-blackish)", opacity: 0.2 }}

@@ -4,12 +4,6 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { PROJECTS } from "../../data/Projects";
 import ScrollSpy from "../../components/ui/ScrollSpy";
 
-const TEXT_SECTIONS = [
-  { num: "01", label: "Overview",  key: "overview",  accent: false },
-  { num: "02", label: "Strategy",  key: "strategy",  accent: false },
-  { num: "03", label: "Direction", key: "direction", accent: false },
-  { num: "04", label: "Results",   key: "results",   accent: true  },
-];
 
 
 // ── TEXT PANEL ────────────────────────────────────────────────────────────────
@@ -157,10 +151,17 @@ export default function ProjectDetailScreen() {
   const project = PROJECTS.find((item) => item.slug === slug);
 
   const allPanels = project
-    ? TEXT_SECTIONS.flatMap((section, i) => {
+    ? project.sections.flatMap((section, i) => {
         const slideImages = project.slides?.[i] ?? [];
+        const isLast = i === project.sections.length - 1;
         return [
-          { type: "text", ...section, body: project[section.key] },
+          {
+            type: "text",
+            num: String(i + 1).padStart(2, "0"),
+            label: section.label,
+            body: section.body,
+            accent: isLast,
+          },
           ...(slideImages.length > 0 ? [{ type: "image", images: slideImages }] : []),
         ];
       })
@@ -297,6 +298,7 @@ export default function ProjectDetailScreen() {
 
           {/* Scroll spy */}
           <ScrollSpy
+            sections={project.sections}
             textPanelIndices={textPanelIndices}
             panelCount={panelCount}
             scrollYProgress={scrollYProgress}
@@ -332,11 +334,13 @@ export default function ProjectDetailScreen() {
 
       {/* ── MOBILE — VERTICAL STACKED ────────────────────────────────────── */}
       <div className="block lg:hidden border-t border-[var(--color-blackish)]/20">
-        {TEXT_SECTIONS.map((section, i) => {
+        {project.sections.map((section, i) => {
           const slideImages = project.slides?.[i] ?? [];
+          const isLast = i === project.sections.length - 1;
+          const num = String(i + 1).padStart(2, "0");
           return (
             <section
-              key={section.key}
+              key={section.label}
               className="
                 relative overflow-hidden
                 bg-[var(--color-whiteish)] text-[var(--color-blackish)]
@@ -357,24 +361,24 @@ export default function ProjectDetailScreen() {
                   letterSpacing: "-0.1em",
                   lineHeight: 1,
                   opacity: 0.06,
-                  color: section.accent ? "var(--color-yellow)" : "var(--color-blackish)",
+                  color: isLast ? "var(--color-yellow)" : "var(--color-blackish)",
                   userSelect: "none",
                   pointerEvents: "none",
                 }}
               >
-                {section.num}
+                {num}
               </span>
 
               <div className="relative z-10">
                 <h2
                   className="text-[length:var(--text-subheading)] font-extrabold tracking-[-0.08em] leading-none mb-8"
-                  style={{ color: section.accent ? "var(--color-yellow)" : "var(--color-blackish)" }}
+                  style={{ color: isLast ? "var(--color-yellow)" : "var(--color-blackish)" }}
                 >
                   {section.label}
                 </h2>
                   <p
                     className="text-[length:var(--text-body)] text-left sm:text-justify [text-align-last:start] whitespace-pre-line"
-                    dangerouslySetInnerHTML={{ __html: project[section.key] }}
+                    dangerouslySetInnerHTML={{ __html: section.body }}
                   />
                 {slideImages.length > 0 && (
                   <div className="flex flex-col gap-6 mt-10">
