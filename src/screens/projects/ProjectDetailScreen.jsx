@@ -478,7 +478,7 @@ export default function ProjectDetailScreen() {
                       <img
                         src={item}
                         alt={`${project.title} ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full object-contain max-h-[90vh]"
                         loading="lazy"
                       />
                     )}

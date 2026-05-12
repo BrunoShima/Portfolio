@@ -13,6 +13,11 @@ const SECTIONS = [
     label: "What I'm After",
     body: "The beauty I consume informs the beauty I create. The throughline in everything I love — films, music, games, books — is intentionality. Nothing accidental, nothing wasted. That's the standard I hold my own work to. What I'm good at is making sure everything looks just right. Designing not just to impress, but to connect. The details others gloss over are where I live.",
   },
+    {
+    label: "About AI",
+    body: "In the world of AI, human connection is at a premium. Pepole feel it when work is authentic even if they aren't aware enough to express it. I iterate, build, and perfect with the assistance of any emerging tools, but I do not offload creativity",
+  },
+
 ];
 
 export default function AboutBody() {
