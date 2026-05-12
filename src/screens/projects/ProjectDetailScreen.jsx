@@ -420,7 +420,11 @@ export default function ProjectDetailScreen() {
       {galleryImages.length > 0 && (
         <section className="bg-[var(--color-whiteish)] pt-32 pb-32">
           <div className="max-w-[1600px] mx-auto px-16 sm:px-22 lg:px-26">
-            <div className={`grid gap-3 ${galleryImages.length < 9 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
+            <div className={`grid gap-3 ${{
+                1: "grid-cols-1",
+                2: "grid-cols-1 sm:grid-cols-2",
+                3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+              }[project.galleryColumns]}`}>
               {galleryImages.map((item, index) => {
                 const isVideo = typeof item === "object" && item.type === "video";
                 return (

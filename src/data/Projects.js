@@ -80,6 +80,8 @@ import POSTER2 from "../assets/projects/posterboard/poster2.jpg";
 import POSTER3 from "../assets/projects/posterboard/poster3.jpg";
 import POSTER4 from "../assets/projects/posterboard/poster4.jpg";
 import POSTER5 from "../assets/projects/posterboard/poster5.jpg";
+import POSTERVIDEO1 from "../assets/projects/posterboard/marathonsteps.mp4";
+import POSTERVIDEO2 from "../assets/projects/posterboard/kintsugisteps.mp4"
 
 
 
@@ -138,6 +140,8 @@ export const PROJECTS = [
                     `,
             },
         ],
+
+        galleryColumns: 3,
 
         slides: [
             [HOUNDSLIDE1, HOUNDSLIDE2],
@@ -222,6 +226,8 @@ export const PROJECTS = [
                     `,
             },
         ],
+
+        galleryColumns: 3,
 
         slides: [
             [JEWELRY1, JEWELRY24,],
@@ -316,6 +322,8 @@ export const PROJECTS = [
             },
         ],
 
+        galleryColumns: 1,
+
         slides: [
             [SOM4],
             [SOM1, SOM2],
@@ -380,6 +388,8 @@ export const PROJECTS = [
                     `,
             },
         ],
+
+        galleryColumns: 1,
 
         slides: [
             [STYLESLIDE1, STYLESLIDE2],
@@ -451,6 +461,8 @@ export const PROJECTS = [
             },
         ],
 
+        galleryColumns: 1,
+
         slides: [
             [MIDNIGHTSLIDE1],
             [{ type: "video", src: MIDNIGHTSLIDE2 }],
@@ -510,9 +522,11 @@ export const PROJECTS = [
             },
         ],
 
+        galleryColumns: 3,
+
         slides: [
-            [POSTER1],
-            [POSTER2],
+            [{ type: "video", src: POSTERVIDEO1 }],
+            [{ type: "video", src: POSTERVIDEO2 }],
             [],
         ],
 
