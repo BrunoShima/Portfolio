@@ -80,6 +80,7 @@ import POSTER2 from "../assets/projects/posterboard/poster2.jpg";
 import POSTER3 from "../assets/projects/posterboard/poster3.jpg";
 import POSTER4 from "../assets/projects/posterboard/poster4.jpg";
 import POSTER5 from "../assets/projects/posterboard/poster5.jpg";
+import POSTER6 from "../assets/projects/posterboard/poster6.jpg";
 import POSTERVIDEO1 from "../assets/projects/posterboard/marathonsteps.mp4";
 import POSTERVIDEO2 from "../assets/projects/posterboard/kintsugisteps.mp4"
 
@@ -536,6 +537,7 @@ export const PROJECTS = [
             POSTER3,
             POSTER4,
             POSTER5,
+            POSTER6,
         ],
     },
 
