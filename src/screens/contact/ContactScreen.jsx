@@ -88,7 +88,7 @@ export default function ContactScreen() {
                         {[
                             { label: "Name",     value: <span>Bruno Shimabukuro</span> },
                             { label: "Email",    value: <span className="flex items-center gap-2">designedbybru@gmail.com<button onClick={copyEmail} className="opacity-40 hover:opacity-100 transition-opacity duration-200 cursor-pointer">{copied ? <FiCheck className="w-4 h-4 text-[var(--color-yellow)]" /> : <FiCopy className="w-4 h-4" />}</button></span> },
-                            { label: "Location", value: <span>Currently in: <span className="text-[var(--color-yellow)]">Vancouver, BC</span></span> },
+                            { label: "Location", value: <span>Currently in: <span className="text-[var(--color-yellow)]">Toronto, ON</span></span> },
                         ].map((item) => (
                             <div key={item.label} className="border-b border-[var(--color-blackish)]/20 py-4 flex flex-col gap-1">
                                 <p className="text-[length:var(--text-body2)] font-medium opacity-40">{item.label}</p>
