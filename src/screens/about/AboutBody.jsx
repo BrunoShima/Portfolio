@@ -15,7 +15,7 @@ const SECTIONS = [
   },
     {
     label: "About AI",
-    body: "In the world of AI, human connection is at a premium. Pepole feel it when work is authentic even if they aren't aware enough to express it. I iterate, build, and perfect with the assistance of any emerging tools, but I do not offload creativity",
+    body: "In the world of AI, human connection is at a premium. People feel it when work is authentic even if they aren't aware enough to express it. I iterate, build, and perfect with the assistance of any emerging tools, but I do not offload creativity",
   },
 
 ];

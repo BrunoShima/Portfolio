@@ -286,7 +286,7 @@ export const PROJECTS = [
             {
                 label: "Overview",
                 body:
-                    `SOM, which simply translates to "sound" in portuguese, is a full-stack web application with a concept as simple as its name. A way to stream the music that you want to listen to, free of any other distractions.
+                    `SOM, which simply translates to "sound" in Portuguese, is a full-stack web application with a concept as simple as its name. A way to stream the music that you want to listen to, free of any other distractions.
 
                     Most streaming platforms are built around playlists, music recommendations, and algorithms. SOM is meant to deliver a different way to experience the music that you want to listen to. Stripping all functionality down to the bare essentials, much like you would experience through physical media. No queueing, no algorithms, no playlists.
 
@@ -298,7 +298,7 @@ export const PROJECTS = [
                 body:
                     `The strategy behind SOM is in conflict with traditional streaming platforms, built around engagement, novelty, and clicks. SOM is the antithesis to this philosophy.
 
-                    As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, its a ritual. From admiring the cover art, to listening to each track in order, SOM removes the noise from streaming.
+                    As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, it's a ritual. From admiring the cover art, to listening to each track in order, SOM removes the noise from streaming.
 
                     The goal was to deliver an accessible way to listen to music that respects each album as its own body of work.
                     `,
@@ -308,13 +308,13 @@ export const PROJECTS = [
                 body:
                     `The visual direction behind SOM is deliberately simple. Meant to be distractionless, easy to navigate, with the music being front and center. An easy way to browse, collect, and enjoy your favourite music.
 
-                    Under the hood, this required intentful engineering. Ensuring a seamless experience for the listener meant layered solutions that connected user databases and Spotify's API to a front-end that would highlight the albums which this app is built for. Built with React, Node.js, MySQL, and the Spotify Web API. SOM is your personal digital vinyl library.
+                    Under the hood, this required intentional engineering. Ensuring a seamless experience for the listener meant layered solutions that connected user databases and Spotify's API to a front-end that would highlight the albums which this app is built for. Built with React, Node.js, MySQL, and the Spotify Web API. SOM is your personal digital vinyl library.
                     `,
             },
             {
                 label: "Results",
                 body:
-                    `SOM is now live web app running on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+                    `SOM is now a live web app running on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
 
                     The finished product is a cohesive listening experience that both looks good and works well. Featuring a 3D carousel to display your personal collection, fullscreen mode for immersive listening, and decorated with dynamic color extraction from your personal album collection. A truly addictive way to listen to your own music.
 
