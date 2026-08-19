@@ -512,7 +512,7 @@ export default function ProjectDetailScreen() {
         "
       >
         <Link to="/projects">← All Projects</Link>
-        <Link to={`/projects/${nextProject.label}/${nextProject.slug}`} className="text-right inline-flex items-baseline gap-2">
+        <Link to={`/projects/${nextProject.labels[0]}/${nextProject.slug}`} className="text-right inline-flex items-baseline gap-2">
           <span className="flex flex-col gap-1 items-end">
             <span>Next Project</span>
             <span className="text-[length:var(--text-body2)] font-normal tracking-normal text-[var(--color-blackish)]/40">

@@ -135,7 +135,7 @@ export const PROJECTS = [
 
         slug: "cafe-brand-web-design",
 
-        label: "design",
+        labels: ["design"],
 
         title: "Arhum's",
 
@@ -206,7 +206,7 @@ export const PROJECTS = [
 
         slug: "social-media-campaign",
 
-        label: "design",
+        labels: ["design"],
 
         title: "Houndstooth",
 
@@ -294,7 +294,7 @@ export const PROJECTS = [
 
         slug: "music-app-brand-identity",
 
-        label: "development",
+        labels: ["development", "design"],
 
         title: "SOM",
 
@@ -373,7 +373,7 @@ export const PROJECTS = [
 
         slug: "jewelry-catalogue",
 
-        label: "design",
+        labels: ["design"],
 
         title: "Jewelry Collection",
 
@@ -462,7 +462,7 @@ export const PROJECTS = [
 
         slug: "brand-concepts",
 
-        label: "creative",
+        labels: ["creative"],
 
         title: "Brand Concepts",
 
@@ -533,7 +533,7 @@ export const PROJECTS = [
 
         slug: "concept-magazine",
 
-        label: "design",
+        labels: ["design"],
 
         title: "Style",
 
@@ -605,7 +605,7 @@ export const PROJECTS = [
 
         slug: "editorial-photoshoot",
 
-        label: "creative",
+        labels: ["creative"],
 
         title: "After Midnight",
 
@@ -674,7 +674,7 @@ export const PROJECTS = [
 
         slug: "conceptual-posters",
 
-        label: "creative",
+        labels: ["creative"],
 
         title: "Poster Board",
 

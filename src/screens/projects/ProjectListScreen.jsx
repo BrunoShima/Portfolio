@@ -9,7 +9,7 @@ export default function ProjectListScreen() {
     const activeFilter = searchParams.get("filter");
 
     const filtered = activeFilter
-        ? PROJECTS.filter((p) => p.label === activeFilter)
+        ? PROJECTS.filter((p) => (p.labels ?? [p.label]).includes(activeFilter))
         : PROJECTS;
 
     const toggleFilter = (label) => {
@@ -101,7 +101,7 @@ export default function ProjectListScreen() {
                             className="w-full"
                         >
                             <Link
-                                to={`/projects/${p.label}/${p.slug}`}
+                                to={`/projects/${p.labels[0]}/${p.slug}`}
                                 className="
                                     relative z-10
                                     w-full
