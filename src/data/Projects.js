@@ -93,6 +93,21 @@ import POSTER6 from "../assets/projects/posterboard/poster6.jpg";
 import POSTERVIDEO1 from "../assets/projects/posterboard/marathonsteps.mp4";
 import POSTERVIDEO2 from "../assets/projects/posterboard/kintsugisteps.mp4"
 
+import ARHUMS1 from "../assets/projects/arhums/arhums1.png";
+import ARHUMS2 from "../assets/projects/arhums/arhums2.png";
+import ARHUMS3 from "../assets/projects/arhums/arhums3.png";
+import ARHUMS4 from "../assets/projects/arhums/arhums4.png";
+import ARHUMS5 from "../assets/projects/arhums/arhums5.png";
+import ARHUMS6 from "../assets/projects/arhums/arhums6.png";
+import ARHUMS7 from "../assets/projects/arhums/arhums7.png";
+import ARHUMS8 from "../assets/projects/arhums/arhums8.png";
+import ARHUMS9 from "../assets/projects/arhums/arhums9.png";
+import ARHUMS10 from "../assets/projects/arhums/arhums10.png";
+import ARHUMS11 from "../assets/projects/arhums/arhums11.png";
+import ARHUMS12 from "../assets/projects/arhums/arhums12.png";
+
+
+
 
 
 
@@ -555,6 +570,77 @@ export const PROJECTS = [
             POSTER5,
             POSTER6,
         ],
+    },
+
+    {
+        id: "arhums",
+
+        slug: "cafe-brand-web-design",
+
+        label: "design",
+
+        title: "Arhum's",
+
+        subtitle: "Café & Grill",
+
+        type: "Brand Identity & Web Design",
+
+        chips: ["Brand Identity", "Brand Guidelines", "Web Design", "Figma"],
+
+        date: "Summer 2026",
+
+        sections: [
+            {
+                label: "Overview",
+                body:
+                    `Arhum's Café & Grill is a halal café and grill in Pickering, Ontario, built on a simple standard: no compromises, ever. I was brought in with an existing logo, a handful of brand colors, and a typeface — and asked to build that into a complete, usable brand system, then carry it through to their website.
+
+                    What started as a set of loose brand elements became a full identity and a landing page ready for development handoff.
+                    `,
+            },
+            {
+                label: "Strategy",
+                body:
+                    `The groundwork was already there, so the job wasn't inventing a brand from nothing. It was tightening what existed into something that could actually function: a real color palette, a confident type pairing, a system flexible enough to hold everything from a menu to signage to a website.
+
+                    One addition became the anchor for the whole direction: a warm orange accent, introduced to give the brand a visual signature beyond the existing palette. It carried through every touchpoint that followed.
+                    `,
+            },
+            {
+                label: "Brand System",
+                body:
+                    `With the direction set, the system came together piece by piece: a refined color palette and type pairing, custom iconography, an expanded photography direction, and a set of original textures and graphic elements that became recurring motifs throughout the brand.
+
+                    The result is a guideline document built to actually be used — clear enough for anyone to apply consistently, distinctive enough to feel unmistakably Arhum's.
+                    `,
+            },
+            {
+                label: "Web Design",
+                body:
+                    `With the brand system locked, the next step was putting it to work. I designed a single-page website in Figma, built around anchor navigation that moves visitors through the story: the food, the meat, the space, the people behind it.
+
+                    Every screen carried the new identity through, from the orange accent to the custom textures, fully responsive across desktop, tablet, and mobile. The final file was built handoff-ready for a development team to take live.
+                    `,
+            },
+            {
+                label: "Results",
+                body:
+                    `Arhum's now has a brand system built to grow with them; a real identity instead of a placeholder, and a website designed to match. From loose brand elements to a complete, cohesive system, ready to carry the business into its next chapter.
+                    `,
+            },
+        ],
+
+        galleryColumns: 1,
+
+        slides: [
+            [ARHUMS1],
+            [ARHUMS2],
+            [ARHUMS3],
+            [ARHUMS4],
+            [],
+        ],
+
+        images: [ARHUMS1, ARHUMS10, ARHUMS5, ARHUMS6, ARHUMS7, ARHUMS8, ARHUMS9, ARHUMS4, ARHUMS11, ARHUMS12],
     },
 
 
