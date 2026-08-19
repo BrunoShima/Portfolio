@@ -28,13 +28,18 @@ const posterImages = import.meta.glob(
   { eager: true }
 );
 
+const arhumsImages = import.meta.glob(
+  "../assets/projects/arhums/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
 
 function toArray(globResult) {
   return Object.values(globResult).map((m) => m.default);
 }
 
 export const PROJECT_IMAGES = {
-  designer: [...toArray(houndstoothImages), ...toArray(styleImages), ...toArray(jewelryImages)],
+  designer: [...toArray(houndstoothImages), ...toArray(styleImages), ...toArray(jewelryImages), ...toArray(arhumsImages)],
   developer: [...toArray(somImages),],
   creative: [...toArray(midnightImages), ...toArray(posterImages),],
 };
