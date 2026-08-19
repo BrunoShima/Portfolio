@@ -364,7 +364,7 @@ export const PROJECTS = [
         ],
 
         images: [
-            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" }, SOM7, SOM8, SOM5, SOM9, SOM11, SOM12
+            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" }, SOM10, SOM6, SOM7, SOM8, SOM5, SOM9, SOM11, SOM12
         ],
     },
 
