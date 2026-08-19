@@ -106,7 +106,25 @@ import ARHUMS10 from "../assets/projects/arhums/arhums10.png";
 import ARHUMS11 from "../assets/projects/arhums/arhums11.png";
 import ARHUMS12 from "../assets/projects/arhums/arhums12.png";
 
-
+import BRAND0 from "../assets/projects/brandconcepts/brand0.png";
+import BRAND1 from "../assets/projects/brandconcepts/brand1.png";
+import BRAND2 from "../assets/projects/brandconcepts/brand2.png";
+import BRAND3 from "../assets/projects/brandconcepts/brand3.png";
+import BRAND4 from "../assets/projects/brandconcepts/brand4.png";
+import BRAND5 from "../assets/projects/brandconcepts/brand5.png";
+import BRAND6 from "../assets/projects/brandconcepts/brand6.png";
+import BRAND7 from "../assets/projects/brandconcepts/brand7.png";
+import BRAND8 from "../assets/projects/brandconcepts/brand8.png";
+import BRAND9 from "../assets/projects/brandconcepts/brand9.png";
+import BRAND10 from "../assets/projects/brandconcepts/brand10.png";
+import BRAND11 from "../assets/projects/brandconcepts/brand11.png";
+import BRAND12 from "../assets/projects/brandconcepts/brand12.png";
+import BRAND13 from "../assets/projects/brandconcepts/brand13.png";
+import BRAND14 from "../assets/projects/brandconcepts/brand14.png";
+import BRAND15 from "../assets/projects/brandconcepts/brand15.png";
+import BRAND16 from "../assets/projects/brandconcepts/brand16.png";
+import BRAND17 from "../assets/projects/brandconcepts/brand17.png";
+import BRAND18 from "../assets/projects/brandconcepts/brand18.png";
 
 
 
@@ -641,6 +659,77 @@ export const PROJECTS = [
         ],
 
         images: [ARHUMS1, ARHUMS10, ARHUMS5, ARHUMS6, ARHUMS7, ARHUMS8, ARHUMS9, ARHUMS4, ARHUMS11, ARHUMS12],
+    },
+
+    {
+        id: "brandconcepts",
+
+        slug: "brand-concepts",
+
+        label: "creative",
+
+        title: "Brand Concepts",
+
+        subtitle: "Identity Concepts",
+
+        type: "New Brand Identity",
+
+        chips: ["Brand Identity", "Concept Development", "Art Direction"],
+
+        date: "Summer 2026",
+
+        sections: [
+            {
+                label: "Overview",
+                body:
+                    `Brand Vision needed case study material to round out newly launched site categories that didn't yet have enough work behind them. For three of these, KILO, Herd Travel, and Atrio Rosso, I was given close to full creative freedom: minimal brief beyond landing somewhere visually striking within each brand's category. Each was developed in a matter of hours, not weeks. All three are now live as part of Brand Vision's case studies.
+                    `,
+            },
+            {
+                label: "KILO",
+                body:
+                    `A clothing brand caught somewhere between streetwear and activewear, built almost entirely in black and white. The direction leaned minimal by design, clean silhouettes, restrained typography, a wordmark simple enough to work as small as a hangtag and as large as a storefront sign.
+
+                    The goal was a brand that felt out of the box without feeling unfamiliar: modern and slightly futuristic, but grounded enough to still read as wearable, everyday apparel rather than concept-only. Mockups spanned packaging, tags, apparel, and digital touchpoints, all carrying the same restrained system through.
+                    `,
+            },
+            {
+                label: "Herd Travel",
+                body:
+                    `A travel brand built around people, not destinations. Where most travel branding leans polished and aspirational, Herd Travel went the other way: bright, imperfect, collage-built. Halftone textures, sticker-style layouts, and hand-cut type give it a lived-in, human energy that feels more like a group chat than a glossy campaign.
+
+                    Every asset, from posters to merchandise to the website mockup, ties back to one idea: travel as something you do together. The tagline says it plainly: follow the herd.
+                    `,
+            },
+            {
+                label: "Atrio Rosso",
+                body:
+                    `A concept for a luxury hotel brand, built on cream and deep maroon, with ornate typography that never tips into cold or impersonal. Flowers recur throughout as a visual motif, worked into everything from stationery to amenity packaging to signage, giving the brand an organic throughline underneath its formality.
+
+                    The system extends across the full guest experience: room signage, in-room materials, packaging, and print collateral, all built to feel considered rather than decorative.
+                    `,
+            },
+            {
+                label: "Range",
+                body:
+                    `Three brands, three completely different worlds: streetwear minimalism, human-first travel, ornate hospitality. Each was developed in a matter of hours, not weeks, and each still holds together as a complete, coherent system, distinct fonts, colors, textures, and tone, built to feel intentional rather than rushed.
+
+                    That's the actual test of range: not whether you can do one thing well, but whether you can move between completely different problems and still land somewhere true each time. Different brief, different audience, different feeling, same instinct underneath. Figure out what a brand needs to feel real, and build it fast.
+                    `,
+            },
+        ],
+
+        galleryColumns: 1,
+
+        slides: [
+            [BRAND0],
+            [BRAND1],
+            [BRAND2],
+            [BRAND3],
+            [],
+        ],
+
+        images: [BRAND1, BRAND4, BRAND5, BRAND6, BRAND7, BRAND8, BRAND2, BRAND9, BRAND10, BRAND11, BRAND12, BRAND13, BRAND3, BRAND0, BRAND14, BRAND15, BRAND16, BRAND17, BRAND18 ],
     },
 
 
