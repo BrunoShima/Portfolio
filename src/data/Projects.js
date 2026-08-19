@@ -131,6 +131,77 @@ import BRAND18 from "../assets/projects/brandconcepts/brand18.png";
 
 export const PROJECTS = [
     {
+        id: "arhums",
+
+        slug: "cafe-brand-web-design",
+
+        label: "design",
+
+        title: "Arhum's",
+
+        subtitle: "Café & Grill",
+
+        type: "Brand Identity & Web Design",
+
+        chips: ["Brand Identity", "Brand Guidelines", "Web Design", "Figma"],
+
+        date: "Summer 2026",
+
+        sections: [
+            {
+                label: "Overview",
+                body:
+                    `Arhum's Café & Grill is a halal café and grill in Pickering, Ontario, built on a simple standard: no compromises, ever. I was brought in with an existing logo, a handful of brand colors, and a typeface — and asked to build that into a complete, usable brand system, then carry it through to their website.
+
+                    What started as a set of loose brand elements became a full identity and a landing page ready for development handoff.
+                    `,
+            },
+            {
+                label: "Strategy",
+                body:
+                    `The groundwork was already there, so the job wasn't inventing a brand from nothing. It was tightening what existed into something that could actually function: a real color palette, a confident type pairing, a system flexible enough to hold everything from a menu to signage to a website.
+
+                    One addition became the anchor for the whole direction: a warm orange accent, introduced to give the brand a visual signature beyond the existing palette. It carried through every touchpoint that followed.
+                    `,
+            },
+            {
+                label: "Brand System",
+                body:
+                    `With the direction set, the system came together piece by piece: a refined color palette and type pairing, custom iconography, an expanded photography direction, and a set of original textures and graphic elements that became recurring motifs throughout the brand.
+
+                    The result is a guideline document built to actually be used — clear enough for anyone to apply consistently, distinctive enough to feel unmistakably Arhum's.
+                    `,
+            },
+            {
+                label: "Web Design",
+                body:
+                    `With the brand system locked, the next step was putting it to work. I designed a single-page website in Figma, built around anchor navigation that moves visitors through the story: the food, the meat, the space, the people behind it.
+
+                    Every screen carried the new identity through, from the orange accent to the custom textures, fully responsive across desktop, tablet, and mobile. The final file was built handoff-ready for a development team to take live.
+                    `,
+            },
+            {
+                label: "Results",
+                body:
+                    `Arhum's now has a brand system built to grow with them; a real identity instead of a placeholder, and a website designed to match. From loose brand elements to a complete, cohesive system, ready to carry the business into its next chapter.
+                    `,
+            },
+        ],
+
+        galleryColumns: 1,
+
+        slides: [
+            [ARHUMS1],
+            [ARHUMS2],
+            [ARHUMS3],
+            [ARHUMS4],
+            [],
+        ],
+
+        images: [ARHUMS1, ARHUMS10, ARHUMS5, ARHUMS6, ARHUMS7, ARHUMS8, ARHUMS9, ARHUMS4, ARHUMS11, ARHUMS12],
+    },
+
+    {
         id: "houndstooth",
 
         slug: "social-media-campaign",
@@ -215,6 +286,85 @@ export const PROJECTS = [
             HOUNDIMG19,
             HOUNDIMG20,
             HOUNDIMG21,
+        ],
+    },
+
+    {
+        id: "som",
+
+        slug: "music-app-brand-identity",
+
+        label: "development",
+
+        title: "SOM",
+
+        subtitle: "Digital Vinyl Library",
+
+        type: "Web App & Brand Identity",
+
+        chips: ["React", "Node.js", "MySQL", "API", "Branding", "Identity Design"],
+
+        date: "Spring 2026",
+
+        sections: [
+            {
+                label: "Overview",
+                body:
+                    `SOM, which simply translates to "sound" in Portuguese, began as a full-stack web app built around a simple idea: a way to stream the music you want to listen to, free of distraction.
+
+                    Most streaming platforms are built around playlists, recommendations, and algorithms. SOM was meant to deliver something else — stripped down to the essentials, much like the experience of physical media. No queueing, no algorithms, no noise. A music platform that is about the music.
+
+                    What started as a personal app has since grown into something bigger: a complete visual identity built around the same idea.
+                    `,
+            },
+            {
+                label: "Strategy",
+                body:
+                    `The thinking behind SOM runs counter to traditional streaming platforms, which are built around engagement, novelty, and clicks. SOM is the antithesis to that philosophy.
+
+                    As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, it's a ritual. From admiring the cover art to listening to each track in order, SOM removes the noise from streaming.
+
+                    The goal was to build something that respects each album as its own body of work — and that same idea would later shape the brand as much as the app.
+                    `,
+            },
+            {
+                label: "Engineering",
+                body:
+                    `The app is deliberately simple on the surface: distractionless, easy to navigate, with the music front and center. That simplicity took real engineering to pull off — layered solutions connecting user databases and Spotify's API to a front-end built to highlight the albums the app exists for.
+
+                    Built with React, Node.js, MySQL, and the Spotify Web API, the finished product runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout. It features a 3D carousel for browsing your collection, fullscreen mode for immersive listening, and dynamic colour extraction from your album art. A personal digital vinyl library, built to feel like one.
+                    `,
+            },
+            {
+                label: "Identity",
+                body:
+                    `The app was built as a personal tool, but the idea behind it deserved more than a UI. Using the same wordmark, I developed a complete visual identity around it: a bold colour system, a supporting graphic language, and a photography direction built around presence and energy rather than polish.
+
+                    That identity now extends beyond the app — posters, merchandise, social content, and environmental applications, all carrying the same core idea forward. Music you actually engage with, not just stream.
+                    `,
+            },
+            {
+                label: "Results",
+                body:
+                    `SOM now exists as two things built from one idea: a live web app, and a fully developed visual brand — each proving the same philosophy can hold up in completely different formats.
+
+                    The app continues to grow through ongoing performance work and expanded functionality. The identity has taken on a life of its own, applied across formats it was never originally built for, and holding together across every one of them. Two outcomes, one throughline: music you actually engage with.
+                    `,
+            },
+        ],
+
+        galleryColumns: 1,
+
+        slides: [
+            [SOM10],
+            [SOM1, SOM2],
+            [SOM3],
+            [SOM6],
+            [],
+        ],
+
+        images: [
+            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" }, SOM10, SOM6, SOM7, SOM8, SOM5, SOM9, SOM11, SOM12
         ],
     },
 
@@ -308,65 +458,59 @@ export const PROJECTS = [
     },
 
     {
-        id: "som",
+        id: "brandconcepts",
 
-        slug: "music-app-brand-identity",
+        slug: "brand-concepts",
 
-        label: "development",
+        label: "creative",
 
-        title: "SOM",
+        title: "Brand Concepts",
 
-        subtitle: "Digital Vinyl Library",
+        subtitle: "Identity Concepts",
 
-        type: "Web App & Brand Identity",
+        type: "New Brand Identity",
 
-        chips: ["React", "Node.js", "MySQL", "API", "Branding", "Identity Design"],
+        chips: ["Brand Identity", "Concept Development", "Art Direction"],
 
-        date: "Spring 2026",
+        date: "Summer 2026",
 
         sections: [
             {
                 label: "Overview",
                 body:
-                    `SOM, which simply translates to "sound" in Portuguese, began as a full-stack web app built around a simple idea: a way to stream the music you want to listen to, free of distraction.
-
-                    Most streaming platforms are built around playlists, recommendations, and algorithms. SOM was meant to deliver something else — stripped down to the essentials, much like the experience of physical media. No queueing, no algorithms, no noise. A music platform that is about the music.
-
-                    What started as a personal app has since grown into something bigger: a complete visual identity built around the same idea.
+                    `Brand Vision needed case study material to round out newly launched site categories that didn't yet have enough work behind them. For three of these, KILO, Herd Travel, and Atrio Rosso, I was given close to full creative freedom: minimal brief beyond landing somewhere visually striking within each brand's category. Each was developed in a matter of hours, not weeks. All three are now live as part of Brand Vision's case studies.
                     `,
             },
             {
-                label: "Strategy",
+                label: "KILO",
                 body:
-                    `The thinking behind SOM runs counter to traditional streaming platforms, which are built around engagement, novelty, and clicks. SOM is the antithesis to that philosophy.
+                    `A clothing brand caught somewhere between streetwear and activewear, built almost entirely in black and white. The direction leaned minimal by design, clean silhouettes, restrained typography, a wordmark simple enough to work as small as a hangtag and as large as a storefront sign.
 
-                    As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, it's a ritual. From admiring the cover art to listening to each track in order, SOM removes the noise from streaming.
-
-                    The goal was to build something that respects each album as its own body of work — and that same idea would later shape the brand as much as the app.
+                    The goal was a brand that felt out of the box without feeling unfamiliar: modern and slightly futuristic, but grounded enough to still read as wearable, everyday apparel rather than concept-only. Mockups spanned packaging, tags, apparel, and digital touchpoints, all carrying the same restrained system through.
                     `,
             },
             {
-                label: "Engineering",
+                label: "Herd Travel",
                 body:
-                    `The app is deliberately simple on the surface: distractionless, easy to navigate, with the music front and center. That simplicity took real engineering to pull off — layered solutions connecting user databases and Spotify's API to a front-end built to highlight the albums the app exists for.
+                    `A travel brand built around people, not destinations. Where most travel branding leans polished and aspirational, Herd Travel went the other way: bright, imperfect, collage-built. Halftone textures, sticker-style layouts, and hand-cut type give it a lived-in, human energy that feels more like a group chat than a glossy campaign.
 
-                    Built with React, Node.js, MySQL, and the Spotify Web API, the finished product runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout. It features a 3D carousel for browsing your collection, fullscreen mode for immersive listening, and dynamic colour extraction from your album art. A personal digital vinyl library, built to feel like one.
+                    Every asset, from posters to merchandise to the website mockup, ties back to one idea: travel as something you do together. The tagline says it plainly: follow the herd.
                     `,
             },
             {
-                label: "Identity",
+                label: "Atrio Rosso",
                 body:
-                    `The app was built as a personal tool, but the idea behind it deserved more than a UI. Using the same wordmark, I developed a complete visual identity around it: a bold colour system, a supporting graphic language, and a photography direction built around presence and energy rather than polish.
+                    `A concept for a luxury hotel brand, built on cream and deep maroon, with ornate typography that never tips into cold or impersonal. Flowers recur throughout as a visual motif, worked into everything from stationery to amenity packaging to signage, giving the brand an organic throughline underneath its formality.
 
-                    That identity now extends beyond the app — posters, merchandise, social content, and environmental applications, all carrying the same core idea forward. Music you actually engage with, not just stream.
+                    The system extends across the full guest experience: room signage, in-room materials, packaging, and print collateral, all built to feel considered rather than decorative.
                     `,
             },
             {
-                label: "Results",
+                label: "Range",
                 body:
-                    `SOM now exists as two things built from one idea: a live web app, and a fully developed visual brand — each proving the same philosophy can hold up in completely different formats.
+                    `Three brands, three completely different worlds: streetwear minimalism, human-first travel, ornate hospitality. Each was developed in a matter of hours, not weeks, and each still holds together as a complete, coherent system, distinct fonts, colors, textures, and tone, built to feel intentional rather than rushed.
 
-                    The app continues to grow through ongoing performance work and expanded functionality. The identity has taken on a life of its own, applied across formats it was never originally built for, and holding together across every one of them. Two outcomes, one throughline: music you actually engage with.
+                    That's the actual test of range: not whether you can do one thing well, but whether you can move between completely different problems and still land somewhere true each time. Different brief, different audience, different feeling, same instinct underneath. Figure out what a brand needs to feel real, and build it fast.
                     `,
             },
         ],
@@ -374,18 +518,15 @@ export const PROJECTS = [
         galleryColumns: 1,
 
         slides: [
-            [SOM10],
-            [SOM1, SOM2],
-            [SOM3],
-            [SOM6],
+            [BRAND0],
+            [BRAND1],
+            [BRAND2],
+            [BRAND3],
             [],
         ],
 
-        images: [
-            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" }, SOM10, SOM6, SOM7, SOM8, SOM5, SOM9, SOM11, SOM12
-        ],
+        images: [BRAND1, BRAND4, BRAND5, BRAND6, BRAND7, BRAND8, BRAND2, BRAND9, BRAND10, BRAND11, BRAND12, BRAND13, BRAND3, BRAND0, BRAND14, BRAND15, BRAND16, BRAND17, BRAND18 ],
     },
-
 
     {
         id: "style",
@@ -589,148 +730,5 @@ export const PROJECTS = [
             POSTER6,
         ],
     },
-
-    {
-        id: "arhums",
-
-        slug: "cafe-brand-web-design",
-
-        label: "design",
-
-        title: "Arhum's",
-
-        subtitle: "Café & Grill",
-
-        type: "Brand Identity & Web Design",
-
-        chips: ["Brand Identity", "Brand Guidelines", "Web Design", "Figma"],
-
-        date: "Summer 2026",
-
-        sections: [
-            {
-                label: "Overview",
-                body:
-                    `Arhum's Café & Grill is a halal café and grill in Pickering, Ontario, built on a simple standard: no compromises, ever. I was brought in with an existing logo, a handful of brand colors, and a typeface — and asked to build that into a complete, usable brand system, then carry it through to their website.
-
-                    What started as a set of loose brand elements became a full identity and a landing page ready for development handoff.
-                    `,
-            },
-            {
-                label: "Strategy",
-                body:
-                    `The groundwork was already there, so the job wasn't inventing a brand from nothing. It was tightening what existed into something that could actually function: a real color palette, a confident type pairing, a system flexible enough to hold everything from a menu to signage to a website.
-
-                    One addition became the anchor for the whole direction: a warm orange accent, introduced to give the brand a visual signature beyond the existing palette. It carried through every touchpoint that followed.
-                    `,
-            },
-            {
-                label: "Brand System",
-                body:
-                    `With the direction set, the system came together piece by piece: a refined color palette and type pairing, custom iconography, an expanded photography direction, and a set of original textures and graphic elements that became recurring motifs throughout the brand.
-
-                    The result is a guideline document built to actually be used — clear enough for anyone to apply consistently, distinctive enough to feel unmistakably Arhum's.
-                    `,
-            },
-            {
-                label: "Web Design",
-                body:
-                    `With the brand system locked, the next step was putting it to work. I designed a single-page website in Figma, built around anchor navigation that moves visitors through the story: the food, the meat, the space, the people behind it.
-
-                    Every screen carried the new identity through, from the orange accent to the custom textures, fully responsive across desktop, tablet, and mobile. The final file was built handoff-ready for a development team to take live.
-                    `,
-            },
-            {
-                label: "Results",
-                body:
-                    `Arhum's now has a brand system built to grow with them; a real identity instead of a placeholder, and a website designed to match. From loose brand elements to a complete, cohesive system, ready to carry the business into its next chapter.
-                    `,
-            },
-        ],
-
-        galleryColumns: 1,
-
-        slides: [
-            [ARHUMS1],
-            [ARHUMS2],
-            [ARHUMS3],
-            [ARHUMS4],
-            [],
-        ],
-
-        images: [ARHUMS1, ARHUMS10, ARHUMS5, ARHUMS6, ARHUMS7, ARHUMS8, ARHUMS9, ARHUMS4, ARHUMS11, ARHUMS12],
-    },
-
-    {
-        id: "brandconcepts",
-
-        slug: "brand-concepts",
-
-        label: "creative",
-
-        title: "Brand Concepts",
-
-        subtitle: "Identity Concepts",
-
-        type: "New Brand Identity",
-
-        chips: ["Brand Identity", "Concept Development", "Art Direction"],
-
-        date: "Summer 2026",
-
-        sections: [
-            {
-                label: "Overview",
-                body:
-                    `Brand Vision needed case study material to round out newly launched site categories that didn't yet have enough work behind them. For three of these, KILO, Herd Travel, and Atrio Rosso, I was given close to full creative freedom: minimal brief beyond landing somewhere visually striking within each brand's category. Each was developed in a matter of hours, not weeks. All three are now live as part of Brand Vision's case studies.
-                    `,
-            },
-            {
-                label: "KILO",
-                body:
-                    `A clothing brand caught somewhere between streetwear and activewear, built almost entirely in black and white. The direction leaned minimal by design, clean silhouettes, restrained typography, a wordmark simple enough to work as small as a hangtag and as large as a storefront sign.
-
-                    The goal was a brand that felt out of the box without feeling unfamiliar: modern and slightly futuristic, but grounded enough to still read as wearable, everyday apparel rather than concept-only. Mockups spanned packaging, tags, apparel, and digital touchpoints, all carrying the same restrained system through.
-                    `,
-            },
-            {
-                label: "Herd Travel",
-                body:
-                    `A travel brand built around people, not destinations. Where most travel branding leans polished and aspirational, Herd Travel went the other way: bright, imperfect, collage-built. Halftone textures, sticker-style layouts, and hand-cut type give it a lived-in, human energy that feels more like a group chat than a glossy campaign.
-
-                    Every asset, from posters to merchandise to the website mockup, ties back to one idea: travel as something you do together. The tagline says it plainly: follow the herd.
-                    `,
-            },
-            {
-                label: "Atrio Rosso",
-                body:
-                    `A concept for a luxury hotel brand, built on cream and deep maroon, with ornate typography that never tips into cold or impersonal. Flowers recur throughout as a visual motif, worked into everything from stationery to amenity packaging to signage, giving the brand an organic throughline underneath its formality.
-
-                    The system extends across the full guest experience: room signage, in-room materials, packaging, and print collateral, all built to feel considered rather than decorative.
-                    `,
-            },
-            {
-                label: "Range",
-                body:
-                    `Three brands, three completely different worlds: streetwear minimalism, human-first travel, ornate hospitality. Each was developed in a matter of hours, not weeks, and each still holds together as a complete, coherent system, distinct fonts, colors, textures, and tone, built to feel intentional rather than rushed.
-
-                    That's the actual test of range: not whether you can do one thing well, but whether you can move between completely different problems and still land somewhere true each time. Different brief, different audience, different feeling, same instinct underneath. Figure out what a brand needs to feel real, and build it fast.
-                    `,
-            },
-        ],
-
-        galleryColumns: 1,
-
-        slides: [
-            [BRAND0],
-            [BRAND1],
-            [BRAND2],
-            [BRAND3],
-            [],
-        ],
-
-        images: [BRAND1, BRAND4, BRAND5, BRAND6, BRAND7, BRAND8, BRAND2, BRAND9, BRAND10, BRAND11, BRAND12, BRAND13, BRAND3, BRAND0, BRAND14, BRAND15, BRAND16, BRAND17, BRAND18 ],
-    },
-
 
 ];
