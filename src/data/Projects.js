@@ -73,6 +73,15 @@ import SOM1 from "../assets/projects/som/som1.png";
 import SOM2 from "../assets/projects/som/som2.png";
 import SOM3 from "../assets/projects/som/som3.png";
 import SOM4 from "../assets/projects/som/som4.png";
+import SOM5 from "../assets/projects/som/som5.png";
+import SOM6 from "../assets/projects/som/som6.png";
+import SOM7 from "../assets/projects/som/som7.png";
+import SOM8 from "../assets/projects/som/som8.png";
+import SOM9 from "../assets/projects/som/som9.png";
+import SOM10 from "../assets/projects/som/som10.png";
+import SOM11 from "../assets/projects/som/som11.png";
+import SOM12 from "../assets/projects/som/som12.png";
+import SOM13 from "../assets/projects/som/som13.png";
 import SOMVIDEO from "../assets/projects/som/somvideo.mp4";
 
 import POSTER1 from "../assets/projects/posterboard/poster1.jpg";
@@ -268,7 +277,7 @@ export const PROJECTS = [
     {
         id: "som",
 
-        slug: "music-app",
+        slug: "music-app-brand-identity",
 
         label: "development",
 
@@ -276,9 +285,9 @@ export const PROJECTS = [
 
         subtitle: "Digital Vinyl Library",
 
-        type: "Full-Stack Web App",
+        type: "Web App & Brand Identity",
 
-        chips: ["React", "Node.js", "MySQL", "API"],
+        chips: ["React", "Node.js", "MySQL", "API", "Branding", "Identity Design"],
 
         date: "Spring 2026",
 
@@ -286,39 +295,45 @@ export const PROJECTS = [
             {
                 label: "Overview",
                 body:
-                    `SOM, which simply translates to "sound" in Portuguese, is a full-stack web application with a concept as simple as its name. A way to stream the music that you want to listen to, free of any other distractions.
+                    `SOM, which simply translates to "sound" in Portuguese, began as a full-stack web app built around a simple idea: a way to stream the music you want to listen to, free of distraction.
 
-                    Most streaming platforms are built around playlists, music recommendations, and algorithms. SOM is meant to deliver a different way to experience the music that you want to listen to. Stripping all functionality down to the bare essentials, much like you would experience through physical media. No queueing, no algorithms, no playlists.
+                    Most streaming platforms are built around playlists, recommendations, and algorithms. SOM was meant to deliver something else — stripped down to the essentials, much like the experience of physical media. No queueing, no algorithms, no noise. A music platform that is about the music.
 
-                    A music platform that is about the music.
+                    What started as a personal app has since grown into something bigger: a complete visual identity built around the same idea.
                     `,
             },
             {
                 label: "Strategy",
                 body:
-                    `The strategy behind SOM is in conflict with traditional streaming platforms, built around engagement, novelty, and clicks. SOM is the antithesis to this philosophy.
+                    `The thinking behind SOM runs counter to traditional streaming platforms, which are built around engagement, novelty, and clicks. SOM is the antithesis to that philosophy.
 
-                    As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, it's a ritual. From admiring the cover art, to listening to each track in order, SOM removes the noise from streaming.
+                    As a lover of vinyl and physical media, I have an appreciation for the tactile experience of a personally curated collection. Brushing off your favourite record is more than a chore, it's a ritual. From admiring the cover art to listening to each track in order, SOM removes the noise from streaming.
 
-                    The goal was to deliver an accessible way to listen to music that respects each album as its own body of work.
+                    The goal was to build something that respects each album as its own body of work — and that same idea would later shape the brand as much as the app.
                     `,
             },
             {
-                label: "Direction",
+                label: "Engineering",
                 body:
-                    `The visual direction behind SOM is deliberately simple. Meant to be distractionless, easy to navigate, with the music being front and center. An easy way to browse, collect, and enjoy your favourite music.
+                    `The app is deliberately simple on the surface: distractionless, easy to navigate, with the music front and center. That simplicity took real engineering to pull off — layered solutions connecting user databases and Spotify's API to a front-end built to highlight the albums the app exists for.
 
-                    Under the hood, this required intentional engineering. Ensuring a seamless experience for the listener meant layered solutions that connected user databases and Spotify's API to a front-end that would highlight the albums which this app is built for. Built with React, Node.js, MySQL, and the Spotify Web API. SOM is your personal digital vinyl library.
+                    Built with React, Node.js, MySQL, and the Spotify Web API, the finished product runs on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout. It features a 3D carousel for browsing your collection, fullscreen mode for immersive listening, and dynamic colour extraction from your album art. A personal digital vinyl library, built to feel like one.
+                    `,
+            },
+            {
+                label: "Identity",
+                body:
+                    `The app was built as a personal tool, but the idea behind it deserved more than a UI. Using the same wordmark, I developed a complete visual identity around it: a bold colour system, a supporting graphic language, and a photography direction built around presence and energy rather than polish.
+
+                    That identity now extends beyond the app — posters, merchandise, social content, and environmental applications, all carrying the same core idea forward. Music you actually engage with, not just stream.
                     `,
             },
             {
                 label: "Results",
                 body:
-                    `SOM is now a live web app running on a Vercel frontend, a Render backend, and a Clever Cloud MySQL database, deployed from a clean GitHub repository with environment-based configuration throughout.
+                    `SOM now exists as two things built from one idea: a live web app, and a fully developed visual brand — each proving the same philosophy can hold up in completely different formats.
 
-                    The finished product is a cohesive listening experience that both looks good and works well. Featuring a 3D carousel to display your personal collection, fullscreen mode for immersive listening, and decorated with dynamic color extraction from your personal album collection. A truly addictive way to listen to your own music.
-
-                    SOM continues to be developed as a personal tool, with hosting, Spotify quota expansion, and performance improvements already underway.
+                    The app continues to grow through ongoing performance work and expanded functionality. The identity has taken on a life of its own, applied across formats it was never originally built for, and holding together across every one of them. Two outcomes, one throughline: music you actually engage with.
                     `,
             },
         ],
@@ -326,14 +341,15 @@ export const PROJECTS = [
         galleryColumns: 1,
 
         slides: [
-            [SOM4],
+            [SOM10],
             [SOM1, SOM2],
             [SOM3],
+            [SOM6],
             [],
         ],
 
         images: [
-            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" },
+            { type: "video", src: SOMVIDEO, link: "https://github.com/BrunoShima/Bruno_SOM" }, SOM7, SOM8, SOM5, SOM9, SOM11, SOM12
         ],
     },
 
