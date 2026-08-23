@@ -462,7 +462,7 @@ export const PROJECTS = [
 
         slug: "brand-concepts",
 
-        labels: ["creative"],
+        labels: ["creative", "design",],
 
         title: "Brand Concepts",
 
@@ -520,8 +520,8 @@ export const PROJECTS = [
         slides: [
             [BRAND0],
             [BRAND1],
-            [BRAND2],
             [BRAND3],
+            [BRAND2],
             [],
         ],
 
